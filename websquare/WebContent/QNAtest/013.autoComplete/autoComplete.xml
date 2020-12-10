@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" id="gridList" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="col1" name="name1"></w2:column>
+        				<w2:column dataType="text" id="col2" name="name2"></w2:column>
+        				<w2:column dataType="text" id="col3" name="name3"></w2:column>
+        				<w2:column id="col4" name="name4" dataType="text"></w2:column>
+        				<w2:column id="col5" name="name5" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data></w2:data>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="dc_resUserList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="NAME" name="이름" dataType="text"></w2:column>
+        				<w2:column id="BIRTHDAY" name="생일" dataType="text"></w2:column>
+        				<w2:column id="GENDER" name="성별" dataType="text"></w2:column>
+        				<w2:column id="WORK" name="직업" dataType="text"></w2:column>
+        				<w2:column id="HEIGHT" name="키" dataType="text"></w2:column>
+        				<w2:column id="WEIGHT" name="몸무게" dataType="text"></w2:column>
+        				<w2:column id="ADDR" name="주소" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="selectListSub" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="LABEL" name="name1" dataType="text"></w2:column>
+        				<w2:column id="CODE" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" id="selectList" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="LABEL" name="name1"></w2:column>
+        				<w2:column dataType="text" id="CODE" name="name2"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data use="true">
+        				<w2:row>
+        					<LABEL><![CDATA[1번]]></LABEL>
+        					<CODE><![CDATA[1]]></CODE>
+        				</w2:row>
+        				<w2:row>
+        					<LABEL><![CDATA[2번]]></LABEL>
+        					<CODE><![CDATA[2]]></CODE>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="submission" ref="" target="data:json,dc_resUserList"
+        		action="/QNAtest/0.jsonData/sampleJsonData.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sbm_select" ref="" target="data:json,selectListSub" action="/QNAtest/0.jsonData/autoCompleteList.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+    // 메인 속성
+    // interactionEnterKey, interactionMode, submission
+    var json;
+	scwin.onpageload = function() {
+	
+	};
+	
+	scwin.onpageunload = function() {
+	
+	};
+	
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:autoComplete editType="select" id="" useKeywordHighlight="false" style="width: 148px;height: 21px;" submenuSize="auto" search=""
+    		submission="mf_sbm_select" interactionEnterKey="true" interactionMode="true" keyInputRef="" submissionFunc="" noResult=""
+    		allowEmptySubmission="true" allOption="" chooseOption="" ref="" searchTarget="">
+    		<w2:choices>
+    			<w2:itemset nodeset="data:selectListSub">
+    				<w2:label ref="LABEL"></w2:label>
+    				<w2:value ref="CODE"></w2:value>
+    			</w2:itemset>
+    		</w2:choices>
+    	</w2:autoComplete>
+    </body>
+</html>

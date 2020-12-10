@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map"></w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<style style="width: 100px;height: 100px;">
+			.cls {
+				border: solid black; 
+				width:300px; 
+				height:400px; 
+				float:left; 
+				margin : 20px;
+			}
+    	</style>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+	// 컴포넌트 동적 생성        
+	scwin.onpageload = function() {
+		 $p.dynamicCreate("group1", "group", {
+		     style: "border: solid black; width:300px; height:400px; float:left; margin : 20px;"
+//		     className: "testClass"
+		 });
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.trigger1_onclick = function(e) {
+						// id 
+		 $p.dynamicCreate("input1",
+		 				// tagName 
+		 				"input",
+		 				// style 
+		 				{
+     						style: "width:120px; height:40px; float:left; margin : 20px;"
+ 						},
+ 						// 상위 노드의 id				 
+						group1
+						//기타  selectBox의 경우 itemSet 옵션 추가
+		);
+		 						
+		 var comObj = WebSquare.util.getComponentById("input1");
+		 comObj.setValue("Input");
+		 
+	  // selectBox 동적 생성 
+	  $p.dynamicCreate("sbx_data", "selectbox", {
+	    style : "width:170px; height:21px; float:left; margin : 5px;"
+	  }, group1);
+	  
+	  var comObj = WebSquare.util.getComponentById("sbx_data");
+	  comObj.setNodeSet("data:dlt_codeType1", "label", "code");
+	  comObj.setValue(value);
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:trigger type="button" style="width: 80px;height: 23px;margin: 50px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[생성]]></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

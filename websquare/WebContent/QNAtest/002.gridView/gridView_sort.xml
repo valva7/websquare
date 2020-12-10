@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns="" />
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+                <w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+                    <w2:columnInfo>
+                        <w2:column id="col1" name="name1" dataType="text"></w2:column>
+                        <w2:column id="col2" name="name2" dataType="text"></w2:column>
+                        <w2:column id="col3" name="name3" dataType="text"></w2:column>
+                        <w2:column id="col4" name="name4" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection></w2:workflowCollection>
+            <xf:submission id="submission1" ref="" target='data:json,{"id":"dataList1","key":"dataList1"}' action="/QNAtest/0.jsonData/data.json"
+                method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+                mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.submission1_submitdone" ev:submiterror="" abortTrigger="">
+            </xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+    // 이전 정렬 정보를 저장하여 사용하는 샘플   
+        
+    scwin.sortOpt = null;
+    scwin.sortInfo = {};
+    scwin.sortInfo.sortOrder = 0;
+    
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.trigger1_onclick = function(e) {
+		$p.executeSubmission( "submission1" );
+	};
+	
+	scwin.gridView1_onbeforesort = function(sortInfo) {
+		console.log("sortInfo : ", sortInfo);
+        scwin.sortOpt = sortInfo;   //현재 정렬정보를 Global에 저장.
+	};
+	
+	scwin.submission1_submitdone = function(e) {
+		console.log(e);
+		if(scwin.sortOpt !== null) {
+            console.log("sortOpt is not null");
+            console.log(scwin.sortInfo);
+            /**
+            * gridView sort 정보
+            * 1 : 오름차순
+            * -1 : 내림차순
+            * 0 : 정렬 취소 
+            * dataList sort 정보
+            * 0 : 오름차순 
+            * 1 : 내림차순
+            * 2 : 정렬 취소 
+            */
+            //dataList.sort [0,1,2]정렬 옵션 0이면 오름차순 1이면 내림차순 2이면 정렬을 취소
+//            var sortType = scwin.sortOpt.sortOrder == 1 ? 0 : scwin.sortOpt.sortOrder == -1 ? 1 : scwin.sortOpt.sortOrder == 0 ? 2 : 2;             
+            var sortType = scwin.sortInfo.sortOrder == 1 ? 0 : scwin.sortInfo.sortOrder == -1 ? 1 : scwin.sortInfo.sortOrder == 0 ? 2 : 2;             
+            
+            dataList1.sort( scwin.sortInfo.bodyColId, sortType );
+            //scwin.sortOpt = null;   //정렬정보 초기화.
+        }
+	};
+	
+	scwin.gridView1_onheaderdblclick = function(headerId) {
+		
+		if(headerId == "column9") {
+			scwin.sortInfo.bodyColId = "col1";	
+		}
+		
+		if(scwin.sortInfo.sortOrder == 1) {
+			scwin.sortInfo.sortOrder = -1;
+		}else if(scwin.sortInfo.sortOrder == -1) {
+			scwin.sortInfo.sortOrder = 0;
+		}else if(scwin.sortInfo.sortOrder == 0) {
+			scwin.sortInfo.sortOrder = 1;
+		}
+		
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+        <xf:trigger type="button" id="trigger1" style="width:193px;height:98px;" ev:onclick="scwin.trigger1_onclick">
+            <xf:label><![CDATA[데이터 조회 ]]></xf:label>
+        </xf:trigger>
+        <w2:gridView dataList="data:dataList1" scrollByColumn="false" defaultCellHeight="20" scrollByColumnAdaptive="false" id="gridView1"
+            style="width: 500px;height: 150px;" sortEvent="ondblclick" sortable="true" ev:onbeforesort="scwin.gridView1_onbeforesort" rowNumVisible="true" ev:onheaderdblclick="scwin.gridView1_onheaderdblclick">
+            <w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+            <w2:header id="header2" style="">
+                <w2:row id="row3" style="">
+                    <w2:column blockSelect="false" id="column9" removeBorderStyle="false" style="" inputType="text" width="70" value="name1"
+                        displayMode="label">
+                    </w2:column>
+                    <w2:column blockSelect="false" id="column7" removeBorderStyle="false" style="" inputType="text" width="70" value="name2"
+                        displayMode="label">
+                    </w2:column>
+                    <w2:column blockSelect="false" id="column5" removeBorderStyle="false" style="" inputType="text" width="70" value="name3"
+                        displayMode="label">
+                    </w2:column>
+                    <w2:column blockSelect="false" id="column3" removeBorderStyle="false" style="" width="70" inputType="text" value="name4"
+                        displayMode="label">
+                    </w2:column>
+                </w2:row>
+            </w2:header>
+            <w2:gBody id="gBody2" style="">
+                <w2:row id="row4" style="">
+                    <w2:column blockSelect="false" id="col1" removeBorderStyle="false" style="" inputType="text" width="70" value=""
+                        displayMode="label">
+                    </w2:column>
+                    <w2:column blockSelect="false" id="col2" removeBorderStyle="false" style="" inputType="text" width="70" value=""
+                        displayMode="label">
+                    </w2:column>
+                    <w2:column blockSelect="false" id="col3" removeBorderStyle="false" style="" inputType="text" width="70" value=""
+                        displayMode="label">
+                    </w2:column>
+                    <w2:column blockSelect="false" id="col4" removeBorderStyle="false" style="" width="70" inputType="text" value=""
+                        displayMode="label">
+                    </w2:column>
+                </w2:row>
+            </w2:gBody>
+        </w2:gridView>
+    </body>
+</html>

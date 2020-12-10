@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="treeList" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="tree_name" name="이름" dataType="text"></w2:column>
+            			<w2:column id="tree_id" name="ID" dataType="text"></w2:column>
+            			<w2:column id="tree_depth" name="값" dataType="text"></w2:column>
+            			<w2:column id="tree_check" name="name4" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="false">
+            			<w2:row>
+            				<tree_name><![CDATA[전체]]></tree_name>
+            				<tree_id><![CDATA[t0]]></tree_id>
+            				<tree_depth><![CDATA[1]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[인사관리체계]]></tree_name>
+            				<tree_id><![CDATA[t1]]></tree_id>
+            				<tree_depth><![CDATA[2]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[a]]></tree_name>
+            				<tree_id><![CDATA[t2]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[b]]></tree_name>
+            				<tree_id><![CDATA[t3]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[조직관리]]></tree_name>
+            				<tree_id><![CDATA[t4]]></tree_id>
+            				<tree_depth><![CDATA[2]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[c]]></tree_name>
+            				<tree_id><![CDATA[t5]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[d]]></tree_name>
+            				<tree_id><![CDATA[t6]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[인사관리]]></tree_name>
+            				<tree_id><![CDATA[t7]]></tree_id>
+            				<tree_depth><![CDATA[2]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[e]]></tree_name>
+            				<tree_id><![CDATA[t8]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[f]]></tree_name>
+            				<tree_id><![CDATA[t9]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<tree_check><![CDATA[true]]></tree_check>
+            			</w2:row>
+
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	// label을 클릭하여 체크  조정
+	scwin.onpageload = function() {
+		var json = [{"tree_name":"전체","tree_id":"t0","tree_depth":"1","tree_check":"true","rowStatus":"R"},{"tree_name":"인사관리체계","tree_id":"t1","tree_depth":"2","tree_check":"true","rowStatus":"R"},{"tree_name":"a","tree_id":"t2","tree_depth":"3","tree_check":"true","rowStatus":"R"},{"tree_name":"b","tree_id":"t3","tree_depth":"3","tree_check":"true","rowStatus":"R"},{"tree_name":"조직관리","tree_id":"t4","tree_depth":"2","tree_check":"true","rowStatus":"R"},{"tree_name":"c","tree_id":"t5","tree_depth":"3","tree_check":"true","rowStatus":"R"},{"tree_name":"d","tree_id":"t6","tree_depth":"3","tree_check":"true","rowStatus":"R"},{"tree_name":"인사관리","tree_id":"t7","tree_depth":"2","tree_check":"true","rowStatus":"R"},{"tree_name":"e","tree_id":"t8","tree_depth":"3","tree_check":"true","rowStatus":"R"},{"tree_name":"f","tree_id":"t9","tree_depth":"3","tree_check":"true","rowStatus":"R"}]
+		treeList.setJSON(json);
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.treeview_onlabelclick = function(value,nodeElement,index) {
+		// 체크 상태인 values를 배열로 반환
+		var selectedValues = treeview.getCheckedValues();
+		
+		// 체크 상태인 values의 값들과 event로 넘어오는 value의 값을 비교하여 체크 및 체크 해제
+		if (selectedValues.length != 0) {
+			for (var i = 0; i < selectedValues.length; i++) {
+				var selectValue = selectedValues[i];
+				
+				// 체크된 value와 event value의 값이 같으면 체크 해제
+				if (selectValue == value) {
+					treeview.checkByValue(value, false);
+					return;
+				// 체크된 values 중  event value가 포함되어 있지 않으면 해제
+				} else {
+					treeview.checkByValue(value, true);
+				}
+			}
+		// 배열의 길이가 0이면 해당하는 event parameter의 value 체크	
+		}else {
+			treeview.checkByValue(value, true);
+		}
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:treeview id="treeview" dataType="listed" tooltipGroupClass="false" style="width:200px;height:420px;" ev:onlabelclick="scwin.treeview_onlabelclick" showCheckbox="true" checkboxDisabledFalseValue="" checkAllChildNodes="true" checkboxDisabledTrueValue="" hierarchy="true" labelclass="" lineShow="" showTreeDepth="0" dynamicAppend="" useHirarchySelect="true">
+    		<w2:itemset nodeset="data:treeList">
+    			<w2:label ref="tree_name"></w2:label>
+    			<w2:value ref="tree_id"></w2:value>
+    			<w2:depth ref="tree_depth"></w2:depth>
+    			<w2:folder ref=""></w2:folder>
+    			<w2:checkbox ref=""></w2:checkbox>
+    			<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+    			<w2:image ref=""></w2:image>
+    			<w2:iconImage ref=""></w2:iconImage>
+    			<w2:selectedImage ref=""></w2:selectedImage>
+    			<w2:expandedImage ref=""></w2:expandedImage>
+    			<w2:leafImage ref=""></w2:leafImage>
+    		</w2:itemset>
+    	</w2:treeview>
+    </body>
+</html>

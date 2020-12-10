@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>UDC</w2:type>
+        <w2:buildDate/>
+        <w2:model></w2:model>
+    </head>
+    <body>
+    	<!--/** WEBSQUARE UDC */
+    		{
+    		"disableIcon": "",
+    		"notSupportBrowser": "",
+    		"htmlRender": "",
+    		"icon": "",
+    		"description": "",
+    		"version": "",
+    		"apis": [{
+    		"name": "getValue_1",
+    		"description": "desc",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		}],
+    		"pluginName": "udc_untitled1",
+    		"width": "80px",
+    		"company": "",
+    		"developer": "",
+    		"componentName": "udc_untitled1",
+    		"category": "Basic",
+    		"properties": [
+    		{
+    		"default": "",
+    		"necessary": "Y",
+    		"hidden": "N",
+    		"name": "id",
+    		"description": "Component id",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "style",
+    		"description": "Component style",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "class",
+    		"description": "Component class",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "ref",
+    		"description": "Component ref",
+    		"type": "bindColumn",
+    		"bindparent": "",
+    		"option": ""
+    		}
+    		],
+    		"events": [],
+    		"height": "23px"
+    		}
+    	-->
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="" pluginName="udc_untitled1">
+    		<link rel="stylesheet" type="text/css" href=""></link>
+    		<style type="text/css"><![CDATA[ ]]></style>
+    		<script type="text/javascript" src=""></script>
+    		<script ev:event="oncreated(options)" type="text/javascript"><![CDATA[
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * Function description...
+				 * @date 2020. 12. 07
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author KimGleam
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getValue_1 = function(){
+				
+				};
+
+				]]></script>
+    		<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[ ]]></script>
+    		<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    		<xf:label><![CDATA[]]></xf:label>
+    	</xf:trigger>
+    	<!--/** WEBSQUARE UDC */
+    		{
+    		"disableIcon": "",
+    		"notSupportBrowser": "",
+    		"htmlRender": "",
+    		"icon": "",
+    		"description": "",
+    		"version": "",
+    		"apis": [
+    		{
+    		"name": "getValue_1",
+    		"description": "desc",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		},
+    		{
+    		"name": "getValue_2",
+    		"description": "desc",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		},
+    		{
+    		"name": "getValue_3",
+    		"description": "desc",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		}
+    		],
+    		"pluginName": "udc_untitled2",
+    		"width": "300px",
+    		"company": "",
+    		"developer": "",
+    		"componentName": "udc_untitled2",
+    		"category": "Basic",
+    		"properties": [
+    		{
+    		"default": "",
+    		"necessary": "Y",
+    		"hidden": "N",
+    		"name": "id",
+    		"description": "Component id",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "style",
+    		"description": "Component style",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "class",
+    		"description": "Component class",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "ref",
+    		"description": "Component ref",
+    		"type": "bindColumn",
+    		"bindparent": "",
+    		"option": ""
+    		}
+    		],
+    		"events": [],
+    		"height": "23px"
+    		}
+    	-->
+    	<w2:calendar footerDiv="false" id="" style="width: 100px;height: 100px;" pluginName="udc_untitled2">
+    		<link rel="stylesheet" type="text/css" href=""></link>
+    		<style type="text/css"><![CDATA[ ]]></style>
+    		<script type="text/javascript" src=""></script>
+    		<script ev:event="oncreated(options)" type="text/javascript"><![CDATA[
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+
+
+				
+				/**
+				 * Function description...
+				 * @date 2020. 12. 07
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author KimGleam
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getValue_1 = function(){
+				
+				};
+
+				/**
+				 * Function description...
+				 * @date 2020. 12. 07
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author KimGleam
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getValue_2 = function(){
+				
+				};
+
+				/**
+				 * Function description...
+				 * @date 2020. 12. 07
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author KimGleam
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getValue_3 = function(){
+				
+				};
+				]]></script>
+    		<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[ ]]></script>
+    		<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    	</w2:calendar>
+    	<!--/** WEBSQUARE UDC */
+    		{
+    		"disableIcon": "",
+    		"notSupportBrowser": "",
+    		"htmlRender": "",
+    		"icon": "",
+    		"description": "",
+    		"version": "",
+    		"apis": [],
+    		"pluginName": "udc_untitled3",
+    		"width": "300px",
+    		"company": "",
+    		"developer": "",
+    		"componentName": "udc_untitled3",
+    		"category": "Basic",
+    		"properties": [
+    		{
+    		"default": "",
+    		"necessary": "Y",
+    		"hidden": "N",
+    		"name": "id",
+    		"description": "Component id",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "style",
+    		"description": "Component style",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "class",
+    		"description": "Component class",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "ref",
+    		"description": "Component ref",
+    		"type": "bindColumn",
+    		"bindparent": "",
+    		"option": ""
+    		}
+    		],
+    		"events": [],
+    		"height": "23px"
+    		}
+    	-->
+    	<w2:calendar footerDiv="false" id="" style="width: 100px;height: 100px;" pluginName="udc_untitled3">
+    		<link rel="stylesheet" type="text/css" href=""></link>
+    		<style type="text/css"><![CDATA[ ]]></style>
+    		<script type="text/javascript" src=""></script>
+    		<script ev:event="oncreated(options)" type="text/javascript"><![CDATA[
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				*/
+
+
+
+				]]></script>
+    		<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[ ]]></script>
+    		<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    	</w2:calendar>
+    </body>
+</html>

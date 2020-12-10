@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {
+		var rowJSON = {
+			"Personal Info" : {
+				"Name" : "Lee",
+				"Age" : 50,
+				"Married" : false
+			},
+			"Region" : "Seoul",
+			"Carrier" : true
+		};
+
+		// 창 옵션 및 전달할 데이터를 정의. (dataObject를 통해 전달 가능)           
+		var obj = {
+			"title" : "Test",
+			"windowId" : "window1",
+//			"frameMode" : "wframe",
+			"frameMode" : "iframe",
+			"src" : "/QNAtest/999.ETC/winCon_b.xml",
+			"dataObject" : {
+				"type" : "json",
+				"name" : "windowParam",
+				"data" : rowJSON
+			}
+		};
+
+		// 창 생성.                  
+		windowContainer1.createWindow(obj);
+
+//		windowContainer1.createWindow({
+//			"title" : "TEST",
+//			"src" : "/QNAtest/999.ETC/winCon_b.xml",
+//			"windowId" : "window1"
+//		});
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	scwin.windowContainer1_onmenuclick = function(windowId, value) {
+	};
+
+	scwin.trigger1_onclick = function(e) {
+		windowContainer1.getFrame("window1").setSrc(
+				"/QNAtest/999.ETC/winCon_a.xml?test=test");
+	};
+
+	scwin.trigger2_onclick = function(e) {
+		windowContainer1.getFrame("window1").setSrc(
+				"/QNAtest/999.ETC/winCon_a.xml");
+	};
+
+	scwin.trigger3_onclick = function(e) {
+		windowContainer1.getFrame("window1").setSrc(
+				"/QNAtest/999.ETC/winCon_b.xml");
+	};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:windowContainer sequentialArrangeColNum="2" verticalArrangeNum="2" controlIconPosition="left" windowMaximizeAll="false"
+    		id="windowContainer1" useStatusMsg="true" hideTitleOnMaximize="false" spaInitCount="0" useNameContainer="false"
+    		useControlIconTitle="false" tooltipDisplay="true" style="position:relative;width:854px;height:410px;margin-bottom:20px;"
+    		sequentialArrangeRowNum="2" fixArrangeFullScreen="false" useFixButton="false" windowAutoResize="false" windowMaxNum="5"
+    		useCloseButton="false" stopMinimizeOnNameLayer="false" toolbarPosition="bottom" stopToggleOnLast="false" horizontalArrangeNum="2"
+    		useCustomMsg="false" tooltipGroupClass="false" windowTooltipDisplay="true" ev:onmenuclick="scwin.windowContainer1_onmenuclick">
+    		<w2:windowToolbar>
+    			<w2:controlIconLayer>
+    				<w2:controlIcon></w2:controlIcon>
+    				<w2:controlIcon></w2:controlIcon>
+    				<w2:controlIcon></w2:controlIcon>
+    				<w2:controlIcon></w2:controlIcon>
+    				<w2:controlIcon></w2:controlIcon>
+    			</w2:controlIconLayer>
+    			<w2:nameLayer></w2:nameLayer>
+    			<w2:selectedNameLayer></w2:selectedNameLayer>
+    		</w2:windowToolbar>
+    	</w2:windowContainer>
+    	<xf:trigger type="button" style="display:none;width:270px;height:23px;margin-right: 20px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[winCon_a.xml 파라미터 넘기면서 이동]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="display:none;width:190px;height:23px;margin-right:20px;" id="trigger2" ev:onclick="scwin.trigger2_onclick">
+    		<xf:label><![CDATA[파람 없이 winCon_a.xml 이동]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="display:none;width:209px;height:23px;" id="trigger3" ev:onclick="scwin.trigger3_onclick">
+    		<xf:label><![CDATA[파람 없이 winCon_b.xml 이동]]></xf:label>
+    	</xf:trigger>
+    	<w2:textbox label="초기 생성 화면 : winCon_b.xml&lt;br/&gt;1. winCon_b에서 파라미터를 넘겨주며 winCon_a로 이동&lt;br/&gt;2. winCon_a에서 파라미터 없이 winCon_b로 이동&lt;br/&gt;3. winCon_b에서 파라미터 없이 winCon_a로 이동" style="width:389px;height:84px;margin-top: 30px;" id=""></w2:textbox>
+    </body>
+</html>

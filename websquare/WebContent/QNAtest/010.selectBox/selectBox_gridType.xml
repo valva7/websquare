@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" id="gridList" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="col1" name="name1"></w2:column>
+        				<w2:column dataType="text" id="col2" name="name2"></w2:column>
+        				<w2:column dataType="text" id="col3" name="name3"></w2:column>
+        				<w2:column id="col4" name="name4" dataType="text"></w2:column>
+        				<w2:column id="col5" name="name5" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data></w2:data>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="dc_resUserList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="NAME" name="이름" dataType="text"></w2:column>
+        				<w2:column id="BIRTHDAY" name="생일" dataType="text"></w2:column>
+        				<w2:column id="GENDER" name="성별" dataType="text"></w2:column>
+        				<w2:column id="WORK" name="직업" dataType="text"></w2:column>
+        				<w2:column id="HEIGHT" name="키" dataType="text"></w2:column>
+        				<w2:column id="WEIGHT" name="몸무게" dataType="text"></w2:column>
+        				<w2:column id="ADDR" name="주소" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="selectListSub" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="LABEL" name="name1" dataType="text"></w2:column>
+        				<w2:column id="CODE" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" id="selectList" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="LABEL" name="name1"></w2:column>
+        				<w2:column dataType="text" id="CODE" name="name2"></w2:column>
+        				<w2:column id="DUMMY" name="name3" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data use="true">
+        				<w2:row>
+        					<LABEL><![CDATA[1번]]></LABEL>
+        					<CODE><![CDATA[1]]></CODE>
+        					<DUMMY><![CDATA[0]]></DUMMY>
+        				</w2:row>
+        				<w2:row>
+        					<LABEL><![CDATA[2번]]></LABEL>
+        					<CODE><![CDATA[2]]></CODE>
+        					<DUMMY><![CDATA[0]]></DUMMY>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" id="dataList3" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="col1" name="name1"></w2:column>
+        				<w2:column dataType="text" id="col2" name="name2"></w2:column>
+        				<w2:column dataType="text" id="col3" name="name3"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="submission" ref="" target="data:json,dc_resUserList"
+        		action="/websquareMVC/WebContent/QNAtest/0.jsonData/sampleJsonData.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sbm_select" ref="" target="data:json,selectListSub" action="/websquareMVC/WebContent/QNAtest/0.jsonData/autoCompleteList.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+    // selectBox GridItemset() : item을 grid의 형식으로 표현
+    var json;
+	scwin.onpageload = function() {
+        var data = [];
+		var row = 10;
+		var col = 3;
+		for (var i = 0; i < row; i++) {
+			for (var j = 0; j < col ; j++) {
+				if( j === 0 ) {
+                    data.push("_L_:" + String(i));
+				} else if (j === 1) {
+                    data.push("_V_:" + String(i));
+				} else {
+                    data.push("_d_:" + String(i));
+				}
+			}
+		}
+		dataList3.setData(data);	
+	
+//		$p.executeSubmission("submission");
+		var obj = {
+		        "nodeset" : "data:selectList",
+		        "label" : "LABEL",
+		        "value" : "CODE",
+		        "width" : 400,
+		        "height" : 300, 
+		        "item" : [
+		        			{"ref" : "CODE", "header" : "CODE"},
+		        			{"ref" : "LABEL", "header" : "LABEL"}, 
+		        			{"ref" : "DUMMY", "header" : "DUMMY"}
+		        		 ]
+		        };
+		sbx.setGridItemset(obj);
+		
+		
+		var obj = {
+           "nodeset" : "data:dataList3",
+           "label" : "col1",
+           "value" : "col2",
+           "width" : 400,
+           "height" : 300,
+           "hideHeader" : true,
+           "visibleRowNum" : 10,
+           "item" : [{"ref" : "col1", "header" : "NLabel"},{"ref" : "col2", "header" : "NValue"},{"ref" : "col3", "header" : "NDummy"}]
+        };
+//        selectbox1.setGridItemset(obj);
+	};
+	
+	scwin.onpageunload = function() {
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:select1 id="sbx" chooseOption="" style="width: 148px;height: 21px;" submenuSize="auto" allOption="" disabled="false"
+    		direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="" displayMode="label">
+    		<xf:choices>
+    			<xf:itemset nodeset="data:gridList">
+    				<xf:label ref="col1"></xf:label>
+    				<xf:value ref="col2"></xf:value>
+    			</xf:itemset>
+    		</xf:choices>
+    	</xf:select1>
+    	<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled"
+    		displayMode="label" id="selectbox1" ref="" style="height:22px;width:159px;" submenuSize="auto">
+    		<xf:choices>
+    			<w2:gridViewItemset autoFit="" height="200" hideHeader="" label="col1" nodeset="data:dataList3" rowMouseOver=""
+    				rowMouseOverColor="" selectedRowColor="" value="col2" visibleRowNum="10" width="300">
+    				<w2:item header="value" headerStyle="" hidden="" ref="col2" style=""></w2:item>
+    				<w2:item header="label" headerStyle="" hidden="" ref="col1" style=""></w2:item>
+    				<w2:item header="dummy" headerStyle="" hidden="" ref="col3" style=""></w2:item>
+    			</w2:gridViewItemset>
+    		</xf:choices>
+    	</xf:select1>
+    </body>
+</html>

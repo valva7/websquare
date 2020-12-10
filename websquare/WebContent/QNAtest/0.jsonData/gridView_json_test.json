@@ -1,0 +1,49 @@
+{
+	"dc_resUserList": [
+		{
+			"NAME": "김경호",
+			"BIRTHDAY": "19820111",
+			"GENDER": "F",
+			"WORK": "가수",
+			"HEIGHT": "165",
+			"WEIGHT": "45",
+			"ADDR": ""
+		},
+		{
+			"NAME": "김개똥",
+			"BIRTHDAY": "19831009",
+			"GENDER": "F",
+			"WORK": "엔지니어",
+			"HEIGHT": "170",
+			"WEIGHT": "114",
+			"ADDR": ""
+		},
+		{
+			"NAME": "김말똥",
+			"BIRTHDAY": "19850714",
+			"GENDER": "M",
+			"WORK": "엔지니어",
+			"HEIGHT": "170",
+			"WEIGHT": "114",
+			"ADDR": ""
+		},
+		{
+			"NAME": "장발장",
+			"BIRTHDAY": "19810815",
+			"GENDER": "F",
+			"WORK": "범죄자",
+			"HEIGHT": "168",
+			"WEIGHT": "46",
+			"ADDR": ""
+		},
+		{
+			"NAME": "장발장",
+			"BIRTHDAY": "19780224",
+			"GENDER": "M",
+			"WORK": "범죄자",
+			"HEIGHT": "174",
+			"WEIGHT": "63",
+			"ADDR": ""
+		}
+	]
+}

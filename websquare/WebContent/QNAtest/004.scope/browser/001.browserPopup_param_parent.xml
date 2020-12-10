@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+		</xf:model>
+		<style style="width: 100px;height: 100px;">
+			.test {
+				background-color : red;
+				height : 400px;
+			}
+		</style>
+		<script type="javascript" lazy="false"><![CDATA[
+	// 1.browser 팝업에서 paraemeter를 전달 받을 때WebSquare.net.getParameter() 사용해야 함
+	// 2.browser 팝업에서 부모창의 객체에 접근하는 방법
+	scwin.onpageload = function() {
+		requires("uiplugin.popup");
+	};
+
+	var pop = "";
+	scwin.trigger3_onclick = function() {
+		var rowJSON = {
+
+			"addr" : "서울시",
+
+			"name" : "손예진",
+
+			"rowStatus" : "R"
+
+		};
+
+		var rowJSONStrf = JSON.stringify(rowJSON);
+		var testString = "TestValue";
+
+		var dataObject = {
+
+			type : "json", // 데이터 타입. "xml","string","json","array"
+
+			data : rowJSON, // 전달 데이터 객체.
+
+			name : "rowObj" // 변수명. popup에서 $w.getParameter( "rowObj" )로 깨내올 수 있다.
+
+		};
+
+		var opts = {
+
+			"id" : "popup_window",
+
+			"type" : "wframePopup",
+
+			//"useIFrame" : true,
+
+			//"frameMode" : "wframe",
+
+			"alwaysOnTop" : true,
+
+			"popupName" : "wframe 팝업",
+
+			"modal" : true,
+
+			"useModalStack" : false,
+
+			"style" : "",
+
+			"srcData" : "",
+
+			"destData" : "",
+
+			//			"dataObject" : dataObject,
+
+			"xml" : "",
+
+			"resizable" : false,
+
+			"status" : false,
+
+			"menubar" : false,
+
+			"scrollbars" : false,
+
+			"title" : "focusTest",
+
+			"useMaximize" : false,
+
+			"closeAction" : "",
+
+			"className" : "",
+
+			"fullscreen" : true,
+
+			"useControl" : false,
+
+			"alwaysOnTop" : false
+		};
+
+		$p.openPopup("001.browserPopup_param_child.xml", opts);
+	}
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:trigger id="trigger3" style="position:absolute;word-wrap:break-word;left:60px;top:320px;width:284px;height:50px;"
+			type="button" ev:onclick="scwin.trigger3_onclick">
+			<xf:label>open popup(browser)</xf:label>
+		</xf:trigger>
+	</body>
+</html>

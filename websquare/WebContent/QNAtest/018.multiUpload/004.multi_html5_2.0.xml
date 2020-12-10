@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+		</xf:model>
+		<script type="javascript"><![CDATA[ 
+		function selectCallback() {
+			console.log("selectCallback");
+			var fileInfos = multiupload.getFileInfos();
+			grid1.setJSON( fileInfos );
+		}
+		
+		function multiupload_onComplete(){
+			console.log("onComplete10");
+		}
+		
+		function multiupload10_ondone(data) {
+			console.log("multiupload10_ondone");
+		
+			console.log( data );
+			
+			var cnt = grid1.getRowCount();
+			for( var i=0;i<cnt;i++ ) {
+				grid1.setCellData( i , 3 , "Complete!!!!" );
+			}
+			
+			setTimeout( clearUpload, "1000" );
+		}
+		
+		function clearUpload() {
+			grid1.removeAll();
+		}
+		
+		function textbox4_onclick(e){
+			var idxArr = grid1.getCheckedJSON("chk");
+			var idxArr1 = grid1.getCheckedIndex( "chk" );
+			debugger;
+			for( var i=0; i<idxArr.length;i++ ) {
+				var fileName = idxArr[i].name;
+				multiupload.removeFile( fileName );
+				grid1.removeRow( idxArr1[i] );
+			}
+		}
+		
+		function textbox5_onclick(e) {
+			multiupload.startUpload();
+			
+			var cnt = grid1.getRowCount();
+			
+			for( var i=0;i<cnt;i++ ) {
+				grid1.setCellData( i , 3 , "Uploading..." );
+			}
+		}
+	
+]]></script>
+		<style type="text/css"><![CDATA[ 
+			* {font-family: tahoma}
+		
+			.w2multiupload_uploader {
+				background:url(/cm/images/addFiles.png);
+			}
+			
+			.delete_ing {
+				background:url(/cm/images/delete.png) 83px;
+			}
+			
+			.start {
+				background:url(/cm/images/startUpload.png) 300px;
+			}
+		]]></style>
+	</head>
+	<body>
+		<xf:group id="group2" style="padding:10px;">
+			<w2:textbox id="textbox1" style="position: relative;" label="HTML5 MultiUpload Sample" tagname="h1"></w2:textbox>
+			<w2:grid ignoreCellClick="false" id="grid1" style="position: relative;height: 200px;"
+				useShiftKey="true" scrollByColumn="false" fixedColumnWithHidden="true" autoFit="allColumn">
+				<w2:header id="header1" style="">
+					<w2:row id="row2" style="">
+						<w2:column blockSelect="false" id="column11" style="height:20px;" inputType="checkbox" width="27" value="chk"></w2:column>
+						<w2:column blockSelect="false" id="column9" style="height:20px;" inputType="text" width="422" value="FileName"></w2:column>
+						<w2:column blockSelect="false" id="column7" style="height:20px;" inputType="text" width="133" value="Size"></w2:column>
+						<w2:column blockSelect="false" id="column3" style="height:20px;" width="197" inputType="text" value="Status"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody4" style="">
+					<w2:row id="row5" style="">
+						<w2:column blockSelect="false" id="chk" style="height:20px;" inputType="checkbox" width="27"></w2:column>
+						<w2:column blockSelect="false" id="name" style="height:20px;" inputType="text" width="422" textAlign="left"></w2:column>
+						<w2:column blockSelect="false" id="displaySize" style="height:20px;" inputType="text" width="133"></w2:column>
+						<w2:column blockSelect="false" id="Status" style="height:20px;" width="197" inputType="text" value="Ready.."></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:grid>
+			<xf:group id="group1" style="overflow:hidden;margin-top:5px;">
+				<w2:multiupload maxcount="" id="multiupload" maxsize="10000000000" 
+					style="position:relative;height:34px;width:207px;float:left;background-color:yellow;" action="" uploadButton=""
+					wmode="false" filter="*:*.*" mode="html5_transparent" selectCallback="selectCallback" ev:onComplete="scwin.multiupload_onComplete" ev:ondone="scwin.multiupload_ondone">
+					<script type="javascript" ev:event="ondone(data)"><![CDATA[ 
+					
+					multiupload10_ondone(data);
+					
+					]]></script>
+					<script type="javascript" ev:event="onComplete"><![CDATA[
+					
+					multiupload_onComplete();
+					
+					 ]]></script>
+				</w2:multiupload>
+				<w2:textbox label="" id="textbox4" style="position: relative;height: 34px;width: 84px;float:left;margin-left:5px;"
+					class="delete_ing" ev:onclick="textbox4_onclick">
+					<script ev:event="onclick" type="javascript"><![CDATA[
+					
+					textbox4_onclick(e);
+					
+					 ]]></script>
+					
+				</w2:textbox>
+				<w2:textbox id="textbox5" label="" style="position: relative;height: 34px;width: 121px;float:left;margin-left:5px;"
+					class="start" >
+					<script ev:event="onclick" type="javascript"><![CDATA[
+					
+					textbox5_onclick(e);
+					
+					 ]]></script>
+				</w2:textbox>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

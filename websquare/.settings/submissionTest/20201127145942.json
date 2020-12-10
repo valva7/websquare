@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "HTTP://localhost:8050/QNAtest/0.jsonData/treeView_json.json",
+   "contentType": "application/json",
+   "requestContent": "{\"treeView\": [\n   {\n      \"depth\": \"data_0_2\",\n      \"label\": \"data_0_0\",\n      \"value\": \"data_0_1\"\n   },\n   {\n      \"depth\": \"data_1_2\",\n      \"label\": \"data_1_0\",\n      \"value\": \"data_1_1\"\n   }\n]}",
+   "responseContent": "{\r\n\t\"treeView\" : [\r\n\t\t{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"1\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"2\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"3\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"3\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"1\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"2\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"3\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"3\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"2\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"2\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"3\"\r\n\t\t},{\r\n\t\t\t\"label\" : \"label1\",\r\n\t\t\t\"value\" : \"value1\",\r\n\t\t\t\"depth\" : \"4\"\r\n\t\t}\r\n\t]\r\n}",
+   "sendTime": "2020-11-27 14:59:42"
+}

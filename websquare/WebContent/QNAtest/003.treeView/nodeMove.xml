@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="treeList" saveRemovedData="true" idAttribute="" matchIgnoreCase=""
+            		userData1="" userData2="" userData3="">
+            		<w2:columnInfo>
+            			<w2:column id="tree_name" name="이름" dataType="text"></w2:column>
+            			<w2:column id="tree_id" name="ID" dataType="text"></w2:column>
+            			<w2:column id="tree_depth" name="값" dataType="text"></w2:column>
+            			<w2:column id="folder" name="분류" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+
+
+
+            			<w2:row>
+            				<tree_name><![CDATA[전체]]></tree_name>
+            				<tree_id><![CDATA[t0]]></tree_id>
+            				<tree_depth><![CDATA[1]]></tree_depth>
+            				<folder><![CDATA[t1]]></folder>
+            			</w2:row>
+            			
+            			
+            			<w2:row>
+            				<tree_name><![CDATA[인사관리체계]]></tree_name>
+            				<tree_id><![CDATA[t1]]></tree_id>
+            				<tree_depth><![CDATA[2]]></tree_depth>
+            				<folder><![CDATA[t4]]></folder>
+            			</w2:row><w2:row>
+            				<tree_name><![CDATA[a]]></tree_name>
+            				<tree_id><![CDATA[t2]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<folder><![CDATA[t2]]></folder>
+            			</w2:row><w2:row>
+            				<tree_name><![CDATA[b]]></tree_name>
+            				<tree_id><![CDATA[t3]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<folder><![CDATA[t2]]></folder>
+            			</w2:row>
+            			
+            			
+            			
+            			<w2:row>
+            				<tree_name><![CDATA[인사관리]]></tree_name>
+            				<tree_id><![CDATA[t7]]></tree_id>
+            				<tree_depth><![CDATA[2]]></tree_depth>
+            				<folder><![CDATA[t3]]></folder>
+            			</w2:row><w2:row>
+            				<tree_name><![CDATA[c]]></tree_name>
+            				<tree_id><![CDATA[t5]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<folder><![CDATA[t3]]></folder>
+            			</w2:row>
+            			
+            			
+
+
+            			
+            			<w2:row>
+            				<tree_name><![CDATA[d]]></tree_name>
+            				<tree_id><![CDATA[t6]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<folder><![CDATA[t3]]></folder>
+            			</w2:row>
+            			<w2:row>
+            				<tree_name><![CDATA[조직관리]]></tree_name>
+            				<tree_id><![CDATA[t4]]></tree_id>
+            				<tree_depth><![CDATA[2]]></tree_depth>
+            				<folder><![CDATA[t2]]></folder>
+            			</w2:row><w2:row>
+            				<tree_name><![CDATA[e]]></tree_name>
+            				<tree_id><![CDATA[t8]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<folder><![CDATA[t4]]></folder>
+            			</w2:row><w2:row>
+            				<tree_name><![CDATA[f]]></tree_name>
+            				<tree_id><![CDATA[t9]]></tree_id>
+            				<tree_depth><![CDATA[3]]></tree_depth>
+            				<folder><![CDATA[t4]]></folder>
+            			</w2:row>
+
+            			
+            			
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	// 버튼을 이용한 node index 변경
+	scwin.onpageload = function() {
+	
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.moveUp_onclick = function(e) {
+		// 선택한 노드의 객체 반환
+		var tmpRs = treeview.getSelectedNode();
+		
+		console.log(tmpRs);
+		
+		// 상위 노드의 기준에서 볼 때 선택한 노드의 index
+		var depthIndex = tmpRs.depthIndex;
+		
+		// 위치를 변경할 노드의 index (선택한 노드의 index)
+		var srcIndex;
+		// 옮기고자 하는 노드의 index
+		var destIndex;
+		
+		if (depthIndex > 2) {
+			srcIndex = tmpRs.index;
+			destIndex = tmpRs.parentNode.childNodes[depthIndex-3].index;
+			treeview.moveNode(srcIndex, destIndex, false);
+		}else if(depthIndex <= 2) {
+			srcIndex = tmpRs.index;
+			destIndex = tmpRs.parentNode.index;
+			treeview.moveNode(srcIndex, destIndex, true);
+		}
+	};
+	
+	scwin.moveDown_onclick = function(e) {
+		// 선택한 노드의 객체 반환
+		var tmpRs = treeview.getSelectedNode();
+		
+		console.log(tmpRs);
+		
+		// 상위 노드의 기준에서 볼 때 선택한 노드의 index
+		var depthIndex = tmpRs.depthIndex;
+		
+		// 위치를 변경할 노드의 index (선택한 노드의 index)
+		var srcIndex;
+		// 옮기고자 하는 노드의 index
+		var destIndex;
+		
+		if(depthIndex < tmpRs.parentNode.childNodes.length+1) {
+			srcIndex = tmpRs.index;
+			destIndex = tmpRs.parentNode.childNodes[tmpRs.depthIndex].index; 
+			treeview.moveNode(srcIndex, destIndex, false);
+		}
+	};
+
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:treeview id="treeview" dataType="listed" tooltipGroupClass="false" style="width:200px;height:420px;" ev:onlabelclick=""
+    		lineShow="" renderType="" tooltipDisplay="" checkAllChildNodes="" alwaysDraw="" checkboxDisabledTrueValue="" hierarchy=""
+    		refreshCheckboxModel="" scrollFix="" showCheckbox="" toggleButtonEvent="" toggleEvent="" useHirarchySelect="" accessibility=""
+    		class="">
+    		<w2:itemset nodeset="data:treeList">
+    			<w2:label ref="tree_name"></w2:label>
+    			<w2:value ref="tree_id"></w2:value>
+    			<w2:depth ref="tree_depth"></w2:depth>
+    			<w2:folder ref="folder"></w2:folder>
+    			<w2:checkbox ref=""></w2:checkbox>
+    			<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+    			<w2:image ref=""></w2:image>
+    			<w2:iconImage ref=""></w2:iconImage>
+    			<w2:selectedImage ref=""></w2:selectedImage>
+    			<w2:expandedImage ref=""></w2:expandedImage>
+    			<w2:leafImage ref=""></w2:leafImage>
+    		</w2:itemset>
+    	</w2:treeview>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;margin-right: 40px;" id="moveUp" ev:onclick="scwin.moveUp_onclick">
+    		<xf:label><![CDATA[위로 이동]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="moveDown" ev:onclick="scwin.moveDown_onclick">
+    		<xf:label><![CDATA[아래로 이동]]></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

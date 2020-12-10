@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataMap baseNode="map" id="dataMap1">
+            		<w2:keyInfo>
+            			<w2:key id="key1" name="name1" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            		<w2:data use="true">
+            			<key1><![CDATA[2020-05-13]]></key1>
+            		</w2:data>
+            	</w2:dataMap>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+    // inputCalendar data는 숫자로만 구성되어야 함
+    // 특문 포함시 최초 focus시 포맷을 유지해버림    
+	scwin.onpageload = function() {
+//		inpCal.setValue("20200513");
+//		iptCal2.setValue("20200513");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.trigger1_onclick = function(e) {
+		inpCal.setValue("2020-05-13");
+		iptCal2.setValue("2020-05-13");
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:trigger type="button" style="width:109px;height:23px;margin-left:30px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[캘린더 Binding]]></xf:label>
+    	</xf:trigger>
+    	<w2:inputCalendar footerDiv="false" id="inpCal" style="width: 150px;height: 23px;margin: 30px;" renderDiv="true"
+    		focusOnDateSelect="false" calendarValueType="yearMonthDate" rightAlign="false" renderType="component" delimiter="" maxYear=""
+    		monthNames="" visibleHourList="" autoFocus="" cancelButtonShow="" disableDateValidSet="" displayFormat="" displayFormatFunc=""
+    		calendarDisplayFormat="" ref="data:dataMap1.key1" visibleSecList="" weekStartsOn="" editType="" keepInvalidDate=""
+    		outsideClickEvent="" setCurrentDate="" skipConfirmOnly="" topLayout="" useAnchor="" dateValidCheck="" dateValidSet=""
+    		displaymessage="" validCheck="" handleIconClick="" invalidMessageFunc="" validator="" alt="" buttonTitle="" defaultDate=""
+    		nextTabID="" summary="" tabIndex="" title="" userData1="" userData2="" userData3="" mandatory="" type="" calendarDisplayFormatFunc=""
+    		minYear="" fixedDate="" skipConfirm="" calendarClass="">
+    	</w2:inputCalendar>
+    	<w2:inputCalendar footerDiv="false" id="iptCal2" style="width: 150px;height: 23px;" renderDiv="true" focusOnDateSelect="false"
+    		calendarValueType="yearMonthDate" rightAlign="false" renderType="component">
+    	</w2:inputCalendar>
+    </body>
+</html>

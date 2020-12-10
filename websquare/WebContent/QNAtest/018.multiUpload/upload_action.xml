@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    	</xf:model>
+    	<script type="javascript"><![CDATA[
+	var scwin = {};
+	
+	// * 멀티업로드의 initialize가 덮어지지 않아 새로 생성 
+	// 초기화시 hotfix파일을 로드한 후 해당 멀티업로드 컴포넌트를 지우고 새로 생성한다.
+	function init () {
+		WebSquare.util.js("/js/hotfix_WESD231.js", function(){
+		    multiupload1.remove();
+		    WebSquare.util.dynamicCreate("multiupload1",
+		    "multiupload",
+		    {mode:"html5_transparent",
+		    action : "/QNAtest/018.multiUpload/upload.jsp",
+		    maxsize:"100000000",
+		    selectCallback : "selectCallback",
+		    filter : "*:*.*",
+		    displaySizeUnit : "KB",
+		    style:"width:260px;height:149px;border: black solid 2px;margin-top: 80px;"},
+		    grp);
+		    multiupload1.bind("ondone", scwin.multiupload1_ondone);
+		});
+	}
+	
+	init();
+	
+	scwin.trigger2_onclick = function(e) {
+
+		var paramJSON = {};
+		var fileNames = multiupload1.getFileNames();
+		var count = 0;
+		
+		for(var fileName of fileNames){
+			var param = "SEQ Parameter_" + count;
+			// 파라미터의 key값은 "seq"이며 jsp에서 해당 키값으로 파라이머를 가져옴
+			paramJSON[fileName] = {"seq" : param};
+			count++;
+			
+			console.log("param : " + param + "\n" + "filename : " + fileName);
+		}
+		
+		// setParamJSON API 추가됨
+		multiupload1.setParamJSON(paramJSON);
+		multiupload1.startUpload();
+	};
+
+	scwin.multiupload1_ondone = function(data) {
+		alert(JSON.stringify(data));
+		console.log("file uploading was done =>" + data[0].key + " "
+				+ data[0].size + " " + data[0].file);
+				
+		console.log(data);
+	};
+
+	
+]]></script>
+    </head>
+    <body>
+    	<xf:group id="grp" style="height:222px;width:264px;"><w2:multiupload maxcount="" tabIndex="" userData1="" mode="html5_transparent" filter="*:*.*" ev:ondone="" action="" sizeUnit="" wmode="false" style="width:260px;height:149px;border: black solid 2px;margin-top: 80px;" id="multiupload1" maxsize="20000000000" lang="" uploadButton="">
+    		<script ev:event="ondone(data)" type="text/javascript"><![CDATA[
+    			scwin.multiupload1_ondone(data);
+    		 ]]></script>
+    	</w2:multiupload></xf:group><xf:trigger type="button" id="trigger2" style="width: 60px;height: 48px;margin-top: 20px;" ev:onclick="">
+    		<xf:label><![CDATA[전송]]></xf:label>
+    		<script ev:event="onclick(e)" type="text/javascript"><![CDATA[
+    			scwin.trigger2_onclick();
+    		 ]]></script>
+    	</xf:trigger>
+    </body>
+</html>

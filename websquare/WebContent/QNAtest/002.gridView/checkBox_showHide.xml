@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dataList1" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="name" name="이름"></w2:column>
+						<w2:column dataType="text" id="value" name="값"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<name><![CDATA[옵션1]]></name>
+							<value><![CDATA[1]]></value>
+						</w2:row>
+						<w2:row>
+							<value><![CDATA[2]]></value>
+							<name><![CDATA[옵션2]]></name>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="gridList" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="col1" name="name1"></w2:column>
+						<w2:column dataType="text" id="col2" name="name2"></w2:column>
+						<w2:column dataType="text" id="col3" name="name3"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+		</xf:model>
+		<style>
+			<!-- .display{ background-color: #BBDEFB; } -->
+			.display{ 
+				visibility:hidden; 
+				border : solid 1px black;
+			}
+		</style>
+		<script type="text/javascript" lazy="false"><![CDATA[
+	// gridView cell 내 체크박스 숨기기
+//  .w2grid.test td > input[type="button"] { visibility: hidden; } /* 버튼 숨김 */
+//  .w2grid.test td.focusedTd > input[type="button"] { visibility: visible; } /* 버튼 셀 클릭 시 보임 */   
+	scwin.onpageload = function() {
+		var json = [
+					{"col1" : "1", "col2" : "2", "col3" : "3"},
+					{"col1" : "1", "col2" : "2", "col3" : "3"},
+					{"col1" : "1", "col2" : "2", "col3" : "3"},
+					{"col1" : "1", "col2" : "2", "col3" : "3"},
+					{"col1" : "1", "col2" : "2", "col3" : "3"},
+					{"col1" : "1", "col2" : "2", "col3" : "3"},
+					{"col1" : "1", "col2" : "2", "col3" : "3"}
+					]
+		gridList.setJSON(json);
+		grid.setCellClass(0, 0, 'textBold');
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.grid_oncellclick = function(row,col,colId) {
+		console.log(row, col, colId);
+		grid.setCellClass(row, col, 'display');
+	};
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<w2:gridView id="grid" style="width:210px;height:234px;margin:30px;" scrollByColumn="false" defaultCellHeight="20"
+			scrollByColumnAdaptive="false" dataList="data:gridList" ev:oncellclick="scwin.grid_oncellclick">
+			<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+			<w2:header style="" id="header2">
+				<w2:row style="" id="row3">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column5" value="name1"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column4" value="name2"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column3" value="name3"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:header>
+			<w2:gBody style="" id="gBody2">
+				<w2:row style="" id="row4">
+					<w2:column removeBorderStyle="false" width="70" inputType="button" style="height:20px" id="col1" value="" blockSelect="false"
+						displayMode="label" hidden="" hiddenClass="" escapeFormatter="" disabled="" class="">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="col2" value="" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="col3" value="" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:gBody>
+		</w2:gridView>
+		<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+			<xf:label><![CDATA[]]>
+			</xf:label>
+		</xf:trigger>
+	</body>
+</html>

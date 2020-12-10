@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dataList1" baseNode="list" style="" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="col1" name="name1" dataType="text"></w2:column>
+						<w2:column id="col2" name="name2" dataType="text"></w2:column>
+						<w2:column id="col3" name="name3" dataType="text"></w2:column>
+						<w2:column id="col4" name="name4" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="javascript"><![CDATA[ 
+		
+        /**
+		 * 공통팝업을 호출합니다. 
+		 * @param idIdx : 유일한 id값 혹은 data를 위한 파라미터
+		 * @param title : 공통팝업 타이틀
+		 * @param width :  width
+		 * @param height :height
+		 * @param modal : 팝업을 modal로 띄울지 여부(defaule true, modal로 안띌 수 false 속성)
+		 * @param onCloseFunc : 레이어팝업창이 닫힐 때 이벤트 처리 함수 
+		 * @example showFloatingLayer(idIdx, "Common Address","820", "300", "false", function(){console.log("test");});
+		 */
+		function showFloatingLayer(idIdx, title, width, height, modal, onCloseFunc){
+			var top = document.documentElement.scrollTop + document.documentElement.clientHeight/2 - parseInt(height)/2;
+			var left = document.documentElement.scrollLeft + document.documentElement.clientWidth/2 - parseInt(width)/2;
+			
+			if(top<0){
+				top = 0;
+			}
+			
+			var tmp = "popup" + idIdx;
+			var popupId = "Pop_"+tmp; 
+			var compId = "input" + idIdx;
+			
+			makeCommonPopup(popupId, compId, title, width, height, top, left, modal == false ? false : true, onCloseFunc);
+			
+			eval(popupId).show();
+			
+			// 팝업내부컨텐츠 영역 높이 보정 
+			$("#" + popupId+"_contents").css("height", (height-31) + "px");
+		}
+
+		function makeCommonPopup(popupId, compId, title, width, height, top, left, modal, onCloseFunc){
+			 scrolling = "auto";
+			
+			// 플로팅레이더 동적 생성
+			WebSquare.util.dynamicCreate(popupId, "floatingLayer" , {
+			 style : "position: absolute ;left:"+left+"px;top:"+top+"px;width:"+width+"px;height:"+height+"px;display:none;z-index:4001",
+//			 fullContentArea : true,
+//			 useModal : modal ,
+			 dragAutoPosition : "true", 
+			 className : "fly",
+			 title : title, 
+			 xmlEvents : [{
+			  name : "onclose",
+			  action : "script",
+			  param : {
+					handler :  function(e) {
+					 	if(typeof onCloseFunc == "function"){
+					 	   onCloseFunc();
+						}
+					    WebSquare.util.getComponentById( popupId ).remove();
+					    $(".fly").last().css("z-index", "4001");
+					}
+				}
+			  }]
+			},  WebSquare.getBody());
+			
+			$(".fly").css("z-index", "3999");
+			$("#" + popupId).css("z-index", "4001");
+			
+			// 플로팅레이어 contents 내에 컴포넌트를 동적으로 생성
+			$p.dynamicCreate(compId, "input", {
+			    style: "width:120px; height:40px; float:left; margin : 20px;"
+			}, eval(popupId+"_contents"));
+			
+			var comObj = WebSquare.util.getComponentById(compId);
+			comObj.setValue("Input");
+		}
+		
+		/**
+		 * 공통팝업(플로팅레이어) 클로즈 하는 함수
+		*/
+		function closeFloatingLayer(popupId){
+		   var tmp = popupId.split("_");
+		   
+		   var fl = WebSquare.util.getComponentById( popupId );
+		   fl.hide(); //모달hide 처리
+		   WebSquare.event.fireEvent(fl,"onclose");
+		}
+		
+		scwin.trigger1_onclick = function(e) {
+			for (var i = 0; i < 2; i++) {
+				showFloatingLayer(i, "Common Address","500", "300", true, function(){console.log("test")});
+			}
+		};
+]]></script>
+		<style type="text/css"><![CDATA[
+		
+		.w2modalopenedbody{
+			overflow:auto;
+		}
+		
+		
+		 ]]></style>
+	</head>
+	<body>
+		<xf:group id="group1" style="position:absolute;overflow:auto;width:500px;height:400px;">
+			<xf:trigger id="trigger1" style="position: absolute ;left:0px;top:0px;width: 82px;height: 28px;"
+				ev:onclick="scwin.trigger1_onclick" type="button">
+				<xf:label><![CDATA[팝업1 오픈]]></xf:label>
+			</xf:trigger>
+		</xf:group>
+	</body>
+</html>

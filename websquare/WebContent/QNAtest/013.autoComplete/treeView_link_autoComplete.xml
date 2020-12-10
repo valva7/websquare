@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="treeList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="tree_name" name="이름" dataType="text"></w2:column>
+						<w2:column id="tree_id" name="ID" dataType="text"></w2:column>
+						<w2:column id="tree_depth" name="값" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<tree_name><![CDATA[All]]></tree_name>
+							<tree_id><![CDATA[1]]></tree_id>
+							<tree_depth><![CDATA[1]]></tree_depth>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[컴퓨터]]></tree_name>
+							<tree_depth><![CDATA[2]]></tree_depth>
+							<tree_id><![CDATA[2]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[데스크탑]]></tree_name>
+							<tree_depth><![CDATA[3]]></tree_depth>
+							<tree_id><![CDATA[3]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_name><![CDATA[하드디스크]]></tree_name>
+							<tree_id><![CDATA[4]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_name><![CDATA[SSD]]></tree_name>
+							<tree_id><![CDATA[5]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[모니터]]></tree_name>
+							<tree_depth><![CDATA[3]]></tree_depth>
+							<tree_id><![CDATA[6]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[커브 모니터]]></tree_name>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_id><![CDATA[7]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[평면 모니터]]></tree_name>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_id><![CDATA[8]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[의자]]></tree_name>
+							<tree_depth><![CDATA[2]]></tree_depth>
+							<tree_id><![CDATA[9]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[바퀴 의자]]></tree_name>
+							<tree_depth><![CDATA[3]]></tree_depth>
+							<tree_id><![CDATA[10]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_name><![CDATA[등받이 바퀴 의자]]></tree_name>
+							<tree_id><![CDATA[11]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_name><![CDATA[등 없는 바퀴 의자]]></tree_name>
+							<tree_id><![CDATA[12]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[다리 의자]]></tree_name>
+							<tree_depth><![CDATA[3]]></tree_depth>
+							<tree_id><![CDATA[13]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[등받이 바퀴 의자]]></tree_name>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_id><![CDATA[14]]></tree_id>
+						</w2:row>
+						<w2:row>
+							<tree_name><![CDATA[등 없는 바퀴 의자]]></tree_name>
+							<tree_depth><![CDATA[4]]></tree_depth>
+							<tree_id><![CDATA[15]]></tree_id>
+						</w2:row>
+
+
+
+
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+	// treeView와 linkedDataList 연계 샘플
+	scwin.onpageload = function() {
+
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	scwin.autoComplete1_onafteredit = function() {
+		// 검색된 autoComplete의 value 값
+		var index = autoComplete1.getValue();
+		
+		var treeListJson = treeList.getAllJSON();
+		var depth = treeListJson[index-1].tree_depth;
+		
+		var parentNodeArr = [];
+		
+		// 검색된 값의 parentNode를 구함
+		var nodeIndex = index;
+		for (var i = 1; i < depth; i++) {
+			var parent = treeview.findNodeByIndex(nodeIndex);
+			var parentNode = parent.parentNode.index;
+			
+			parentNodeArr.push(parentNode);			
+			parentNodeArr.sort(function(a,b){
+				return a-b;
+			});
+			
+			nodeIndex = parentNode;
+		}
+		
+		// parentNode를 활용하여 검색된 값의 node까지 펼쳐줌
+		for (var i = 0; i < parentNodeArr.length; i++) {
+			treeview.spanNode(parentNodeArr[i], true);
+		}
+	};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<w2:textbox label="autoComplete의 검색 기능을 사용하여 treeView의 항목을 쉽게 찾을 수 있다." style="width:413px;height:29px;margin:30px;" id=""></w2:textbox>
+		<xf:group id="" style="width:411px;margin:30px;border-color:black;border:solid;">
+			<xf:group tagname="table" style="width:100%;" id="" class="w2tb">
+				<w2:attributes>
+					<w2:summary></w2:summary>
+				</w2:attributes>
+				<xf:group tagname="caption"></xf:group>
+				<xf:group tagname="colgroup">
+					<xf:group tagname="col" style="width:38.42%;"></xf:group>
+					<xf:group tagname="col" style="width:50.00%"></xf:group>
+				</xf:group>
+				<xf:group tagname="tr" style="">
+					<xf:group tagname="th" style="" class="w2tb_th">
+						autoComplete
+						<w2:attributes>
+							<w2:scope>row</w2:scope>
+						</w2:attributes>
+					</xf:group>
+					<xf:group tagname="td" style="" class="w2tb_td">
+						<w2:autoComplete submenuSize="auto" search="start" ref="" chooseOption="" editType="select"
+							useKeywordHighlight="false" keyInputRef="" style="width:221px;height:21px;" id="autoComplete1" allOption="true"
+							ev:onafteredit="scwin.autoComplete1_onafteredit" searchTarget="label" allowEmptySubmission="">
+							<w2:choices>
+								<w2:itemset nodeset="data:treeList">
+									<w2:label ref="tree_name"></w2:label>
+									<w2:value ref="tree_id"></w2:value>
+								</w2:itemset>
+							</w2:choices>
+						</w2:autoComplete>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr" style="">
+					<xf:group tagname="th" style="" class="w2tb_th">
+						treeView
+						<w2:attributes>
+							<w2:scope>row</w2:scope>
+						</w2:attributes>
+					</xf:group>
+					<xf:group tagname="td" style="" class="w2tb_td">
+						<w2:treeview toggleButtonEvent="" showTreeDepth="0" tooltipGroupClass="false" dataType="listed"
+							style="width:224px;height:420px;margin-bottom:50px;border: solid 1px;" id="treeview">
+							<w2:itemset nodeset="data:treeList">
+								<w2:label ref="tree_name"></w2:label>
+								<w2:value ref="tree_id"></w2:value>
+								<w2:depth ref="tree_depth"></w2:depth>
+								<w2:folder ref=""></w2:folder>
+								<w2:checkbox ref=""></w2:checkbox>
+								<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+								<w2:image ref=""></w2:image>
+								<w2:iconImage ref=""></w2:iconImage>
+								<w2:selectedImage ref=""></w2:selectedImage>
+								<w2:expandedImage ref=""></w2:expandedImage>
+								<w2:leafImage ref=""></w2:leafImage>
+							</w2:itemset>
+						</w2:treeview>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

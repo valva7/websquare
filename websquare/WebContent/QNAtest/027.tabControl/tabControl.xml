@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {
+
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	scwin.trigger1_onclick = function(e) {
+		var frame = tab.getWindow(0);
+		console.log(frame);
+		var sbx = frame.sbx;
+		console.log(sbx);
+	};
+
+	scwin.trigger2_onclick = function(e) {
+		var frame = tab2.getWindow(0);
+		console.log(frame);
+		var grd = frame.grd;
+		console.log(grd);
+	};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:tabControl useTabKeyOnly="true" id="tab" useMoveNextTabFocus="false" useConfirmMessage="false" confirmTrueAction="exist"
+    		confirmFalseAction="new" alwaysDraw="false" style="position:absolute;top:34px;left:43px;width:364px;height:227px;">
+    		<w2:tabs disabled="false" style="width:70px;height:30px;" id="tabs1"></w2:tabs>
+    		<w2:content alwaysDraw="false" style="height:197px;" id="content1" frameMode="" scope="false">
+    			<xf:select1 id="sbx" chooseOption="false" style="position:absolute; top:100px; left:50px; width:148px; height:21px;"
+    				submenuSize="auto" allOption="false" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled">
+    			</xf:select1>
+    		</w2:content>
+    	</w2:tabControl>
+
+    	<xf:trigger type="button" style="position:absolute;top:37px;left:423px;width:80px;height:23px;" id="trigger1"
+    		ev:onclick="scwin.trigger1_onclick">
+    		<xf:label></xf:label>
+    	</xf:trigger>
+
+    	<w2:tabControl useTabKeyOnly="true" id="tab2" useMoveNextTabFocus="false" useConfirmMessage="false" confirmTrueAction="exist"
+    		confirmFalseAction="new" alwaysDraw="false" style="position:absolute;top:292px;left:46px;width:362px;height:190px;">
+    		<w2:tabs disabled="false" style="width:70px;height:30px;" id="tabs2"></w2:tabs>
+    		<w2:content alwaysDraw="false" style="height:160px;" id="content2" src="/QNAtest/002.gridView/0.gridViewBase.xml"></w2:content>
+    	</w2:tabControl>
+    	<xf:trigger type="button" style="position:absolute; top:296px; left:423px; width:80px; height:23px; " id="trigger2" ev:onclick="scwin.trigger2_onclick">
+    		<xf:label></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

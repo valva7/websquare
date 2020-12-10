@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="dataList1" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="data01" name="name1" dataType="number"></w2:column>
+						<w2:column id="data02" name="name2" dataType="number"></w2:column>
+						<w2:column id="data03" name="name3" dataType="number"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" src="/cm/js/sparkline/jquery.sparkline.js" />
+		<script type="text/javascript" lazy="false"><![CDATA[
+	// gridView cell 내에 sparklines 차트 생성 샘플
+	scwin.onpageload = function() {
+		var jsonData = [{
+			"data01" : "1335174",
+			"data02" : "1761268",
+			"data03" : "912226"
+		}, {
+			"data01" : "892155",
+			"data02" : "2339794",
+			"data03" : "2888635"
+		}, {
+			"data01" : "1980648",
+			"data02" : "1780317",
+			"data03" : "1633463"
+		}, {
+			"data01" : "1824767",
+			"data02" : "2244245",
+			"data03" : "1671271"
+		}, {
+			"data01" : "1987310",
+			"data02" : "1779037",
+			"data03" : "816466"
+		}, {
+			"data01" : "811895",
+			"data02" : "2361613",
+			"data03" : "1885824"
+		}];
+
+		dataList1.setJSON(jsonData);
+		
+		scwin.drawSparkline();
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	var chartLineOptions = {
+
+		enableTagOptions : true,
+		width : '100',
+		height : '25',
+		minSpotColor : 'red',
+		maxSpotColor : 'red',
+		barWidth : 10
+	};
+
+	scwin.drawSparkline = function() {
+		$(".inlinesparkline").filter(function() {
+			return $(this).text().trim() != "";
+		}).sparkline('html', chartLineOptions);
+	};
+	
+	scwin.createSparkline = function(M01, M02, M03) {
+		var values = [M01, M02, M03];
+		var str = '<span class="inlinesparkline">' + values.join(',')
+				+ '</sapn>';
+		return str;
+	};
+
+	scwin.setSparkline = function(data, formattedData, rowIndex, colIndex) {
+
+		return scwin.createSparkline(grd_Chart.getCellData(rowIndex, "data01"),
+				grd_Chart.getCellData(rowIndex, "data02"), 
+				grd_Chart.getCellData(rowIndex, "data03"));
+
+	};
+
+	scwin.grd_Chart_onafteredit = function(row, col, value) {
+		scwin.drawSparkline();
+	};
+
+	scwin.aftersort = function() {
+		scwin.drawSparkline();
+	};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<w2:gridView id="grd_Chart" style="position:absolute;top:26px;left:28px;width:448px;height:242px;" scrollByColumn="false"
+			defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:dataList1" ev:onafteredit="scwin.grd_Chart_onafteredit"
+			ev:onsort="scwin.aftersort">
+			<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+			<w2:header style="" id="header1">
+				<w2:row style="" id="row1">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column7" value="1"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column5" value="2"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="column3" value="3"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="177" inputType="text" style="height:20px;" id="column1" value="Spark Line"
+						blockSelect="false" displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:header>
+			<w2:gBody style="" id="gBody1">
+				<w2:row style="" id="row2">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="data01" value="" blockSelect="false"
+						displayMode="label" displayFormat="###,###" dataType="number" col_id="data01">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="data02" value="" blockSelect="false"
+						displayMode="label" displayFormat="###,###" dataType="number" col_id="data02">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="data03" value="" blockSelect="false"
+						displayMode="label" displayFormat="###,###" dataType="number" col_id="data03">
+					</w2:column>
+					<w2:column width="150" inputType="expression" style="" id="grd_Chart_idSparkLine" value="" blockSelect="false"
+						displayMode="label" customFormatter=""
+						expression="scwin.createSparkline( DISPLAY(&apos;data01&apos;),DISPLAY(&apos;data02&apos;),DISPLAY(&apos;data03&apos;))"
+						col_id="idSparkLine"></w2:column>
+				</w2:row>
+			</w2:gBody>
+		</w2:gridView>
+	</body>
+</html>

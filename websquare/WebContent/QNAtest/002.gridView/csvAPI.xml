@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" id="gridList" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="col1" name="name1"></w2:column>
+        				<w2:column dataType="text" id="col2" name="name2"></w2:column>
+        				<w2:column dataType="text" id="col3" name="name3"></w2:column>
+        				<w2:column id="col4" name="name4" dataType="text"></w2:column>
+        				<w2:column id="col5" name="name5" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="subList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="NAME" name="이름" dataType="text"></w2:column>
+        				<w2:column id="BIRTHDAY" name="생일" dataType="text"></w2:column>
+        				<w2:column id="GENDER" name="성별" dataType="text"></w2:column>
+        				<w2:column id="WORK" name="직업" dataType="text"></w2:column>
+        				<w2:column id="HEIGHT" name="키" dataType="text"></w2:column>
+        				<w2:column id="WEIGHT" name="몸무게" dataType="text"></w2:column>
+        				<w2:column id="ADDR" name="주소" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="submission" ref="" target="data:json,subList" action="QNAtest/0.jsonData/sampleJsonData.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+    // csv파일 업로드 및 다운로드 샘플
+    var json;
+	scwin.onpageload = function() {
+		json = [
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"}
+				];
+		gridList.setJSON(json);
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	// 조회
+	scwin.trigger1_onclick = function(e) {
+		gridList.setJSON(json);
+	};
+	
+	// readCSV
+	scwin.trigger2_onclick = function(e) {
+		var options = {
+		  // 구분자 지정
+		  delim:              ",",
+		  // CSV 데이터에서 제거해야 되는 문자셋
+		  escapeChar:         "'",
+		  // csv파일에서 그리드의 데이터가 시작되는 행의 번호, startRowIndex가 설정되면, header 설정은 무시된다
+		  startRowIndex:        1,
+		  // csv파일에서 가져온 데이터를 그리드에 append시킬지 여부
+		  append:             "0",
+		  // 공백무시 여부(1이면 무시 0이면 포함)
+		  skipSpace:          "1"
+		};
+		
+		grd.readCSV(options);
+	};
+	
+	// saveCSV
+	scwin.trigger3_onclick = function(e) {
+		var colArr = [];
+		colArr[0] = "col1";
+		colArr[1] = "col2";
+		colArr[2] = "col3";
+		colArr[3] = "col4";
+		colArr[4] = "col5";
+		
+		//저장 옵션
+		var options = {
+		  // 기본으로 지정 될 파일 이름
+		  fileName:           "saveCSV.csv",
+		  // 사용할 데이터. GridView 컬럼의 inputType이 SelectBox, AutoComplete, 혹은 CheckComboBox인 경우 해당. 0: value 값 사용. 1: label 값 사용. 
+		  // 2: 해당 컬럼의 displayMode 설정에 따라 "value delim label" 혹은 "label delim value" 값을 사용.
+		  type:               "1",
+		  // 구분자 지정 
+		  delim:              ",",
+		  // hidden에 관계없이 최우선순위로 저장할 column id들의 array
+		  saveList:           colArr
+		};
+		grd.saveCSV(options);		
+	};
+	
+	scwin.trigger4_onclick = function(e) {
+		gridList.setJSON([]);
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:trigger type="button" style="width:126px;height:23px;margin-left:50px;margin-top: 50px;" id="trigger1"
+    		ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[조회(submission)]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width:95px;height:23px;margin-left:50px;margin-top:50px;" id="trigger4" ev:onclick="scwin.trigger4_onclick">
+    		<xf:label><![CDATA[그리드 비우기]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;margin-left:50px;margin-top: 50px;" id="trigger2"
+    		ev:onclick="scwin.trigger2_onclick">
+    		<xf:label><![CDATA[readCSV]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;margin-left:50px;margin-top: 50px;" id="trigger3"
+    		ev:onclick="scwin.trigger3_onclick">
+    		<xf:label><![CDATA[saveCSV]]></xf:label>
+    	</xf:trigger>
+    	<w2:gridView id="grd" style="width:353px;height:217px;margin:50px;" scrollByColumn="false" defaultCellHeight="20"
+    		scrollByColumnAdaptive="false" dataList="data:gridList" autoFit="" summaryOnlyAuto="" overflowY="" captionAuto=""
+    		keepDefaultColumnWidth="" autoFitMinWidth="0" dataDragSelectAutoScroll="" dataDragSelectAutoScrollLevel="0"
+    		dataDragSelectAutoScrollPeriod="0" footerCaptionAuto="" footerSummaryAuto="" preventPaste="">
+    		<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header1">
+    			<w2:row style="" id="row1">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;width: 100px;" id="column5"
+    					value="name1" blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column4" value="name2"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column3" value="name3"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column2" value="name4"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column1" value="name5"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody1">
+    			<w2:row style="" id="row2">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col1" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col2" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col3" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col4" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col5" value="" blockSelect="false"
+    					displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {
+		var text = 'test&#65381;test\r test\r아아 텍스트 테스트 \r';
+
+		txt.setValue(htmlDecode(text));
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+	
+	function htmlDecode(input) {
+		var doc = new DOMParser().parseFromString(input, "text/html");
+		return doc.documentElement.textContent;	
+	}
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:textarea id="txt" style="position:absolute; top:145px; left:64px; width:300px; height:100px; "></xf:textarea>
+    </body>
+</html>

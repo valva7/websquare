@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+		</xf:model>
+		<script type="javascript" lazy="false"><![CDATA[ 
+		// 1.browser 팝업에서 paraemeter를 전달 받을 때WebSquare.net.getParameter() 사용해야 함
+		// 2.browser 팝업에서 부모창의 객체에 접근하는 방법 ($w.parent가 지원되지 않는 SP1에서 사용하는 방법)
+		scwin.onpageload = function() {
+        	imports("uiplugin.popup");
+        };
+        
+        var pop = "";
+        scwin.trigger3_onclick = function() {
+		var options = { 
+			id : "popup1", 
+			type : "browser",    
+			
+			width: "230px", 
+			height: "250px", 
+			
+			top: "130px", 
+			left: "200px", 
+			
+			popupName : "openPopup1", 
+			modal : true, 
+			useIFrame : false, 
+			
+			resizable : true, 
+			status : true, 
+			menubar : false, 
+			scrollbars : false, 
+			title : false
+		}; 
+			var testString  = "test";
+			$w.openPopup("001.browserPopup_param_child.xml&test="+encodeURI(testString), options);
+        }
+        
+    	scwin.setCardInfo = function() {
+	    	alert("parent Scope Test");
+	    	
+	    	var popWinObj = $p.getPopupWindow("popup_window");
+			popWinObj.focus();
+	    }
+
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:trigger id="trigger3" style="position:absolute;word-wrap:break-word;left:60px;top:320px;width:284px;height:50px;" type="button"
+			ev:onclick="scwin.trigger3_onclick">
+			<xf:label>open popup(browser)</xf:label>
+		</xf:trigger>
+		<xf:input adjustMaxLength="false" id="input1" style="width: 144px;height: 21px;"></xf:input>
+	</body>
+</html>

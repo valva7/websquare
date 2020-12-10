@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+				<w2:dataList id="dlt_menu" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="MENU_CD" name="메뉴코드" dataType="text"></w2:column>
+						<w2:column id="MENU_NM" name="메뉴명" dataType="text"></w2:column>
+						<w2:column id="IS_USE" name="사용유무" dataType="text"></w2:column>
+						<w2:column id="SRC_PATH" name="메뉴경로" dataType="text"></w2:column>
+						<w2:column id="PARENT_MENU_CD" name="부모메뉴코드" dataType="text"></w2:column>
+						<w2:column id="MENU_LEVEL" name="메뉴레벨" dataType="text"></w2:column>
+						<w2:column id="SORT_ORDER" name="정렬순서" dataType="text"></w2:column>
+						<w2:column id="PROGRAM_CD" name="프로그램코드" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		var menu = [{"MENU_CD":"001000000","MENU_NM":"업무화면","IS_USE":"","SRC_PATH":"","PARENT_MENU_CD":"000000000","MENU_LEVEL":1,"SORT_ORDER":"","PROGRAM_CD":"","rowStatus":"R"},{"MENU_CD":"001001000","MENU_NM":"시스템","IS_USE":"","SRC_PATH":"","PARENT_MENU_CD":"001000000","MENU_LEVEL":2,"SORT_ORDER":"","PROGRAM_CD":"","rowStatus":"R"},{"MENU_CD":"001001001","MENU_NM":"코드관리","IS_USE":"","SRC_PATH":"/ui/BM/BM001M01.xml","PARENT_MENU_CD":"001001000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"BM001M01","rowStatus":"R"},{"MENU_CD":"001001002","MENU_NM":"권한관리","IS_USE":"","SRC_PATH":"/ui/BM/BM002M01.xml","PARENT_MENU_CD":"001001000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"BM002M01","rowStatus":"R"},{"MENU_CD":"001001003","MENU_NM":"프로그램관리","IS_USE":"","SRC_PATH":"/ui/BM/BM003M01.xml","PARENT_MENU_CD":"001001000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"BM003M01","rowStatus":"R"},{"MENU_CD":"001001004","MENU_NM":"메뉴관리","IS_USE":"","SRC_PATH":"/ui/BM/BM004M01.xml","PARENT_MENU_CD":"001001000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"BM004M01","rowStatus":"R"},{"MENU_CD":"001001005","MENU_NM":"릴리즈관리","IS_USE":"","SRC_PATH":"/ui/BM/BM005M01.xml","PARENT_MENU_CD":"001001000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"BM005M01","rowStatus":"R"},{"MENU_CD":"001002000","MENU_NM":"인사","IS_USE":"","SRC_PATH":"","PARENT_MENU_CD":"001000000","MENU_LEVEL":2,"SORT_ORDER":"","PROGRAM_CD":"","rowStatus":"R"},{"MENU_CD":"001002001","MENU_NM":"조직관리","IS_USE":"","SRC_PATH":"/ui/HM/HM001M01.xml","PARENT_MENU_CD":"001002000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"HM001M01","rowStatus":"R"},{"MENU_CD":"001002002","MENU_NM":"사원관리","IS_USE":"","SRC_PATH":"/ui/HM/HM002M01.xml","PARENT_MENU_CD":"001002000","MENU_LEVEL":3,"SORT_ORDER":"","PROGRAM_CD":"HM002M01","rowStatus":"R"},{"MENU_CD":"002000000","MENU_NM":"샘플화면","IS_USE":"","SRC_PATH":"/ui/SP/SP001M01.xml","PARENT_MENU_CD":"000000000","MENU_LEVEL":1,"SORT_ORDER":"","PROGRAM_CD":"SP001M01","rowStatus":"R"}];
+		dlt_menu.setJSON(menu);		
+		scwin.setGenerator();
+		scwin.setMenuCss();
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	/** 
+	 * 좌측 메뉴를 생성한다.
+	 */
+	scwin.setGenerator = function() {
+		gen_firstGenerator.removeAll();
+		var tmpDataArr = dlt_menu.getAllJSON();
+		var tmpParentIdx = 0;
+		var thirdIndex = 0;
+	
+		//첫번째 메뉴 세팅
+		for (var i = 0; i < tmpDataArr.length; i++) {
+			var headerData_obj = tmpDataArr[i];
+			var menuDepth = headerData_obj.MENU_LEVEL;
+			var parentKey = headerData_obj.PARENT_MENU_CD; // m1, m2, m3
+			var tmpIdx = 0, tmpIdx2 = 0;
+	
+			if (menuDepth == "1") {
+				tmpParentIdx = gen_firstGenerator.insertChild();
+				var firstMenuLabel = gen_firstGenerator.getChild(tmpParentIdx, "btn_menu1_Label");
+				firstMenuLabel.setValue(headerData_obj.MENU_NM);
+				firstMenuLabel.setUserData("ins_code", headerData_obj.MENU_CD);
+			} else if (menuDepth == "2") {
+				var secondGene = gen_firstGenerator.getChild(tmpParentIdx, "gen_SecondGenerator");
+				tmpIdx = secondGene.insertChild();
+				var secondMenuLabel = secondGene.getChild(tmpIdx, "btn_menu2_Label");
+				secondMenuLabel.setValue(headerData_obj.MENU_NM);
+				secondMenuLabel.setUserData("ins_code", headerData_obj.MENU_CD);
+				thirdIndex = tmpIdx;
+			} else if (menuDepth == "3") {
+				var thirdGene = secondGene.getChild(thirdIndex, "gen_thirdGenerator");
+				tmpIdx2 = thirdGene.insertChild();
+				var thirdMenuLabel = thirdGene.getChild(tmpIdx2, "btn_menu3_Label");
+				thirdMenuLabel.setValue(headerData_obj.MENU_NM);
+				thirdMenuLabel.setUserData("ins_code", headerData_obj.MENU_CD);
+			}
+		}
+	};
+	/** 
+	 * 생성된 메뉴의 css 적용한다.
+	 */
+	scwin.setMenuCss = function() {
+		$(".nav > li > a").click(function() {
+			$(this).parent().parent().find("li a").removeClass("on");
+			$(this).addClass("on");
+	
+			if (!$(this).parent().find(".submenu").hasClass("on")) {
+				$(".nav").find(".submenu").removeClass("on");
+				$(".submenu").find(".depth3").removeClass("on");
+				$(this).parent().find(".submenu").addClass("on");
+			} else {
+				$(this).removeClass("on");
+				$(this).parent().find(".submenu").removeClass("on");
+				$(".nav").find("a").removeClass("on");
+			}
+		});
+	
+		$(".submenu > li > a").mouseover(function() {
+			$(".nav").find(".submenu").removeClass("on");
+			$(this).parent().parent().find("a").removeClass("on");
+			$(this).addClass("on");
+			$(".submenu").find(".depth3").removeClass("on");
+			$(this).parent().find(".depth3").addClass("on");
+			$(this).parent().parent().addClass("on");
+		}).mouseleave(function() {
+			$(this).find(".depth3").removeClass("on");
+			$(this).parent().parent().children("a").removeClass("on");
+			$(this).parent().removeClass("on");
+			$(this).children("a").removeClass("on");
+		});
+		
+		if(!WebSquare.util.isMobile()){
+			$(".submenu").on({
+				mouseleave:function(){
+					$(this).removeClass("on");
+					$(this).prev().removeClass("on");
+				}
+			});
+		}
+	};
+	
+	/**
+	 * header에 속한 메뉴 클릭 이벤트 1depth
+	 */
+	scwin.btn_menu1_Label_onclick = function() {
+		
+	};
+
+	$('html').click(function() {
+		if ($(".submenu").hasClass('on')) {
+			$(".submenu").removeClass('on');
+		}
+	});
+	
+	]]></script>
+   	<style type="text/css"><![CDATA[
+		/* Header */
+		.head_box{position:relative; height:44px; background:#324258}
+		.head_box .w2group {background-color: transparent;}
+		
+		.head_box .nav{position:absolute;top:0;left:213px;right:0;height:40px;background:none;font-size:13px;margin: 0px;}
+		.head_box .nav > li{position:relative; display: inline-block;}
+		.head_box .nav > li.on{background:#3879d9}
+		.head_box .nav > li > a{display:block;margin:0;color:#fff; width:180px; line-height:44px;font-weight:bold; text-align: center;}
+		.head_box .nav > li > a:hover,
+		.head_box .nav > li > a.on{background:#3879d9}
+		.head_box .nav > li .submenu{display:none; position:absolute; left:0; top:44px; background:#fff; z-index:1000; text-indent:15px;border: 1px solid #c4cad6;border-top:none}
+		.head_box .nav > li .submenu.on{display:block;}
+		.head_box .nav > li .submenu > li{position:relative; line-height:27px;  width:180px;}
+		.head_box .nav > li .submenu > li > a{display:block; background:url(../../cm/images/inc/ico_gnb_plus.png) no-repeat 165px center;padding:3px;}
+		.head_box .nav > li .submenu > li > a:hover,
+		.head_box .nav > li .submenu > li > a.on{background:#f7f8fb url(../../cm/images/inc/ico_gnb_minus.png) no-repeat 165px center;}
+		.head_box .nav > li .submenu > li:first-child > a{border-top: 0;}
+		.head_box .nav > li .submenu > li:last-child > a{border-bottom: 0;}
+		.head_box .nav > li .submenu > li > .depth3{display:none; position:absolute; left:180px; top:0px; background:#fff; border: 1px solid #c4cad6;}
+		.head_box .nav > li .submenu > li > .depth3.on{display:block;}
+		.head_box .nav > li .submenu > li > .depth3 > li{line-height:27px;}
+		.head_box .nav > li .submenu > li > .depth3 > li{width:190px; text-indent:15px;}
+		.head_box .nav > li .submenu > li > .depth3 > li:last-child > a{}
+		.head_box .nav > li .submenu > li > .depth3 > li > a{display: block; overflow: hidden; text-overflow:ellipsis; padding:3px;}
+		.head_box .nav > li .submenu > li > .depth3 > li > a:hover{background:#f7f8fb}
+   	]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group style="" id="" class="head_box">
+    		<w2:generator style="" id="gen_firstGenerator" tagname="ul" class="nav">
+    			<xf:group style="" id="" class="" tagname="li">
+    				<w2:anchor outerDiv="false" style="" id="btn_menu1_Label" ev:onclick="scwin.btn_menu1_Label_onclick">
+    					<xf:label><![CDATA[MenuList]]></xf:label>
+    				</w2:anchor>
+    				<w2:generator style="" id="gen_SecondGenerator" tagname="ul" class="submenu">
+    					<xf:group style="" id="" class="" tagname="li">
+    						<w2:anchor outerDiv="false" style="" id="btn_menu2_Label">
+    							<xf:label><![CDATA[Insert Text]]></xf:label>
+    						</w2:anchor>
+    						<w2:generator style="width: 100%;" id="gen_thirdGenerator" tagname="ul" class="depth3">
+    							<xf:group style="" id="" class="" tagname="li">
+    								<w2:anchor outerDiv="false" style="" id="btn_menu3_Label" ev:onclick="scwin.btn_topMenu_onclick">
+    									<xf:label><![CDATA[Insert Text]]></xf:label>
+    								</w2:anchor>
+    							</xf:group>
+    						</w2:generator>
+    					</xf:group>
+    				</w2:generator>
+    			</xf:group>
+    		</w2:generator>
+    	</xf:group>    	
+    </body>
+</html>

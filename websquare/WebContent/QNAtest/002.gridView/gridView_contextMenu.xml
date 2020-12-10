@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	// SystemMenu (기본 메뉴)
+	// - ColumnHide : 선택 컬럼 숨기기
+	// - ColumnShowAll : 전체 컬럼 숨기기 해제
+	// - ColumnFix : 선택 컬럼 틀고정
+	// - ColumnUnfixAll : 전체 컬럼 틀고정 취소
+	// - ColumnAdjustWidth : 선택 컬럼 크기 자동 맞추기
+	// - ColumnAdjustAuto : 전체 컬럼 크기 자동 맞추기
+	// - FoldAll : 전체 그룹 접기
+	// - UnfoldAll : 전체 그룹 펼치기
+	// - Group : 선택 그룹
+	// - Ungroup : 선택 컬럼 그룹 해제
+	// - UngroupAll : 전체 그룹 해제     
+	scwin.grd_oncontextopen = function(row, col) {
+		// return false; // 컨텍스트 메뉴를 보여주지 않습니다.
+		// return { hideSystemMenu: false } // 전체 시스템 메뉴를 보여주지 않습니다.
+//		return {
+//			hideSystemMenu : ["ColumnHide", "ColumnShowAll", "ColumnFix",
+//					"ColumnUnfixAll", "ColumnAdjustWidth", "ColumnAdjustAuto",
+//					"FoldAll", "UnfoldAll", "Group", "Ungroup", "UngroupAll"], // 특정 항목의 시스템 메뉴를 보여주지 않습니다.
+//			appendMenu : [{
+//				label : "엑셀 다운로드",
+//				 사용자 메뉴의 표시 문자열
+//				userMenuId : "excel_z",
+//				 사용자 메뉴의 id, 해당 컨텍스트 메뉴가 클릭될때, 입력값으로 전달됨
+//				className : "userMenu"
+//			 사용자 메뉴의 스타일 클래스 이름
+//			}, {
+//				label : "출력",
+//				 사용자 메뉴의 표시 문자열
+//				userMenuId : "print_z",
+//				 사용자 메뉴의 id, 해당 컨텍스트 메뉴가 클릭될때, 입력값으로 전달됨
+//				className : "userMenu"
+//			 사용자 메뉴의 스타일 클래스 이름
+//			}], // 시스템 메뉴 아래에, 사용자 메뉴를 추가합니다.
+//		};
+
+		return {
+                hideSystemMenu: [ "ColumnAdjustAuto","ColumnHide" ], // 특정 항목의 시스템 메뉴를 보여주지 않습니다.
+                appendMenu: [{
+                    label:"사용자 정의 메뉴1",
+                    // 사용자 메뉴의 표시 문자열
+                    userMenuId:"userColumnHide",
+                    // 사용자 메뉴의 id, 해당 컨텍스트 메뉴가 클릭될때, 입력값으로 전달됨
+                    className:"userMenu"
+                    // 사용자 메뉴의 스타일 클래스 이름
+                }], // 시스템 메뉴 아래에, 사용자 메뉴를 추가합니다.
+            };
+
+		
+	};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:gridView id="grd" style="position:absolute; top:32px; left:18px; width:500px; height:150px; " scrollByColumn="false"
+    		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="" ev:oncontextopen="scwin.grd_oncontextopen">
+    		<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header1">
+    			<w2:row style="" id="row1">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column1" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody1">
+    			<w2:row style="" id="row2">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column2" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    </body>
+</html>

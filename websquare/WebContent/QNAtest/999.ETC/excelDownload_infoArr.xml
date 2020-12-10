@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" id="dc_resUserList" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="NAME" name="이름"></w2:column>
+        				<w2:column dataType="text" id="BIRTHDAY" name="생일"></w2:column>
+        				<w2:column dataType="text" id="GENDER" name="성별"></w2:column>
+        				<w2:column dataType="text" id="WORK" name="직업"></w2:column>
+        				<w2:column dataType="text" id="HEIGHT" name="키"></w2:column>
+        				<w2:column dataType="text" id="WEIGHT" name="몸무게"></w2:column>
+        				<w2:column dataType="text" id="ADDR" name="주소"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="submission1" ref="" target="data:json,dc_resUserList" action="/QNAtest/0.jsonData/gridView_json.json"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="test" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+	// excelDownload infoArr 샘플
+	scwin.onpageload = function() {
+		var json = [{
+				"NAME" : "원빈",
+				"BIRTHDAY" : "19930516",
+				"GENDER" : "F",
+				"WORK" : "배우",
+				"HEIGHT" : "161.8",
+				"WEIGHT" : "44",
+				"ADDR" : ""
+			}, {
+				"NAME" : "김우빈",
+				"BIRTHDAY" : "19780207",
+				"GENDER" : "M",
+				"WORK" : "배우",
+				"HEIGHT" : "173",
+				"WEIGHT" : "85",
+				"ADDR" : ""
+			}, {
+				"NAME" : "현빈",
+				"BIRTHDAY" : "19930817",
+				"GENDER" : "M",
+				"WORK" : "배우",
+				"HEIGHT" : "175",
+				"WEIGHT" : "55",
+				"ADDR" : ""
+			}, {
+				"NAME" : "아이유",
+				"BIRTHDAY" : "19820301",
+				"GENDER" : "F",
+				"WORK" : "가수",
+				"HEIGHT" : "170",
+				"WEIGHT" : "49",
+				"ADDR" : ""
+			}, {
+				"NAME" : "쌈디",
+				"BIRTHDAY" : "19880818",
+				"GENDER" : "M",
+				"WORK" : "래퍼",
+				"HEIGHT" : "177",
+				"WEIGHT" : "58",
+				"ADDR" : ""
+			}, {
+				"NAME" : "다이나믹듀오",
+				"BIRTHDAY" : "19920606",
+				"GENDER" : "F",
+				"WORK" : "래퍼",
+				"HEIGHT" : "164",
+				"WEIGHT" : "44",
+				"ADDR" : ""
+			}, {
+				"NAME" : "하현우",
+				"BIRTHDAY" : "19801116",
+				"GENDER" : "M",
+				"WORK" : "가수",
+				"HEIGHT" : "180",
+				"WEIGHT" : "120",
+				"ADDR" : ""
+			}, {
+				"NAME" : "송강호",
+				"BIRTHDAY" : "19850919",
+				"GENDER" : "M",
+				"WORK" : "전설",
+				"HEIGHT" : "178",
+				"WEIGHT" : "65",
+				"ADDR" : ""
+			}, {
+				"NAME" : "한석규",
+				"BIRTHDAY" : "19900905",
+				"GENDER" : "F",
+				"WORK" : "전설",
+				"HEIGHT" : "164",
+				"WEIGHT" : "47",
+				"ADDR" : ""
+			}, {
+				"NAME" : "최민식",
+				"BIRTHDAY" : "19750302",
+				"GENDER" : "M",
+				"WORK" : "전설",
+				"HEIGHT" : "180",
+				"WEIGHT" : "70",
+				"ADDR" : ""
+			}, {
+				"NAME" : "김경호",
+				"BIRTHDAY" : "19820111",
+				"GENDER" : "F",
+				"WORK" : "가수",
+				"HEIGHT" : "165",
+				"WEIGHT" : "45",
+				"ADDR" : ""
+			}, {
+				"NAME" : "모성종",
+				"BIRTHDAY" : "19831009",
+				"GENDER" : "F",
+				"WORK" : "엔지니어",
+				"HEIGHT" : "170",
+				"WEIGHT" : "114",
+				"ADDR" : ""
+			}, {
+				"NAME" : "김윤정",
+				"BIRTHDAY" : "19850714",
+				"GENDER" : "M",
+				"WORK" : "엔지니어",
+				"HEIGHT" : "170",
+				"WEIGHT" : "114",
+				"ADDR" : ""
+			}, {
+				"NAME" : "홍길동",
+				"BIRTHDAY" : "19810815",
+				"GENDER" : "F",
+				"WORK" : "범죄자",
+				"HEIGHT" : "168",
+				"WEIGHT" : "46",
+				"ADDR" : ""
+			}, {
+				"NAME" : "장발장",
+				"BIRTHDAY" : "19780224",
+				"GENDER" : "M",
+				"WORK" : "범죄자",
+				"HEIGHT" : "174",
+				"WEIGHT" : "63",
+				"ADDR" : ""
+			}];
+		
+		
+		dc_resUserList.setJSON(json);
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	scwin.trigger11_onclick = function(e) {
+		var options = {};
+		var infoArr = [];
+
+		options.fileName = "test.xls";
+		options.type = "1";
+		options.showProcess = true;
+		options.lazyInfoArr = "false";
+		options.startRowIndex = 0;
+		options.startColumnIndex = 0;
+
+		var infoObj = {
+			rowIndex : 0,
+			colIndex : 3,
+			rowSpan : 0,
+			colSpan : 0,
+			text : "그리드 영역 데이터",
+			textAlign : "center",
+			bgColor : "red",
+			color : "black",
+			fontSize : "12px",
+			fontWeight : "bold"
+		};
+		infoArr.push(infoObj);
+
+		var infoObj = {
+			rowIndex : 0,
+			colIndex : 5,
+			rowSpan : 0,
+			colSpan : 0,
+			text : "그리드 영역 데이터",
+			textAlign : "center",
+			bgColor : "red",
+			color : "black",
+			fontSize : "12px",
+			fontWeight : "bold"
+		};
+		infoArr.push(infoObj);
+
+		var infoObj = {
+			rowIndex : 0,
+			colIndex : 6,
+			rowSpan : 0,
+			colSpan : 0,
+			text : "그리드 영역 데이터",
+			textAlign : "center",
+			bgColor : "red",
+			color : "black",
+			fontSize : "12px",
+			fontWeight : "bold"
+		};
+		infoArr.push(infoObj);
+
+		var infoObj = {
+			rowIndex : 0,
+			colIndex : 7,
+			rowSpan : 0,
+			colSpan : 0,
+			text : "그리드 영역 바깥 부분 데이터",
+			textAlign : "center",
+			bgColor : "red",
+			color : "black",
+			fontSize : "12px",
+			fontWeight : "bold"
+		};
+		infoArr.push(infoObj);
+
+		var infoObj = {
+			rowIndex : 0,
+			colIndex : 3,
+			rowSpan : 0,
+			colSpan : 0,
+			text : "그리드 영역 바깥 부분 데이터",
+			textAlign : "center",
+			bgColor : "red",
+			color : "black",
+			fontSize : "12px",
+			fontWeight : "bold"
+		};
+		infoArr.push(infoObj);
+
+		grd.advancedExcelDownload(options, infoArr);
+	};
+
+	scwin.trigger12_onclick = function(e) {
+		$p.executeSubmission("submission1");
+		WebSquare.layer.hideProcessMessage();
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:trigger type="button" style="width:136px;height:23px;" id="trigger11" ev:onclick="scwin.trigger11_onclick">
+    		<xf:label><![CDATA[excelDownload]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger12" ev:onclick="scwin.trigger12_onclick">
+    		<xf:label><![CDATA[]]></xf:label>
+    	</xf:trigger>
+
+    	<w2:gridView id="grd" style="width:492px;height:217px;margin:50px;" scrollByColumn="false" defaultCellHeight="20"
+    		scrollByColumnAdaptive="false" dataList="data:dc_resUserList" autoFit="allColumn">
+    		<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header2">
+    			<w2:row style="" id="row3">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column9" value="이름"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column8" value="생일"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column7" value="성별"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column6" value="직업"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column5" value="키"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column4" value="몸무게"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column3" value="주소"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody2">
+    			<w2:row style="" id="row4">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="NAME" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="BIRTHDAY" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="GENDER" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="WORK" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="HEIGHT" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="WEIGHT" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="ADDR" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    </body>
+</html>

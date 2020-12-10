@@ -1,0 +1,14 @@
+<hashtable>
+    <data hashkey="applyclassfunction"/>
+    <data hashkey="callclassfunction"/>
+    <data hashkey="inherit"/>
+    <data hashkey="functiondetail">
+        <vector result="0"/>
+    </data>
+    <data hashkey="constructorsummary"/>
+    <data hashkey="plugininfo"/>
+    <data hashkey="functionsummary">
+        <hashtable/>
+    </data>
+    <data hashkey="constructordetail"/>
+</hashtable>

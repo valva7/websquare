@@ -1,0 +1,74 @@
+<hashtable>
+    <data hashkey="applyclassfunction"/>
+    <data hashkey="callclassfunction"/>
+    <data hashkey="inherit"/>
+    <data hashkey="functiondetail">
+        <vector result="2">
+            <data vectorkey="0">
+                <hashtable>
+                    <data hashkey="name" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_from()"/>
+                    <data hashkey="shortCutName" value="getValue_1_from"/>
+                    <data hashkey="standardName" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_from()"/>
+                    <data hashkey="author" value="udc"/>
+                    <data hashkey="see"/>
+                    <data hashkey="hidden" value="false"/>
+                    <data hashkey="cdate"/>
+                    <data hashkey="parameter">
+                        <hashtable/>
+                    </data>
+                    <data hashkey="description" value="desc"/>
+                    <data hashkey="return">
+                        <hashtable>
+                            <data hashkey="type" value="String"/>
+                            <data hashkey="description" value="desc"/>
+                        </hashtable>
+                    </data>
+                </hashtable>
+            </data>
+            <data vectorkey="1">
+                <hashtable>
+                    <data hashkey="name" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_to()"/>
+                    <data hashkey="shortCutName" value="getValue_1_to"/>
+                    <data hashkey="standardName" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_to()"/>
+                    <data hashkey="author" value="udc"/>
+                    <data hashkey="see"/>
+                    <data hashkey="hidden" value="false"/>
+                    <data hashkey="cdate"/>
+                    <data hashkey="parameter">
+                        <hashtable/>
+                    </data>
+                    <data hashkey="description" value="desc"/>
+                    <data hashkey="return">
+                        <hashtable>
+                            <data hashkey="type" value="String"/>
+                            <data hashkey="description" value="desc"/>
+                        </hashtable>
+                    </data>
+                </hashtable>
+            </data>
+        </vector>
+    </data>
+    <data hashkey="constructorsummary"/>
+    <data hashkey="plugininfo"/>
+    <data hashkey="functionsummary">
+        <hashtable>
+            <data hashkey="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_from()">
+                <hashtable>
+                    <data hashkey="name" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_from()"/>
+                    <data hashkey="standardName" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_from()"/>
+                    <data hashkey="description" value="desc"/>
+                    <data hashkey="shortCutName" value="getValue_1_from"/>
+                </hashtable>
+            </data>
+            <data hashkey="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_to()">
+                <hashtable>
+                    <data hashkey="name" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_to()"/>
+                    <data hashkey="standardName" value="WebSquare.uiplugin.inputCalendar_FormTo.prototype.getValue_1_to()"/>
+                    <data hashkey="description" value="desc"/>
+                    <data hashkey="shortCutName" value="getValue_1_to"/>
+                </hashtable>
+            </data>
+        </hashtable>
+    </data>
+    <data hashkey="constructordetail"/>
+</hashtable>

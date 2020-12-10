@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>UDC</w2:type>
+        <w2:buildDate/>
+        <w2:model></w2:model>
+    </head>
+    <body>
+    	<!--/** WEBSQUARE UDC */
+    		{
+    		"disableIcon": "",
+    		"notSupportBrowser": "IE11,Chrome",
+    		"htmlRender": "",
+    		"icon": "",
+    		"description": "",
+    		"version": "",
+    		"apis": [
+    		{
+    		"name": "getValue_1_from",
+    		"description": "desc",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		},
+    		{
+    		"name": "getValue_1_to",
+    		"description": "desc",
+    		"params": [],
+    		"return": [{
+    		"description": "desc",
+    		"type": "String"
+    		}]
+    		}
+    		],
+    		"pluginName": "inputCalendar_FormTo",
+    		"width": "200px",
+    		"company": "",
+    		"developer": "",
+    		"componentName": "inputCalendar_FormTo",
+    		"category": "Basic",
+    		"properties": [
+    		{
+    		"default": "",
+    		"necessary": "Y",
+    		"hidden": "N",
+    		"name": "id",
+    		"description": "Component id",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "style",
+    		"description": "Component style",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "class",
+    		"description": "Component class",
+    		"type": "string",
+    		"bindparent": "",
+    		"option": ""
+    		},
+    		{
+    		"default": "",
+    		"necessary": "N",
+    		"hidden": "N",
+    		"name": "ref",
+    		"description": "Component ref",
+    		"type": "bindColumn",
+    		"bindparent": "",
+    		"option": ""
+    		}
+    		],
+    		"events": [{
+    		"name": "onUserClick_1()",
+    		"description": "desc",
+    		"type": "user"
+    		}],
+    		"height": "200px"
+    		}
+    	-->
+    	<xf:group style="" id="" pluginName="inputCalendar_FormTo">
+    		<link rel="stylesheet" type="text/css" href=""></link>
+    		<style type="text/css"><![CDATA[ ]]></style>
+    		<script type="text/javascript" src=""></script>
+    		<script ev:event="oncreated(options)" type="text/javascript"><![CDATA[
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onUserClick_1"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onUserClick_1"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onUserClick_1"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onUserClick_1"); 
+				*/
+
+				/**
+				 * //property handling
+				 * $w.log("id:" + options.id);
+				 * $w.log("style:" + options.style);
+				 * $w.log("class:" + options.class);
+				 * $w.log("ref:" + options.ref);
+				 *
+				 * //event trigger
+				 * udc_obj.trigger("onUserClick_1"); 
+				*/
+
+				/**
+				 * Function description...
+				 * @date 2020. 07. 29
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author KimGleam
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getValue_1_from = function(){
+					var fromVal = from.getValue();
+					return fromVal;
+				};
+				
+				/**
+				 * Function description...
+				 * @date 2020. 07. 29
+				 * @memberOf udc_obj
+				 * @param 
+				 * @returns  
+				 * @author KimGleam
+				 * @example
+				 * @since
+				*/ 
+				udc_obj.getValue_1_to = function(){
+					var toVal = to.getValue();
+					return toVal;				
+				};
+				]]></script>
+    		<script ev:event="onattributeChanged(type,value)" type="text/javascript"><![CDATA[ ]]></script>
+    		<script ev:event="ondestroyed()" type="text/javascript"><![CDATA[ ]]></script>
+    		<w2:inputCalendar footerDiv="false" id="from" style="width: 150px;height: 23px;" renderDiv="true" focusOnDateSelect="false"
+    			calendarValueType="yearMonthDate" rightAlign="false" renderType="component">
+    		</w2:inputCalendar>
+    		<w2:inputCalendar footerDiv="false" id="to" style="width: 150px;height: 23px;" renderDiv="true" focusOnDateSelect="false"
+    			calendarValueType="yearMonthDate" rightAlign="false" renderType="component">
+    		</w2:inputCalendar>
+    	</xf:group>
+    </body>
+</html>

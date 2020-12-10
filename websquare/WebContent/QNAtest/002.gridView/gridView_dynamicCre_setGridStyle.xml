@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate></w2:buildDate>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="data_01" name="data_01" dataType="text"></w2:column>
+        				<w2:column id="data_02" name="data_02" dataType="text"></w2:column>
+        				<w2:column id="data_03" name="data_03" dataType="text"></w2:column>
+        				<w2:column id="data_04" name="data_04" dataType="text"></w2:column>
+        				<w2:column id="data_05" name="data_05" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        </xf:model>
+        <script type="javascript" lazy="false"><![CDATA[
+		// gridView setGridStyle을 사용하여 gridView 동적 생성
+		scwin.onpageload = function() {
+       		
+       		var jsonData = [{"data_01":"133527", "data_02":"러프치즈스넥", "data_03":"250", "data_04":"120", "data_05":"350"}
+       		               ,{"data_01":"133528", "data_02":"서울우유", "data_03":"200", "data_04":"120", "data_05":"350"}
+       		               ,{"data_01":"133530", "data_02":"아인슈타인", "data_03":"110", "data_04":"120", "data_05":"350"}
+       		               ,{"data_01":"133531", "data_02":"덴마크우유", "data_03":"245", "data_04":"120", "data_05":"350"} 
+       					   ];
+       		dataList1.setJSON( jsonData);
+       		
+       		grdMain.hide();
+       		edCols.setValue("5");
+       		
+       		genCol.insertChild(0);
+       		genCol.insertChild(1);
+       		genCol.insertChild(2);
+       		genCol.insertChild(3);
+       		genCol.insertChild(4);
+       	};
+       	
+  		scwin.onpageunload = function() {
+		};
+       	
+		// header 이름 만들기 
+        scwin.getHeaderName = function(p) {
+            var col_name = "h_" + (((p+1) < 10) ? ("0" + (p+1)) : (p+1));
+
+            return  col_name;
+        };
+
+		// body 이름 만들기 
+        scwin.getColName = function(p) {
+            var col_name = "data_" + (((p+1) < 10) ? ("0" + (p+1)) : (p+1));
+
+            return  col_name;
+        };
+
+		scwin.makeGridView = function() {
+			
+			// gridView의 속성 정의 부분 
+			var options = {
+                   autoFit:"allColumn"
+                  ,style:"position:absolute;width:639px;height:131px;left:13px;top:180px;background-color:#F9F9F9;border:1px solid #539237;"
+               };
+               
+               // gridView의 이벤트 정의 부분 
+               var events = {
+               	oncellclick: "scwin.grdMain_oncellclick"
+               };
+               
+               // gridView의 header 정의 부분
+               var headerOptions = {
+               	id: "header2"
+                  ,style: "height:20px;padding-top:2px;"  
+               };
+               
+               // gridView의 body 정의 부분  
+               var bodyOptions = {
+               	id: "gBody2"
+                  ,style: "height:20px;padding-top:2px;"  
+               };
+               
+               scwin.make("dataList1", "grdMain", options, events, headerOptions, bodyOptions);
+              
+           };
+		
+		scwin.make = function(dataStr, grdStr, options, events, hOptions, bOptions) {
+			
+			var i, j;
+            var hId, bId;
+            var nHeadQty = edCols.getValue();
+               
+			var nOptions = {
+                   scrollByColumn : options.scrollByColumn || false
+                  ,fixedColumnWithHidden: options.fixedColumnWithHidden || true
+                  ,useShiftKey: options.useShiftKey || true
+                  ,autoFit: options.autoFit || ""
+                  ,style: options.style
+               };
+			
+			var gridView = "<w2:gridView xmlns='http://www.w3.org/1999/xhtml' xmlns:w2='http://www.inswave.com/websquare' xmlns:ev='http://www.w3.org/2001/xml-events'\n";
+			gridView += "dataList='" + dataStr + "' ";
+			
+			// gridView 속성 넣어 주기 
+			for(var key1 in nOptions){
+				gridView += key1 + "='" + nOptions[key1] + "' ";
+			}
+			
+			gridView += "\n id='" + grdStr + "' ";  
+			
+			// gridView 이벤트 넣어 주기 
+			for(var key2 in events){
+				gridView += "ev:" + key2 + "='" + events[key2] + "' ";
+			}
+			
+			gridView += ">\n";
+			
+			// gridView header 부분 만들기 
+			var hOptions = {
+               	style: hOptions.style
+                  ,columnStyle: hOptions.columnStyle || ""
+                  ,id: hOptions.id || "header2"
+                  ,class: hOptions.class || ""
+               };
+               
+			gridView += "    <w2:header ";
+			for(var key3 in hOptions){
+				gridView += key3 + "='" + hOptions[key3] + "' ";
+			}
+			gridView += ">\n";
+			// 헤더 첫번째 줄
+			gridView += "        <w2:row>\n";
+
+               for (i=0; i<nHeadQty-2; i++) {
+                   hId = scwin.getHeaderName(i);
+
+                   gridView += "            <w2:column inputType='text' valueType='binary'\n";
+                   gridView += "                style='height:20px;padding-top:2px;' id='" + hId + "' width='100' value='" + hId + "'>\n";
+                   gridView += "            </w2:column>\n";
+               }
+               // 병합 (row, col)
+               gridView += "            <w2:column inputType='text' valueType='binary'\n";
+               gridView += "                style='height:20px;padding-top:2px;' id='" + hId + "_mergeRowCol' width='100' value='" + hId + "_mergeRowCol'  colSpan='2' rowSpan='2'>\n";
+               gridView += "            </w2:column>\n";
+               
+               gridView += "        </w2:row>\n";
+               
+               // 헤더 2번째 줄
+     		   gridView += "        <w2:row>\n";
+               for (i=0; i<nHeadQty-2; i++) {
+                   hId = scwin.getHeaderName(i);
+
+                   gridView += "            <w2:column inputType='text' valueType='binary'\n";
+                   gridView += "                style='height:20px;padding-top:2px;' id='" + hId + "_second_header' width='100' value='" + hId + "_second_header'>\n";
+                   gridView += "            </w2:column>\n";
+               }
+               gridView += "        </w2:row>\n";
+               
+               gridView += "    </w2:header>\n";
+			
+			
+			// gridView body 부분 만들기 
+			var bOptions = {
+               	style: bOptions.style
+                  ,columnStyle: bOptions.columnStyle || ""
+                  ,id: bOptions.id || "gBody2"
+               };
+               
+			gridView += "    <w2:gBody ";
+			for(var key4 in bOptions){
+				gridView += key4 + "='" + bOptions[key4] + "' ";
+			}
+			gridView += ">\n";
+			gridView += "        <w2:row>\n";
+			
+               for (j=0; j<nHeadQty; j++) {
+                   bId = scwin.getColName(j);
+
+                   gridView += "            <w2:column inputType='" + genCol.getChild( j , "sel_Col" ).getValue() + "' valueType='binary'\n";
+                   gridView += "                style='height:20px;padding-top:2px;' dataType='text' id='" + bId + "' width='100'>\n";
+                   gridView += "            </w2:column>\n";
+               }
+               gridView += "        </w2:row>\n";
+               gridView += "    </w2:gBody>\n";
+ 			    gridView += "</w2:gridView>\n";
+			
+               grdMain.setGridStyle(WebSquare.xml.parse(gridView, true));
+           };
+		
+		scwin.trBtnMakeGrid_onclick = function(e) {
+			if (edCols.getValue() > 0) {
+  					scwin.makeGridView();
+			} else {
+				alert('열갯수를 입력 하세요');
+			}
+		};
+	
+		scwin.grdMain_oncellclick = function(row,col) {
+			alert("row :" + row + " \n" + "col : " + col);
+		};
+		
+		// 열 갯수 정의에 따른 컬럼 inputType을 정의한다.
+		scwin.edCols_onviewchange = function(info) {
+			genCol.removeAll();
+			
+			for(var i=0; i<info.newValue; i++){
+				genCol.insertChild( i );
+			}
+		};
+		
+	
+	scwin.trigger1_onclick = function(e) {
+		grdMain.initGrid();
+	};
+	
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[]]></xf:label>
+    	</xf:trigger>
+    	<xf:group id="grpMain" class="" style="position:absolute;left:-3px;top:64px;width:669px;height:280px;">
+    		<w2:gridView dataList="" scrollByColumn="false" id="grdMain"
+    			style="position: absolute ;left:13px;top:180px;width:639px;height:83px;" fixedColumnWithHidden="true" useShiftKey="true"
+    			ev:oncellclick="scwin.grdMain_oncellclick" rowNumLocaleRef="" rowStatusLocaleRef="">
+    			<w2:header id="header3" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column id="column24" style="height:20px" inputType="text" width="0"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody3" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column id="column25" style="height:20px" inputType="text" width="0"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:textbox id="textTitle" style="position: absolute ;left:16px;top:6px;width: 177px;height: 30px;" label="동적그리드뷰"></w2:textbox>
+    		<w2:textbox id="textCols"
+    			style="position: absolute ;left:15px;top:40px;width:50px;height:24px;;text-align:center;vertical-align:middle;" label="열 갯수">
+    		</w2:textbox>
+    		<xf:input id="edCols" style="position: absolute ;left:74px;top:40px;width: 60px;height: 24px;" editType="select"
+    			dataType="number" maxlength="2" maxByteLength="2" ev:onviewchange="scwin.edCols_onviewchange">
+    		</xf:input>
+    		<w2:generator id="genCol" style="position: absolute ;left: 150px;top: 40px;width: 700px;height: 24px;">
+    			<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" direction="auto" chooseOption="" id="sel_Col"
+    				style="width: 13%;height: 100%;" displayMode="label" selectedData="true" optionOrder="false" allOption="" disabled="false"
+    				submenuSize="auto">
+    				<xf:choices>
+    					<xf:item>
+    						<xf:label><![CDATA[text]]></xf:label>
+    						<xf:value><![CDATA[text]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[link]]></xf:label>
+    						<xf:value><![CDATA[link]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[checkbox]]></xf:label>
+    						<xf:value><![CDATA[checkbox]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[button]]></xf:label>
+    						<xf:value><![CDATA[button]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[image]]></xf:label>
+    						<xf:value><![CDATA[image]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[radio]]></xf:label>
+    						<xf:value><![CDATA[radio]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[select]]></xf:label>
+    						<xf:value><![CDATA[select]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[calendar]]></xf:label>
+    						<xf:value><![CDATA[calendar]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[expression]]></xf:label>
+    						<xf:value><![CDATA[expression]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[textarea]]></xf:label>
+    						<xf:value><![CDATA[textarea]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[drilldown]]></xf:label>
+    						<xf:value><![CDATA[drilldown]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[textImage]]></xf:label>
+    						<xf:value><![CDATA[textImage]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[checkcombobox]]></xf:label>
+    						<xf:value><![CDATA[checkcombobox]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[autoComplete]]></xf:label>
+    						<xf:value><![CDATA[autoComplete]]></xf:value>
+    					</xf:item>
+    					<xf:item>
+    						<xf:label><![CDATA[secret]]></xf:label>
+    						<xf:value><![CDATA[secret]]></xf:value>
+    					</xf:item>
+    				</xf:choices>
+    			</xf:select1>
+    		</w2:generator>
+    		<xf:trigger type="button" id="trBtnMakeGrid" style="position: absolute ;left:554px;top:149px;width: 98px;height: 24px;"
+    			ev:onclick="scwin.trBtnMakeGrid_onclick">
+    			<xf:label>그리드뷰생성</xf:label>
+    		</xf:trigger>
+    	</xf:group>
+    </body>
+</html>

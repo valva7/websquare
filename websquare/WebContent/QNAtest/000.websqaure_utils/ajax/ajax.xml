@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.trigger1_onclick = function(e) {
+		var options = {};
+			options.action = "/test.jsp";
+			options.mode = "asynchronous";
+			options.mediatype = "text/json";
+			options.method = "POST";
+			options.requestData = '{ "name" : "WebSquare" , "addr" : "서울시" }';
+			options.requestHeader = {insUserData:"w5Edu"};
+			options.success = doSucess;     //정의 된 function 객체
+			options.error = function( e ){      //functoin을 직접 정의 한 경우.
+			    //e.errorType - "target-error" 고정값 반환
+			    //e.resourceUri - 통신 URI 반환
+			    //e.responseHeaders - Response Headers 내용 반환
+			    //e.responseStatusCode - Response Status Code 반환
+			    //e.responseReasonPhrase - Response Status Text 반환
+			    //e.requestBody - Request Data로 String 형태 반환
+			    //e.responseText - Response Data 원본으로 String 형태 반환
+			
+			    //satus code alert으로 출력.
+			    alert("errorCode:"+e.responseStatusCode);
+			};
+		var ajax = $p.ajax( options );
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[ajax]]></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

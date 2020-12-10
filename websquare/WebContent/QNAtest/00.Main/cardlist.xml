@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+                <w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+                    <w2:columnInfo>
+                        <w2:column id="sUseDt" name="발생일" dataType="text"></w2:column>
+                        <w2:column id="sUseNm" name="사용자" dataType="text"></w2:column>
+                        <w2:column id="sUseHqCd" name="본부" dataType="text"></w2:column>
+                        <w2:column id="sUseTeamCd" name="팀" dataType="text"></w2:column>
+                        <w2:column id="sUseProjectCd" name="프로젝트" dataType="text"></w2:column>
+                        <w2:column id="sMiddleCd" name="계정(중)" dataType="text"></w2:column>
+                        <w2:column id="sSmallCd" name="계정(소)" dataType="text"></w2:column>
+                        <w2:column id="sCustomerCd" name="사용대상/고객" dataType="text"></w2:column>
+                        <w2:column id="sLargeCd" name="계정구분" dataType="text"></w2:column>
+                        <w2:column id="sDetail" name="사용내역" dataType="text"></w2:column>
+                        <w2:column id="nImExportAmt" name="지출액" dataType="number"></w2:column>
+                        <w2:column id="sUseId" name="사번" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+<!--         <script type="text/javascript" lazy="false"><![CDATA[-->
+         <script type="text/javascript"><![CDATA[
+        
+	scwin.onpageload = function() {
+		//dataList1.setData(["","팀장승인요청","-선택-","2020-01-17","","모성종","SW사업본부","기술지원팀","기술지원팀","팀사업비","여비교통비","KTX/고속버스","     -선택-","한국연구재단 점검/서울/대전","19,800","","","202001","2082","","20200206","100309","20200206","100309","300200","310000","300200","2","2","","","100309","002082","","팀장승인요청","-선택-","2020-01-17","","모성종","SW사업본부","기술지원팀","기술지원팀","팀사업비","여비교통비","KTX/고속버스","     -선택-","한국연구재단 점검/대전/서울","19,800","","","202001","2083","","20200206","100309","20200206","100309","300200","310000","300200","2","2","","","100309","002083","","팀장승인요청","-선택-","2020-01-31","","모성종","SW사업본부","기술지원팀","기술지원팀","팀사업비","여비교통비","티머니교통비","     -선택-","1월 티머니","42,300","","","202001","2081","","20200206","100309","20200206","100309","300200","310000","300200","2","2","","","100309","002081"])
+        //var jsData = '[{"sCheck":"","sApprovalStat":"10","sCardNo":"","sUseDt":"20200117","sUseYmd":"","sUseNm":"모성종","sUseHqCd":"310000","sUseTeamCd":"300200","sUseProjectCd":"300200","sLargeCd":"A04","sMiddleCd":"M15","sSmallCd":"S03","sCustomerCd":"","sDetail":"한국연구재단 점검/서울/대전","nImExportAmt":"19800","sStoreNm":"","sStoreJuso":"","sProcessYm":"202001","nSeq":"2082","sApprovalKey":"","sInputDt":"20200206","sInputId":"100309","sUpdateDt":"20200206","sUpdateId":"100309","sTeamCd":"300200","sHqCd":"310000","sProjectCd":"300200","sViewGb":"2","sMoneyGb":"2","sApprovalCm":"","sConfirmYn":"","sUseId":"100309","sSeqStr":"002082"},{"sCheck":"","sApprovalStat":"10","sCardNo":"","sUseDt":"20200117","sUseYmd":"","sUseNm":"모성종","sUseHqCd":"310000","sUseTeamCd":"300200","sUseProjectCd":"300200","sLargeCd":"A04","sMiddleCd":"M15","sSmallCd":"S03","sCustomerCd":"","sDetail":"한국연구재단 점검/대전/서울","nImExportAmt":"19800","sStoreNm":"","sStoreJuso":"","sProcessYm":"202001","nSeq":"2083","sApprovalKey":"","sInputDt":"20200206","sInputId":"100309","sUpdateDt":"20200206","sUpdateId":"100309","sTeamCd":"300200","sHqCd":"310000","sProjectCd":"300200","sViewGb":"2","sMoneyGb":"2","sApprovalCm":"","sConfirmYn":"","sUseId":"100309","sSeqStr":"002083"},{"sCheck":"","sApprovalStat":"10","sCardNo":"","sUseDt":"20200131","sUseYmd":"","sUseNm":"모성종","sUseHqCd":"310000","sUseTeamCd":"300200","sUseProjectCd":"300200","sLargeCd":"A04","sMiddleCd":"M15","sSmallCd":"S74","sCustomerCd":"","sDetail":"1월 티머니","nImExportAmt":"42300","sStoreNm":"","sStoreJuso":"","sProcessYm":"202001","nSeq":"2081","sApprovalKey":"","sInputDt":"20200206","sInputId":"100309","sUpdateDt":"20200206","sUpdateId":"100309","sTeamCd":"300200","sHqCd":"310000","sProjectCd":"300200","sViewGb":"2","sMoneyGb":"2","sApprovalCm":"","sConfirmYn":"","sUseId":"100309","sSeqStr":"002081"}]'
+        //dataList1.setJSON(JSON.parse(jsData));
+        //textarea1.setValue(jsData);
+        console.log("xml안에있는 scwin.onpageload");
+        moCom.test();
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+    Date.prototype.yyyymm = function(withDot) {
+        var yyyy = this.getFullYear().toString();
+        var mm = this.getMonth().toString();
+        var dd = this.getDate().toString();
+        if(withDot)
+            return yyyy + ". "+(mm[1] ? mm : mm[0]==0 ? '12' : '0'+mm[0]);
+        return yyyy +(mm[1] ? mm : mm[0]==0 ? '12' : '0'+mm[0]);
+    }
+    
+    scwin.getInfoArr = function() {
+        var infoArr = [];
+        //경비 신청서/전표
+        var infoObj = {
+            rowIndex: 0
+            ,colIndex: 0
+            ,rowSpan: 1
+            ,colSpan: 18
+            ,text: "  경비 신청서/전표  ("+new Date().yyyymm(true)+")"
+            ,textAlign: "center"
+            ,fontSize: "15"
+            ,drawBorder: "false"
+        };
+        infoArr.push(infoObj);
+        
+        var infoObj1 = {rowIndex: 0,colIndex: 0,rowSpan: 1,colSpan: 1,text: "",textAlign: "center",fontSize: "8",drawBorder: "true",borderColor: "#000",borderWidth: "medium",bgColor: "#CCE1EE"};
+        var infoObj2 = {rowIndex: 0,colIndex: 0,rowSpan: 1,colSpan: 1,text: "",textAlign: "center",fontSize: "8",fontName: "굴림체",drawBorder: "true",borderColor: "#000",borderWidth: "medium",bgColor: "#FFF"};
+        
+        //우상단 기안자
+        infoObj1.rowIndex = 2;
+        infoObj1.colIndex = 10;
+        infoObj1.rowSpan = 3;
+        infoObj1.colSpan = 2;
+        infoObj1.text = "소속본부";
+        infoArr.push(infoObj1);
+        infoObj1 = Object.assign({}, infoObj1);
+        
+        infoObj1.colIndex = 15;
+        infoObj1.colSpan = 1;
+        infoObj1.text = "경영지원";
+        infoArr.push(infoObj1);
+        infoObj1 = Object.assign({}, infoObj1);
+        
+        var colIdxArr = [12, 13, 14, 16, 17];
+        var textArr = ["신청인", "팀장", "본부", "담당", "팀장"];
+        infoObj1.rowSpan = 1;
+        infoObj1.colSpan = 1;
+        for(var i=0; i<colIdxArr.length; i++) {        
+            infoObj1.colIndex = colIdxArr[i];
+            infoObj1.text = textArr[i];
+            infoArr.push(infoObj1);
+            infoObj1 = Object.assign({}, infoObj1);
+        }
+        
+        infoObj2.rowIndex = 3;
+        infoObj2.colIndex = 12;
+        infoObj2.rowSpan = 2;
+        infoObj2.colSpan = 1;
+        infoObj2.text = dataList1.getCellData(0, "sUseNm");
+        infoArr.push(infoObj2);
+        infoObj2 = Object.assign({}, infoObj2);
+        
+        var colIdxArr = [13, 14, 16, 17];
+        var textArr = ["안현철", "송봉철", "진충경", "이종엽"];
+        for(var i=0; i<colIdxArr.length; i++) {        
+            infoObj2.colIndex = colIdxArr[i];
+            infoObj2.text = textArr[i];
+            infoArr.push(infoObj2);
+            infoObj2 = Object.assign({}, infoObj2);
+        }
+        
+        //하단 테이블
+        var cnt = dataList1.getRowCount();
+//        infoObj1.rowIndex = 13;
+        infoObj1.rowIndex = cnt+10;
+        infoObj1.colIndex = 0;
+        infoObj1.rowSpan = 1;
+        infoObj1.colSpan = 18;
+        infoObj1.text = "경영지원팀 사용란";
+        infoArr.push(infoObj1);
+        infoObj1 = Object.assign({}, infoObj1);
+        
+        var colIdxArr = [0, 2, 7, 12, 15];
+        var colSpanArr = [2, 5, 5, 3, 3];
+        var textArr = ["계정코드", "계정과목", "부서명 및 코드", "금액", "비고"];
+        
+        for(var i=0; i<colIdxArr.length; i++) {
+//            infoObj1.rowIndex = 14;
+            infoObj1.rowIndex = cnt+11;
+            infoObj1.colIndex = colIdxArr[i];
+            infoObj1.colSpan = colSpanArr[i];
+            infoObj1.text = textArr[i];
+            infoArr.push(infoObj1);
+            infoObj1 = Object.assign({}, infoObj1);
+        }
+        
+        var colIdxArr = [0, 2, 7, 12, 15];
+        var colSpanArr = [2, 5, 5, 3, 3];
+        for(var i=0; i<3; i++) {
+//            infoObj2.rowIndex = 15+i*2;
+            infoObj2.rowIndex = (cnt+12)+i*2;
+            infoObj2.rowSpan = 2;
+            infoObj2.text = " ";
+            for(var j=0; j<colIdxArr.length; j++) {
+                infoObj2.colIndex = colIdxArr[j];
+                infoObj2.colSpan = colSpanArr[j];
+                infoArr.push(infoObj2);
+                infoObj2 = Object.assign({}, infoObj2);
+            }
+        }
+        
+//        infoObj2.rowIndex = 21;
+        infoObj2.rowIndex = cnt+18;
+        infoObj2.colIndex = 0;
+        infoObj2.rowSpan = 2;
+        infoObj2.colSpan = 18;
+        infoObj2.text = "전표 :";
+        infoObj2.textAlign = "left";
+        infoArr.push(infoObj2);
+        
+        return infoArr;
+    };
+    
+	scwin.trigger1_onclick = function(e) {
+        try {
+            var infoArr = scwin.getInfoArr();
+            console.log(infoArr);
+            gridView1.advancedExcelDownload({
+                fileName:"CardList-"+new Date().yyyymm()+"-"+dataList1.getCellData(0, "sUseId")+".xlsx"
+                ,autoSizeColumn:"true"
+                ,startRowIndex: 7
+                ,headerFontSize: "8"
+                ,headerColor: "#CCE1EE"
+                ,bodyFontSize: "8"
+                ,bodyFontName: "굴림체"
+                ,footerFontSize: "8"
+                ,footerFontName: "굴림체"
+                ,footerColor: "#FFF"
+                ,colMerge: "true"
+                ,printSet: {
+                    landScape: "true"
+                    ,fitToPage: "true"
+//                    ,scale: "90"
+                }
+            }, infoArr);
+        } catch (e) {
+            
+        }
+	};
+    
+    scwin.trigger2_onclick = function(e) {
+        dataList1.setJSON(JSON.parse(textarea1.getValue()));
+    };
+    
+    scwin.onpageload();
+	]]></script>
+    </head>
+<!--    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">-->
+    <body>
+        <!-- <w2:gridView autoFit="allColumn" dataList="data:dataList1" defaultCellHeight="20" id="gridView2" mergeCells="byrow"
+            mergeCol="sDetail,sDetail_1,sDetail_2,nImExportAmt,nImExportAmt_1" scrollByColumn="false" scrollByColumnAdaptive="false"
+            style="width: 100%;height: 300px;">
+            <w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+            <w2:header id="header3" style="">
+            <w2:row id="row5" style="">
+            <w2:column blockSelect="false" displayMode="label" id="column49" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="발생일" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column47" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="사용자" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column45" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="본부" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column43" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="팀" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" colSpan="2" displayMode="label" id="column41" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="프로젝트" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column39" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="계정(중)" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column37" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="계정(소)" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column35" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="사용대상/고객" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column33" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="계정구분" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" colSpan="3" displayMode="label" id="column31" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="사용내역" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" colSpan="2" displayMode="label" id="column29" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="지출액" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column27" inputType="text" removeBorderStyle="false"
+            style="height:20px;" value="작성자" width="70">
+            </w2:column>
+            </w2:row>
+            </w2:header>
+            <w2:gBody id="gBody3" style="">
+            <w2:row id="row6" style="">
+            <w2:column blockSelect="false" displayMode="label" id="sUseDt" inputType="text" removeBorderStyle="false" style=""
+            value="" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="sUseNm" inputType="text" removeBorderStyle="false" style=""
+            textAlign="left" value="" width="70">
+            </w2:column>
+            <w2:column allOption="" blockSelect="false" chooseOption="" displayMode="label" id="sUseHqCd" inputType="select" ref=""
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            <w2:choices>
+            <w2:item>
+            <w2:label><![CDATA[SW사업본부]]></w2:label>
+            <w2:value><![CDATA[310000]]></w2:value>
+            </w2:item>
+            </w2:choices>
+            </w2:column>
+            <w2:column allOption="" blockSelect="false" chooseOption="" displayMode="label" id="sUseTeamCd" inputType="select"
+            ref="" removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            <w2:choices>
+            <w2:item>
+            <w2:label><![CDATA[기술지원팀]]></w2:label>
+            <w2:value><![CDATA[300200]]></w2:value>
+            </w2:item>
+            </w2:choices>
+            </w2:column>
+            <w2:column allOption="" blockSelect="false" chooseOption="" colSpan="2" displayMode="label" id="sUseProjectCd"
+            inputType="select" ref="" removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            <w2:choices>
+            <w2:item>
+            <w2:label><![CDATA[기술지원팀]]></w2:label>
+            <w2:value><![CDATA[300200]]></w2:value>
+            </w2:item>
+            </w2:choices>
+            </w2:column>
+            <w2:column allOption="" blockSelect="false" chooseOption="" displayMode="label" id="sMiddleCd" inputType="select" ref=""
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            <w2:choices>
+            <w2:item>
+            <w2:label><![CDATA[여비교통비]]></w2:label>
+            <w2:value><![CDATA[M15]]></w2:value>
+            </w2:item>
+            </w2:choices>
+            </w2:column>
+            <w2:column allOption="" blockSelect="false" chooseOption="" displayMode="label" id="sSmallCd" inputType="select" ref=""
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            <w2:choices>
+            <w2:item>
+            <w2:label><![CDATA[KTX/고속버스]]></w2:label>
+            <w2:value><![CDATA[S03]]></w2:value>
+            </w2:item>
+            <w2:item>
+            <w2:label><![CDATA[티머니교통비]]></w2:label>
+            <w2:value><![CDATA[S74]]></w2:value>
+            </w2:item>
+            </w2:choices>
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="sCustomerCd" inputType="text" removeBorderStyle="false" style=""
+            value="" width="70">
+            </w2:column>
+            <w2:column allOption="" blockSelect="false" chooseOption="" displayMode="label" id="sLargeCd" inputType="select" ref=""
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            <w2:choices>
+            <w2:item>
+            <w2:label><![CDATA[팀사업비]]></w2:label>
+            <w2:value><![CDATA[A04]]></w2:value>
+            </w2:item>
+            </w2:choices>
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="sDetail" inputType="text" removeBorderStyle="false" style=""
+            textAlign="left" value="" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" expression="display('sDetail')" id="sDetail_1" inputType="expression"
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" expression="display('sDetail')" id="sDetail_2" inputType="expression"
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayFormat="#,##0" displayMode="label" id="nImExportAmt" inputType="text"
+            removeBorderStyle="false" style="" textAlign="right" value="" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayFormat="#,##0" displayMode="label" expression="display('nImExportAmt')"
+            id="nImExportAmt_1" inputType="expression" removeBorderStyle="false" style="" textAlign="right" value=""
+            width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" expression="display('sUseNm')" id="col12" inputType="expression"
+            removeBorderStyle="false" style="" textAlign="left" value="" width="70">
+            </w2:column>
+            </w2:row>
+            </w2:gBody>
+            <w2:footer id="footer1" style="">
+            <w2:row id="row7" style="">
+            <w2:column blockSelect="false" colSpan="13" displayMode="label" id="column65" inputType="text" removeBorderStyle="false"
+            style="" value="합 계" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" colSpan="2" displayFormat="#,##0" displayMode="label" expression="sum('nImExportAmt')"
+            id="column64" inputType="expression" removeBorderStyle="false" style="" textAlign="right" value="" width="70">
+            </w2:column>
+            <w2:column blockSelect="false" displayMode="label" id="column63" inputType="text" removeBorderStyle="false" style=""
+            value="" width="70">
+            </w2:column>
+            </w2:row>
+            </w2:footer>
+            </w2:gridView> -->
+        <xf:group id="" style="height:405px;" class="cardListWrap">
+            <xf:textarea id="textarea1" style="width: 300px;height: 100px;" class="cardListTextarea"></xf:textarea>
+            <xf:trigger id="trigger2" style="width: 80px;height: 23px;" ev:onclick="scwin.trigger2_onclick" type="button"
+                class="cardListBtn">
+                <xf:label><![CDATA[데이터 set]]></xf:label>
+            </xf:trigger>
+            <xf:trigger id="trigger1" style="width: 80px;height: 23px;" ev:onclick="scwin.trigger1_onclick" type="button"
+                class="cardListBtn">
+                <xf:label><![CDATA[엑셀 다운로드]]></xf:label>
+            </xf:trigger>
+            <w2:gridView id="gridView1" dataList="data:dataList1" autoFit="allColumn" style="width: 100%;height: 300px;margin-left:-5px;"
+                scrollByColumn="false" defaultCellHeight="20" mergeCol="" mergeCells="" scrollByColumnAdaptive="false"
+                class="cardListGrid">
+                <w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+                <w2:header id="header3" style="">
+                    <w2:row id="row5" style="">
+                        <w2:column removeBorderStyle="false" id="column49" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="발생일" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column47" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="사용자" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column45" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="본부" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column43" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="팀" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column41" blockSelect="false" style="height:20px;" colSpan="3" width="70"
+                            inputType="text" value="프로젝트" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column39" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="계정(중)" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column37" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="계정(소)" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column35" blockSelect="false" style="height:20px;" width="70"
+                            inputType="text" value="사용대상/고객" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column33" blockSelect="false" style="height:20px;" colSpan="2" width="70"
+                            inputType="text" value="계정구분" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column31" blockSelect="false" style="height:20px;" colSpan="3" width="70"
+                            inputType="text" value="사용내역" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column29" blockSelect="false" style="height:20px;" colSpan="2" width="70"
+                            inputType="text" value="지출액" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column27" blockSelect="false" style="height:20px;" inputType="text"
+                            width="70" value="작성자" displayMode="label">
+                        </w2:column>
+                    </w2:row>
+                </w2:header>
+                <w2:gBody id="gBody3" style="">
+                    <w2:row id="row6" style="">
+                        <w2:column removeBorderStyle="false" id="sUseDt" blockSelect="false" style="" width="70" inputType="text" value=""
+                            displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sUseNm" blockSelect="false" style="" width="70" inputType="text" value=""
+                            displayMode="label" textAlign="left">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sUseHqCd" blockSelect="false" ref="" style="" chooseOption="" width="70"
+                            inputType="select" value="" allOption="" displayMode="label" textAlign="left">
+                            <w2:choices>
+                                <w2:item>
+                                    <w2:label><![CDATA[SW사업본부]]></w2:label>
+                                    <w2:value><![CDATA[310000]]></w2:value>
+                                </w2:item>
+                            </w2:choices>
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sUseTeamCd" blockSelect="false" ref="" style="" chooseOption="" width="70"
+                            inputType="select" value="" allOption="" displayMode="label" textAlign="left">
+                            <w2:choices>
+                                <w2:item>
+                                    <w2:label><![CDATA[기술지원팀]]></w2:label>
+                                    <w2:value><![CDATA[300200]]></w2:value>
+                                </w2:item>
+                            </w2:choices>
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" width="70" chooseOption="" displayMode="label" blockSelect="false"
+                            id="sUseProjectCd" ref="" style="" colSpan="3" inputType="select" value="" allOption="" textAlign="left">
+                            <w2:choices>
+                                <w2:item>
+                                    <w2:label><![CDATA[기술지원팀]]></w2:label>
+                                    <w2:value><![CDATA[300200]]></w2:value>
+                                </w2:item>
+                            </w2:choices>
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sMiddleCd" blockSelect="false" ref="" style="" chooseOption="" width="70"
+                        	inputType="select" value="" allOption="" displayMode="label" textAlign="left">
+                        	<w2:choices>
+                        		<w2:item>
+                        			<w2:label><![CDATA[여비교통비]]></w2:label>
+                        			<w2:value><![CDATA[M15]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[회의비]]></w2:label>
+                        			<w2:value><![CDATA[M31]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[통신비]]></w2:label>
+                        			<w2:value><![CDATA[M28]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[연장근무]]></w2:label>
+                        			<w2:value><![CDATA[M16]]></w2:value>
+                        		</w2:item>
+                        	</w2:choices>
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sSmallCd" blockSelect="false" ref="" style="" chooseOption="" width="70"
+                        	inputType="select" value="" allOption="" displayMode="label" textAlign="left">
+                        	<w2:choices>
+                        		<w2:item>
+                        			<w2:label><![CDATA[KTX/고속버스]]></w2:label>
+                        			<w2:value><![CDATA[S03]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[티머니교통비]]></w2:label>
+                        			<w2:value><![CDATA[S74]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[택시비 (업무)]]></w2:label>
+                        			<w2:value><![CDATA[S72]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[음료비]]></w2:label>
+                        			<w2:value><![CDATA[S54]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[핸드폰사용료(임직원)]]></w2:label>
+                        			<w2:value><![CDATA[S81]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[야근식사비]]></w2:label>
+                        			<w2:value><![CDATA[S44]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[택시비(야근)]]></w2:label>
+                        			<w2:value><![CDATA[S71]]></w2:value>
+                        		</w2:item>
+                        	</w2:choices>
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sCustomerCd" blockSelect="false" style="" width="70" inputType="text"
+                            value="" displayMode="label">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" width="70" chooseOption="" displayMode="label" blockSelect="false"
+                        	id="sLargeCd" ref="" style="" colSpan="2" inputType="select" value="" allOption="" textAlign="left">
+                        	<w2:choices>
+                        		<w2:item>
+                        			<w2:label><![CDATA[팀사업비]]></w2:label>
+                        			<w2:value><![CDATA[A04]]></w2:value>
+                        		</w2:item>
+                        		<w2:item>
+                        			<w2:label><![CDATA[회사사업비]]></w2:label>
+                        			<w2:value><![CDATA[A06]]></w2:value>
+                        		</w2:item>
+                        	</w2:choices>
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="sDetail" blockSelect="false" style="" colSpan="3" width="70"
+                            inputType="text" value="" displayMode="label" textAlign="left">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="nImExportAmt" blockSelect="false" style="" colSpan="2" width="70"
+                            inputType="text" value="" displayMode="label" textAlign="right" displayFormat="#,##0">
+                        </w2:column>
+                        <w2:column expression="display('sUseNm')" removeBorderStyle="false" id="col12" blockSelect="false" style=""
+                            inputType="expression" width="70" value="" displayMode="label" textAlign="left">
+                        </w2:column>
+                    </w2:row>
+                </w2:gBody>
+                <w2:footer id="footer1" style="">
+                    <w2:row id="row7" style="">
+                        <w2:column removeBorderStyle="false" id="column65" blockSelect="false" style="" colSpan="15" inputType="text"
+                            width="70" value="합 계" displayMode="label">
+                        </w2:column>
+                        <w2:column expression="sum('nImExportAmt')" removeBorderStyle="false" id="column64" blockSelect="false" style=""
+                            colSpan="2" inputType="expression" width="70" value="" displayMode="label" textAlign="right"
+                            displayFormat="#,##0">
+                        </w2:column>
+                        <w2:column removeBorderStyle="false" id="column63" blockSelect="false" style="" inputType="text" width="70" value=""
+                            displayMode="label">
+                        </w2:column>
+                    </w2:row>
+                </w2:footer>
+            </w2:gridView>
+        </xf:group>
+    </body>
+</html>

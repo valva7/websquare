@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="dc_image" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="albumId" name="앨범명" dataType="text"></w2:column>
+        				<w2:column id="id" name="아이디" dataType="text"></w2:column>
+        				<w2:column id="title" name="타이틀" dataType="text"></w2:column>
+        				<w2:column id="url" name="URL" dataType="text"></w2:column>
+        				<w2:column id="thumbnailUrl" name="썸네일URL" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:linkedDataList bind="dc_image" id="imageLinkedList">
+        			<w2:condition type="filter"><![CDATA[]]></w2:condition>
+        			<w2:condition type="sort"><![CDATA[]]></w2:condition>
+        		</w2:linkedDataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="getImage" ref="" target="data:json,dc_image" action="/websquareMVC/WebContent/QNAtest/0.jsonData/image.json" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.getImage_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript" lazy="false"><![CDATA[
+	// 1. filter
+	// A == B
+	//A와 B가 일치하는 데이터 반환
+	//A != B
+	//A와 B가 일치하지 않는 데이터 반환
+	//A >= B
+	//A가 B보다 크거나 같은 데이터 반환
+	//A <= B
+	//A가 B보다 작거나 같은 데이터 반환
+	//A > B
+	//A가 B보다 큰 데이터 반환
+	//A < B
+	//A가 B보다 작은 데이터 반환
+	//(A) && (B)
+	//A 조건과 B 조건이 모두 참인 데이터 반환
+	//(A) || (B)
+	//A 조건 또는 B 조건 둘 중 어느 하나가 참이면 데이터 반환
+	
+	// 2. sort
+	//linkedDataList1.setCondition("sort", "ASC('col0')");
+	
+	scwin.onpageload = function() {
+		$w.executeSubmission("getImage");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.paging_onviewchange = function(info) {
+		console.log(info.newSelectedIndex);
+		var newPage = info.newSelectedIndex;
+		var oldPage = info.newSelectedIndex;
+		var filterNum = newPage * 10 + 1;
+		var minusNum = filterNum - 11;
+		
+		var condition = "id <" + filterNum + "&&" + "id > " + minusNum;
+		
+		
+		vat condition = "@ref ==" + "'" + id + "'";
+		In_KcRelpAgree.setCondition("filter", condition);
+		
+		
+		imageLinkedList.setCondition("filter", condition);
+	};
+	
+	scwin.getImage_submitdone = function(e) {
+		paging.setCount(imageLinkedList.getRowCount() / 10, true);
+		imageLinkedList.setCondition("filter", "id < 11");
+	};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    <xf:group id="">
+    	<w2:gridView scrollByColumnAdaptive="false" dataList="data:imageLinkedList" style="width:657px;height:123px;" scrollByColumn="false"
+    		id="gridView1" defaultCellHeight="20" autoFit="allColumn" visibleRowNum="20" rowNumVisible="true">
+    		<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header2">
+    			<w2:row style="" id="row3">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column19" value="앨범명"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column17" value="아이디"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column15" value="타이틀"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column13" value="URL"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column11" value="썸네일URL"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody2">
+    			<w2:row style="" id="row4">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="albumId" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="id" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="title" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="url" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="image" style="height:20px" id="thumbnailUrl" value=""
+    					blockSelect="false" displayMode="label" imageHeight="20">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    	<w2:pageList pageSize="10" displayButtonType="display" displayFormat="#" style="width: 350px;height: 21px;" id="paging"
+    		ev:onviewchange="scwin.paging_onviewchange">
+    	</w2:pageList>
+    </xf:group></body>
+</html>

@@ -1,0 +1,139 @@
+{
+	"dc_resUserList": [
+		{
+			"NAME": "원빈",
+			"BIRTHDAY": "19930516",
+			"GENDER": "F",
+			"WORK": "배우",
+			"HEIGHT": "178.9",
+			"WEIGHT": "66",
+			"ADDR": ""
+		},
+		{
+			"NAME": "김우빈",
+			"BIRTHDAY": "19780207",
+			"GENDER": "M",
+			"WORK": "배우",
+			"HEIGHT": "182",
+			"WEIGHT": "77",
+			"ADDR": ""
+		},
+		{
+			"NAME": "현빈",
+			"BIRTHDAY": "19930817",
+			"GENDER": "M",
+			"WORK": "배우",
+			"HEIGHT": "178",
+			"WEIGHT": "75",
+			"ADDR": ""
+		},
+		{
+			"NAME": "아이유",
+			"BIRTHDAY": "19820301",
+			"GENDER": "F",
+			"WORK": "가수",
+			"HEIGHT": "165",
+			"WEIGHT": "45",
+			"ADDR": ""
+		},
+		{
+			"NAME": "쌈디",
+			"BIRTHDAY": "19880818",
+			"GENDER": "M",
+			"WORK": "래퍼",
+			"HEIGHT": "177",
+			"WEIGHT": "58",
+			"ADDR": ""
+		},
+		{
+			"NAME": "다이나믹듀오",
+			"BIRTHDAY": "19920606",
+			"GENDER": "F",
+			"WORK": "래퍼",
+			"HEIGHT": "164",
+			"WEIGHT": "44",
+			"ADDR": ""
+		},
+		{
+			"NAME": "하현우",
+			"BIRTHDAY": "19801116",
+			"GENDER": "M",
+			"WORK": "가수",
+			"HEIGHT": "180",
+			"WEIGHT": "120",
+			"ADDR": ""
+		},
+		{
+			"NAME": "송강호",
+			"BIRTHDAY": "19850919",
+			"GENDER": "M",
+			"WORK": "전설",
+			"HEIGHT": "178",
+			"WEIGHT": "65",
+			"ADDR": ""
+		},
+		{
+			"NAME": "한석규",
+			"BIRTHDAY": "19900905",
+			"GENDER": "F",
+			"WORK": "전설",
+			"HEIGHT": "164",
+			"WEIGHT": "47",
+			"ADDR": ""
+		},
+		{
+			"NAME": "최민식",
+			"BIRTHDAY": "19750302",
+			"GENDER": "M",
+			"WORK": "전설",
+			"HEIGHT": "180",
+			"WEIGHT": "70",
+			"ADDR": ""
+		},
+		{
+			"NAME": "김경호",
+			"BIRTHDAY": "19820111",
+			"GENDER": "F",
+			"WORK": "가수",
+			"HEIGHT": "165",
+			"WEIGHT": "45",
+			"ADDR": ""
+		},
+		{
+			"NAME": "김개똥",
+			"BIRTHDAY": "19831009",
+			"GENDER": "F",
+			"WORK": "엔지니어",
+			"HEIGHT": "170",
+			"WEIGHT": "114",
+			"ADDR": ""
+		},
+		{
+			"NAME": "김말똥",
+			"BIRTHDAY": "19850714",
+			"GENDER": "M",
+			"WORK": "엔지니어",
+			"HEIGHT": "170",
+			"WEIGHT": "114",
+			"ADDR": ""
+		},
+		{
+			"NAME": "장발장",
+			"BIRTHDAY": "19810815",
+			"GENDER": "F",
+			"WORK": "범죄자",
+			"HEIGHT": "168",
+			"WEIGHT": "46",
+			"ADDR": ""
+		},
+		{
+			"NAME": "장발장",
+			"BIRTHDAY": "19780224",
+			"GENDER": "M",
+			"WORK": "범죄자",
+			"HEIGHT": "174",
+			"WEIGHT": "63",
+			"ADDR": ""
+		}
+	]
+}

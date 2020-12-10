@@ -1,0 +1,53 @@
+{
+	"treeView" : [
+		{
+			"label" : "label1-1",
+			"value" : "value1-1",
+			"depth" : "1"
+		},{
+			"label" : "<input type='button' id='btn1'>",
+			"value" : "value2-2",
+			"depth" : "2"
+		},{
+			"label" : "<input type='button' id='btn2'>",
+			"value" : "value3-3",
+			"depth" : "3"
+		},{
+			"label" : "<input type='button' id='btn3'>",
+			"value" : "value3-4",
+			"depth" : "3"
+		},{
+			"label" : "label1-5",
+			"value" : "value1-5",
+			"depth" : "1"
+		},{
+			"label" : "label2-6",
+			"value" : "value2-6",
+			"depth" : "2"
+		},{
+			"label" : "label3-7",
+			"value" : "value3-7",
+			"depth" : "3"
+		},{
+			"label" : "label3-8",
+			"value" : "value3-8",
+			"depth" : "3"
+		},{
+			"label" : "label2-9",
+			"value" : "value2-9",
+			"depth" : "2"
+		},{
+			"label" : "label2-9",
+			"value" : "value2-9",
+			"depth" : "2"
+		},{
+			"label" : "label3-10",
+			"value" : "value3-10",
+			"depth" : "3"
+		},{
+			"label" : "label4-11",
+			"value" : "value4-11",
+			"depth" : "4"
+		}
+	]
+}

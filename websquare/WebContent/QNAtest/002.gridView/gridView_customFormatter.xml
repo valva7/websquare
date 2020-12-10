@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="gridList" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="col1" name="name1"></w2:column>
+    					<w2:column dataType="text" id="col2" name="name2"></w2:column>
+    					<w2:column dataType="text" id="col3" name="name3"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name5" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dc_resUserList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="NAME" name="이름" dataType="text"></w2:column>
+    					<w2:column id="BIRTHDAY" name="생일" dataType="text"></w2:column>
+    					<w2:column id="GENDER" name="성별" dataType="text"></w2:column>
+    					<w2:column id="WORK" name="직업" dataType="text"></w2:column>
+    					<w2:column id="HEIGHT" name="키" dataType="text"></w2:column>
+    					<w2:column id="WEIGHT" name="몸무게" dataType="text"></w2:column>
+    					<w2:column id="ADDR" name="주소" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    		<xf:submission id="submission" ref="" target="data:json,dc_resUserList"
+    			action="/websquareMVC/WebContent/QNAtest/0.jsonData/sampleJsonData.json" method="post" mediatype="application/json" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<style style="width: 100px;height: 100px;">
+    		.test {
+			   text-decoration: underline;
+			   background-color : red;
+			}
+    	</style>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+	// cell 속성중 customFormatter에 함수를 지정 (해당 샘플에서는 cusFor 함수는 지정해주고 있다.)
+    var json;
+	scwin.onpageload = function() {
+		json = [
+					{"col1" : "1", "col2" : "TEST", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "3", "col2" : "TEST", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "4", "col2" : "1", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "2", "col2" : "2", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "9", "col2" : "1", "col3" : "3", "col4" : "4", "col5" : "5"},
+					{"col1" : "1", "col2" : "5", "col3" : "3", "col4" : "4", "col5" : "5"}
+				];
+		gridList.setJSON(json);
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	// 해당 cell의 data 및 부가 정보를 전달 받는다.
+	function cusFor(data, formattedData, rowIndex, colIndex ) {
+	
+		// 해당 cell의 data가 특정 조건에 맞으면 cell의 style을 변경한다
+		if (data == 1) {
+			grd.setCellClass(rowIndex,colIndex, "test");
+//			grd.setCellStyle(rowIndex,colIndex,"background", "red");
+		}else if(data == "TEST") {
+			grd.setCellClass(rowIndex,colIndex, "test");
+//			grd.setCellStyle(rowIndex,colIndex,"background", "red");
+		}
+		
+		// cell data를 특별히 format해야 할 이유가 아니라면 cell의 원본 data를 그대로 내려준다.
+		return data;
+	}]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:gridView id="grd" style="width:349px;height:217px;margin:50px;" scrollByColumn="false" defaultCellHeight="20"
+    		scrollByColumnAdaptive="false" dataList="data:gridList" autoFit="allColumn" summaryOnlyAuto="" overflowY="" captionAuto=""
+    		keepDefaultColumnWidth="" autoFitMinWidth="0" dataDragSelectAutoScroll="" dataDragSelectAutoScrollLevel="0"
+    		dataDragSelectAutoScrollPeriod="0" footerCaptionAuto="" footerSummaryAuto="" preventPaste="" rowStatusVisible="false"
+    		rowStatusHeaderValue="상태" setCellInputTypeCustom="" customFilterBox="" senseReader="">
+    		<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header1">
+    			<w2:row style="" id="row1">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;width: 100px;" id="column5"
+    					value="name1" blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column4" value="name2"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column3" value="name3"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column2" value="name4"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column1" value="name5"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody1">
+    			<w2:row style="" id="row2">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col1" value="" blockSelect="false"
+    					displayMode="label" textAlign="left" customFormatter="cusFor" escapeFormatter="" typeGetter="" embeddedInput="false">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col2" value="" blockSelect="false"
+    					displayMode="label" customFormatter="cusFor" embeddedInput="false">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col3" value="" blockSelect="false"
+    					displayMode="label" embeddedInput="false">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col4" value="" blockSelect="false"
+    					displayMode="label" embeddedInput="false">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="" id="col5" value="" blockSelect="false"
+    					displayMode="label" embeddedInput="false">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    </body>
+</html>

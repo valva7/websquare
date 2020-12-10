@@ -1,0 +1,51 @@
+<WebSquare>
+    <components>
+        
+        
+        <component category="Basic" company="" componentDesc="" defaultStyleClass="" developer="" disableicon="" display="udc_untitled1" displaySrc="/QNAtest/022.UDC/WebSquare_udc2.xml" height="23px" homepage="" htmlRender="" icon="" id="udc_untitled1" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" realType="udc_untitled1" ttcComponent="false" ttcVersion="" udcComponent="true" visible="true" width="80px">
+            <properties>
+                <property bindparent="" default="" description="Component id" name="id" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="Component style" name="style" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component class" name="class" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component ref" name="ref" necessary="no" type="bindColumn"/>
+            </properties>
+        </component>
+        <component category="Basic" company="" componentDesc="" defaultStyleClass="" developer="" disableicon="" display="udc_untitled1" displaySrc="/QNAtest/022.UDC/WebSquare_udc2.xml" height="23px" homepage="" htmlRender="" icon="" id="udc_untitled1" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" realType="udc_untitled1" ttcComponent="false" ttcVersion="" udcComponent="true" visible="true" width="80px">
+            <properties>
+                <property bindparent="" default="" description="Component id" name="id" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="Component style" name="style" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component class" name="class" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component ref" name="ref" necessary="no" type="bindColumn"/>
+            </properties>
+        </component>
+        
+        
+    <component category="Basic" company="" componentDesc="" defaultStyleClass="" developer="" disableicon="" display="udc_untitled2" displaySrc="/QNAtest/022.UDC/WebSquare_udc2.xml" height="23px" homepage="" htmlRender="" icon="" id="udc_untitled2" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" realType="udc_untitled2" ttcComponent="false" ttcVersion="" udcComponent="true" visible="true" width="300px">
+            <properties>
+                <property bindparent="" default="" description="Component id" name="id" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="Component style" name="style" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component class" name="class" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component ref" name="ref" necessary="no" type="bindColumn"/>
+            </properties>
+        </component>
+    <component category="Basic" company="" componentDesc="" defaultStyleClass="" developer="" disableicon="" display="udc_untitled3" displaySrc="/QNAtest/022.UDC/WebSquare_udc2.xml" height="23px" homepage="" htmlRender="" icon="" id="udc_untitled3" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" realType="udc_untitled3" ttcComponent="false" ttcVersion="" udcComponent="true" visible="true" width="300px">
+            <properties>
+                <property bindparent="" default="" description="Component id" name="id" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="Component style" name="style" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component class" name="class" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component ref" name="ref" necessary="no" type="bindColumn"/>
+            </properties>
+        </component>
+    <component category="Basic" company="" componentDesc="" defaultStyleClass="" developer="" disableicon="" display="inputCalendar_FormTo" displaySrc="/QNAtest/022.UDC/WebSquare_udc.xml" height="200px" homepage="" htmlRender="" icon="" id="inputCalendar_FormTo" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="IE11,Chrome" realType="inputCalendar_FormTo" ttcComponent="false" ttcVersion="" udcComponent="true" visible="true" width="200px">
+            <properties>
+                <property bindparent="" default="" description="Component id" name="id" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="Component style" name="style" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component class" name="class" necessary="no" type="string"/>
+                <property bindparent="" default="" description="Component ref" name="ref" necessary="no" type="bindColumn"/>
+            </properties>
+            <events>
+                <property description="desc" name="onUserClick_1()" type="user"/>
+            </events>
+        </component>
+    </components>
+</WebSquare>

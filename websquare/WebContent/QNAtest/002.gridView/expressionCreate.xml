@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="dataList1" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="name1" dataType="text"></w2:column>
+            			<w2:column id="col2" name="name2" dataType="text"></w2:column>
+            			<w2:column id="col3" name="name3" dataType="text"></w2:column>
+            			<w2:column id="col4" name="name4" dataType="text"></w2:column>
+            			<w2:column id="col5" name="name5" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="false">
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	//[gridView] expression 타입 사용가능 API 목록
+	//expression 설명
+	
+	//expression
+	//- 일반 컬럼, subTotal, footer 에서 아래 함수들 사용 가능하며, 사용자 지정 함수도 사용 가능합니다.
+	//- 일반 컬럼 expression type에서 사용 가능한 함수는 총 8가지 입니다.
+	//1. SUM : 해당 컬럼 데이터의 총합을 리턴
+	//2. AVG: 해당 컬럼 데이터의 평균을 리턴
+	//3. MIN: 해당 컬럼 데이터의 최소값 리턴
+	//4. MAX: 해당 컬럼 데이터의 최대값 리턴
+	//5. rowIndex() : 해당 컬럼의 row index를 리턴
+	//6. rowStatus() : 해당 row 상태값을 리턴
+	//7. display("colID") : 특정 컬럼의 값 리턴
+	//8. userExp(display("col1"), rowIndex()) : 사용자 정의 함수 사용
+	
+	//- subTotal, footer expression type에서 사용가능한 함수는 현재 총 6가지 입니다.
+	//1. SUM : 해당 컬럼 데이터의 총합을 리턴
+	//2. AVG: 해당 컬럼 데이터의 평균을 리턴
+	//3. MIN: 해당 컬럼 데이터의 최소값 리턴
+	//4. MAX: 해당 컬럼 데이터의 최대값 리턴
+	//5. COUNT: 해당 컬럼의 각 group 당 건 수를 리턴
+	//- subTotal에서는 COUNT('타겟컬럼id')
+	//- footer에서는 COUNT()
+	
+	//5.0 : 2015.06 이후 엔진에서 사용가능
+	//2.0 : 2015.11 이후 엔진에서 사용가능
+	//6. targetColValue() : 해당 subtotal target column의 값을 리턴
+	
+	//- groupby expression type 에 사용 가능한 함수는 현재 총 8가지 입니다.
+	//1. SUM : 해당 컬럼 데이터의 총합을 리턴
+	//2. AVG: 해당 컬럼 데이터의 평균을 리턴
+	//3. MIN: 해당 컬럼 데이터의 최소값 리턴
+	//4. MAX: 해당 컬럼 데이터의 최대값 리턴
+	//5. COUNT: 해당 컬럼의 각 group 당 건 수를 리턴
+	//6. DEPTH: 해당 컬럼이 몇 번째로 groupby 되었는지 순서를 리턴
+	//7. DEPTHSTR: 해당 컬럼의 각 group value 혹은 label을 리턴
+	//8. TOGGLE: 해당 컬럼의 각 group을 toggle할 수 있는 버튼을 생성
+	
+	
+	scwin.onpageload = function() {
+
+		var json = [{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "5"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "1"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "1"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "2"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "2"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "3"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "4"
+		},{
+			"col1" : "1",
+			"col2" : "2",
+			"col3" : "3",
+			"col4" : "4",
+			"col5" : "4"
+		}];
+		
+		
+		dataList1.setJSON(json, true);
+
+		gridView.setCellColor(0, 0, "red");
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	// expression 사용자 정의 함수
+	scwin.subtotalExpression = function(count, colVal) {
+		console.log(count);
+		console.log(colVal);
+		
+		return "test";
+	} 
+
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:gridView id="gridView" style="width:523px;height:438px;margin-top:20px;" scrollByColumn="false" defaultCellHeight="20"
+    		scrollByColumnAdaptive="false" dataList="data:dataList1" rowNumVisible="true" mergeCells="bycol">
+    		<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header2">
+    			<w2:row style="" id="row3">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column7" value="name1"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column6" value="name2"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column5" value="name3"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;background: red;" id="column4"
+    					value="name4" blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="checkbox" style="height:20px" id="column3" value="name5"
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody2">
+    			<w2:row style="" id="row4">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="col1" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="col2" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="col3" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="col4" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px;" id="col5" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    		<w2:subTotal targetColumnID="col1" style="" id="subTotal1">
+    			<w2:row style="" id="row5">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column12" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column11" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column10" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column9" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="expression" style="height:20px" id="column8" value=""
+    					blockSelect="false" displayMode="label" expression="scwin.subtotalExpression(COUNT('col5'),targetColValue()) ">
+    				</w2:column>
+    			</w2:row>
+    		</w2:subTotal>
+    		<w2:footer style="" id="footer1">
+    			<w2:row style="" id="row6">
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column17" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column16" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column15" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="column14" value=""
+    					blockSelect="false" displayMode="label">
+    				</w2:column>
+    				<w2:column removeBorderStyle="false" width="70" inputType="expression" style="height:20px" id="column13" value=""
+    					blockSelect="false" displayMode="label" expression="SUM('col5')">
+    				</w2:column>
+    			</w2:row>
+    		</w2:footer>
+    	</w2:gridView>
+    </body>
+</html>

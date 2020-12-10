@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+		</xf:model>
+		<script type="javascript"><![CDATA[ 
+        
+		function selectCallback() {
+			console.log("selectCallback");
+			var fileInfos = tobe.getFileInfos();
+			grid1.setJSON( fileInfos );
+		}
+		
+		
+		function tobe_onComplete(){
+			//mode=flash 일 때 flash가 준비되면 실행되는 부분. html5 모드 시 더 이상 사용되지 않음.
+			console.log("onComplete10");
+		}
+		
+		function multiupload10_ondone(data) {
+			//업로드 성공 후 실행되는 콜백.
+			console.log("multiupload10_ondone", data);
+			
+			var cnt = grid1.getRowCount();
+			for( var i=0; i<cnt; i++ ) {
+				grid1.setCellData( i , 3 , "Complete!!!!" );
+			}
+			
+			setTimeout( clearUpload, "1000" );
+			
+		}
+		
+		function clearUpload() {
+			grid1.removeAll();
+		}
+		
+		function textbox4_onclick(e){
+			var idxArr = grid1.getCheckedData("chk");
+			var idxArr1 = grid1.getCheckedIndex( "chk" );
+			
+			if(idxArr1.length == tobe.getFileCount()) {
+				tobe.removeAllFiles();
+				grid1.removeAll();
+				return;
+			}
+			for( var i=idxArr.length-1; i>=0; i-- ) {
+				var fileName = idxArr[i][1];
+				tobe.removeFile( fileName );
+				grid1.removeRow( idxArr1[i] );
+			}
+		}
+		
+		function textbox5_onclick(e) {
+			tobe.startUpload();
+			
+			var cnt = grid1.getRowCount();
+			
+			for( var i=0;i<cnt;i++ ) {
+				grid1.setCellData( i , 3 , "Uploading..." );
+			}
+			
+			
+			
+		}
+		
+		tobe._handleOndrop = function(e) {
+	        try {
+		        WebSquare.event.stopEvent(e);
+		        var fileArr = e.dataTransfer.files;
+
+		        if (this.html5Upload && this.options.mode.toLowerCase() == "html5" || this.options.mode.toLowerCase() == "html5_transparent") {
+		            var contents = "";
+		            for (var i = 0; i < fileArr.length; i++) {
+		                //if ($.inArray(fileArr[i].name, this.fileNameArr) == -1) {
+		                if (this.fileNameArr.indexOf(fileArr[i].name) == -1) {
+		                    contents += "<tr id='_tr" + this._inx + "' trindex='" + this._inx + "'><td><input type='checkbox' name='chk' index='" + this._inx + "'/></td><td>" + fileArr[i].name + "</td><td>" + this._byteCalc(fileArr[i].size) + "</td><td><div id='progress_" + this._inx + "'></div></td></tr>";
+		                    this.fileArray.push(fileArr[i]);
+		                    this.fileNameArr.push(fileArr[i].name);
+		                    this._inx++;
+		                } else {
+		                    alert("파일이 이미 있습니다.  ("+fileArr[i].name+")");
+		                }
+		            }
+		            if (this.dom.tbody) {
+		                this.dom.tbody.innerHTML += contents;
+		                $("#" + this.id + "_tbody tr").click(function(e) {
+		                    $(this).addClass("w2multiupload_html5_uploader_selected").siblings().removeClass("w2multiupload_html5_uploader_selected");
+		                    if (e.target.type !== "checkbox") {
+		                        $(":checkbox", this).trigger("click");
+		                    }
+		                });
+		            }
+		        } else {
+		            for (var i = 0; i < fileArr.length; i++) {
+		                //if ($.inArray(fileArr[i].name, this.fileNameArr) == -1) {
+		                if (this.fileNameArr.indexOf(fileArr[i].name) == -1) {
+		                    this.fileArray.push(fileArr[i]);
+		                    this.fileNameArr.push(fileArr[i].name);
+		                    this._inx++;
+		                } else {
+		                    alert("파일이 이미 있습니다.  ("+fileArr[i].name+")");
+		                }
+		            }
+		        }
+		    } catch (e) {
+		        $W.exception.printStackTrace(e, null, this);
+		    }
+		}
+
+		        // file drag
+		        function fileDragHandler(e){
+		            WebSquare.event.stopEvent(e);
+		            e.target.className = (e.type == "dragover" ? "hover" : "");
+		        }
+		        
+		        // file drop
+		        function fileDropHandler(e){
+		            fileDragHandler(e);
+		            tobe._handleOndrop(e);
+		            selectCallback();
+		        }
+		    
+		        var filedragdom = filedrag.render;
+		        filedragdom.addEventListener("dragover", fileDragHandler, false);
+		        filedragdom.addEventListener("dragenter", fileDragHandler, false);  // for ie
+		        filedragdom.addEventListener("dragleave", fileDragHandler, false);
+		        filedragdom.addEventListener("drop", fileDropHandler, false);
+
+
+
+
+		]]></script>
+		<style type="text/css"><![CDATA[ 
+			* {font-family: verdana}
+		
+			.w2multiupload_uploader {
+				background:url(/multiupload.jpg);
+			}
+			
+			.delete_ing {
+				background:url(/multiupload.jpg) 83px;
+			}
+			
+			.start {
+				background:url(/multiupload.jpg) 346px;
+			}
+
+			#filedrag
+			{
+			    display: block;
+			    height: 50px;
+			    padding: 10px;
+			    font-weight: bold;
+			    text-align: center;
+			    color: #555;
+			    border: 2px dashed #555;
+			    border-radius: 7px;
+			    cursor: default;
+			    font-size: 20px;
+			}
+
+			#filedrag.hover
+			{
+			    color: #f00;
+			    border: 2px solid red;
+			}           
+		]]></style>
+	</head>
+	<body>
+		<xf:group id="group2" style="padding:10px;">
+			<w2:textbox id="textbox1" style="position: relative;" label="HTML5 MultiUpload Sample" tagname="h1"></w2:textbox>
+			<w2:grid ignoreCellClick="false" id="grid1" style="position: relative;height: 200px;"
+				useShiftKey="true" scrollByColumn="false" fixedColumnWithHidden="true" autoFit="allColumn">
+				<w2:header id="header1" style="">
+					<w2:row id="row2" style="">
+						<w2:column blockSelect="false" id="column11" style="height:20px;" inputType="checkbox" width="27" value="chk"></w2:column>
+						<w2:column blockSelect="false" id="column9" style="height:20px;" inputType="text" width="422" value="FileName"></w2:column>
+						<w2:column blockSelect="false" id="column7" style="height:20px;" inputType="text" width="133" value="Size"></w2:column>
+						<w2:column blockSelect="false" id="column3" style="height:20px;" width="197" inputType="text" value="Status"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody4" style="">
+					<w2:row id="row5" style="">
+						<w2:column blockSelect="false" id="chk" style="height:20px;" inputType="checkbox" width="27"></w2:column>
+						<w2:column blockSelect="false" id="name" style="height:20px;" inputType="text" width="422" textAlign="left"></w2:column>
+						<w2:column blockSelect="false" id="displaySize" style="height:20px;" inputType="text" width="133"></w2:column>
+						<w2:column blockSelect="false" id="Status" style="height:20px;" width="197" inputType="text" value="Ready.."></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:grid>
+			<xf:group id="group1" style="overflow:hidden;margin-top:5px;">
+				<w2:multiupload maxcount="" id="tobe" maxsize="10000000000" 
+					style="position:relative;height:34px;width:111px;float:left;border:1px solid;" action="" uploadButton=""
+					wmode="false" filter="*:*.*" mode="html5_transparent" selectCallback="selectCallback">
+					<script type="javascript" ev:event="ondone(data)"><![CDATA[ 
+					
+					multiupload10_ondone(data);
+					
+					]]></script>
+					<script type="javascript" ev:event="onComplete"><![CDATA[
+					
+					tobe_onComplete();
+					
+					 ]]></script>
+				</w2:multiupload>
+				<w2:textbox label="" id="textbox4" style="position: relative;height: 34px;width: 84px;float:left;margin-left:5px;"
+					class="delete_ing" ev:onclick="textbox4_onclick">
+					<script ev:event="onclick" type="javascript"><![CDATA[
+					
+					textbox4_onclick(e);
+					
+					 ]]></script>
+					
+				</w2:textbox>
+				<w2:textbox id="textbox5" label="" style="position: relative;height: 34px;width: 121px;float:left;margin-left:5px;"
+					class="start" >
+					<script ev:event="onclick" type="javascript"><![CDATA[
+					
+					textbox5_onclick(e);
+					
+					 ]]></script>
+				</w2:textbox>
+			</xf:group>
+		</xf:group>
+		<w2:textbox label="Drop files here !!" id="filedrag" style="">
+        </w2:textbox>
+	</body>
+</html>

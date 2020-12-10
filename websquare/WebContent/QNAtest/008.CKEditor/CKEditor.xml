@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+     // CKeditor의 menubar 속성 관련 설정은 config_3.js에서 관리
+	scwin.onpageload = function() {
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	
+	scwin.trigger1_onclick = function(e) {
+		var valueHTML = ckEd.getHTML();
+		console.log(valueHTML);
+		$("#div").append(valueHTML);
+//		ckEd.setHTML("");
+		ckEd.setHTML(valueHTML);
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:editor style="width: 500px;height: 300px;" id="ckEd" version="4.5.11" menubar="simple"></w2:editor>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[저장]]></xf:label>
+    	</xf:trigger>
+    	<div id="div" style="width:496px;height:100px;">
+    	</div>
+    </body>
+</html>

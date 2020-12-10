@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = init;
+
+function init() {
+	try{
+		console.log(parent);
+		parent.$p.main().scwin.sendMessage();
+		window.addEventListener( 'message', receiveMsgFromParent );
+		
+	} catch(e) {
+		alert(e.message);
+	}
+}
+
+//부모로부터 메시지 수신
+function receiveMsgFromParent( e ) {
+ // e.data가 전달받은 메시지
+ console.log('부모로 부터 받은 메시지 ', e.data );
+// alert("test");
+}
+
+</script>
+</head>
+<body>
+	<p>child.html TEST</p>
+	<input type="text" id="txt" value="inputText">
+</body>
+</html>

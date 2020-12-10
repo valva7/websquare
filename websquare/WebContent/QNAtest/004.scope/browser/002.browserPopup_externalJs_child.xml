@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns="">
+                </data>
+            </xf:instance>   
+        </xf:model>
+        <script type="javascript" lazy="false"><![CDATA[ 
+        // browser 팝업에서 paraemeter를 전달 받을 때WebSquare.net.getParameter() 사용해야 함
+		scwin.onpageload = function() {
+			var result = WebSquare.net.getParameter( "test" );
+			alert(result);
+			input1.setValue( result );
+		}
+      
+		scwin.trigger2_onclick = function(e) {
+			alert(common);
+		};
+			]]></script>        
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:input style="vertical-align:middle;word-wrap:break-word;top:20px;left:40px;width:160px;height:30px;" onFocusStyle=""
+    		id="input1">
+    		<xf:label></xf:label>
+    	</xf:input>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;margin-left: 20px;" id="trigger2" ev:onclick="scwin.trigger2_onclick">
+    		<xf:label><![CDATA[parent]]></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

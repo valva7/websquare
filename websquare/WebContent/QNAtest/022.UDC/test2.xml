@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_athrUser" saveRemovedData="true" removedDataMatch=""
+					removeDummyRowStatus="" undoRecursiveRow="" valueAttribute="" validateAllItemsetData="" rowStatusNodeName="" rowNumData=""
+					getMatchedFromAllData="" attributeMap="" userData3="" userData2="" matchIgnoreCase="" idAttribute="">
+					<w2:columnInfo>
+						<w2:column id="userId" name="사용자Id" dataType="text"></w2:column>
+						<w2:column id="userName" name="사용자명" dataType="text"></w2:column>
+						<w2:column id="lbrnName" name="사서명" dataType="text"></w2:column>
+						<w2:column id="slpcCode" name="매출처코드" dataType="text"></w2:column>
+						<w2:column id="bkstUserRgstPatrCode" name="서점사용자등록유형코드" dataType="text"></w2:column>
+						<w2:column id="bkstSysAthrCode" name="서점시스템권한코드" dataType="text"></w2:column>
+						<w2:column id="bkstUserAthrGrntYsno" name="서점사용자권한부여여부" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<userId><![CDATA[1]]></userId>
+							<userName><![CDATA[2]]></userName>
+						</w2:row>
+						<w2:row>
+							<userId><![CDATA[1]]></userId>
+							<userName><![CDATA[2]]></userName>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_athrUser2" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="userId" name="사용자Id" dataType="text"></w2:column>
+						<w2:column id="userName" name="사용자명" dataType="text"></w2:column>
+						<w2:column id="lbrnName" name="사서명" dataType="text"></w2:column>
+						<w2:column id="slpcCode" name="매출처코드" dataType="text"></w2:column>
+						<w2:column id="bkstUserRgstPatrCode" name="서점사용자등록유형코드" dataType="text"></w2:column>
+						<w2:column id="bkstSysAthrCode" name="서점시스템권한코드" dataType="text"></w2:column>
+						<w2:column id="bkstUserAthrGrntYsno" name="서점사용자권한부여여부" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:data use="true">
+					<w2:row>
+						<userId><![CDATA[1]]></userId>
+						<userName><![CDATA[2]]></userName>
+					</w2:row>
+					<w2:row>
+						<userId><![CDATA[1]]></userId>
+						<userName><![CDATA[2]]></userName>
+					</w2:row>
+				</w2:data>
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+        
+	scwin.onpageload = function() {
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<w2:gridView id="grd_athrUser" scrollByColumn="false" scrollByColumnAdaptive="false" dataList="data:dlt_athrUser2"
+			rowNumHeaderValue="순서" rowNumStatusResize="true" rowNumStatusUniqueId="" rowNumVisible="true" autoFit="allColumn" adaptive="crosstab"
+			noResultMessageVisible="true" enterKeyMove="" focusDefaultColumn="" focusFlow="" focusMode="" titleAuto="" footerSummaryAuto=""
+			footerCaptionAuto="" sortEvent="" loadCount="0" ignoreCellClick="" hammerPressTime="0" hammerEnabled="" editModeEventIcon=""
+			mergeCells="" mergeCellsFixedCols="" mergeCellsFixedRows="" mergeCol="" style="width: 500px;height: 150px;">
+			<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+			<w2:header style="" id="header1">
+				<w2:row style="" id="row1">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userId" value="사용자ID" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userName" value="사용자명" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="bkstUserRgstPatrCode" value="구분" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="102" inputType="text" id="lbrnName" value="서점/납품처명" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="bkstSysAthrCode" value="권한명" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:header>
+			<w2:gBody style="" id="gBody1">
+				<w2:row style="" id="row2">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userId" blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userName" blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="drilldown" id="bkstUserRgstPatrCode" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="102" inputType="text" id="lbrnName" blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="drilldown" id="bkstSysAthrCode" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:gBody>
+		</w2:gridView>
+		<w2:gridView id="" style="width: 500px;height: 150px;" scrollByColumn="false" defaultCellHeight="20"
+			scrollByColumnAdaptive="false" dataList="data:dlt_athrUser">
+			<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+			<w2:header style="" id="header1">
+				<w2:row style="" id="row1">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userId" value="사용자ID" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userName" value="사용자명" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="bkstUserRgstPatrCode" value="구분" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="102" inputType="text" id="lbrnName" value="서점/납품처명" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="bkstSysAthrCode" value="권한명" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:header>
+			<w2:gBody style="" id="gBody1">
+				<w2:row style="" id="row2">
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userId" blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="text" id="userName" blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="drilldown" id="bkstUserRgstPatrCode" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="102" inputType="text" id="lbrnName" blockSelect="false" displayMode="label">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="drilldown" id="bkstSysAthrCode" blockSelect="false"
+						displayMode="label">
+					</w2:column>
+				</w2:row>
+			</w2:gBody>
+		</w2:gridView>
+	</body>
+</html>

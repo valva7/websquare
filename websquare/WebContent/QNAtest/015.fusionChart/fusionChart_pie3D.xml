@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="dataList1" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="label" name="name" dataType="text"></w2:column>
+            			<w2:column id="value" name="value" dataType="number"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	// 샘플
+	scwin.onpageload = function() {
+
+		var jsonData = {"data":[{
+			"col2" : "접수등록",
+			"label" : "label1",
+			"value" : "400",
+//			"displayValue" : "test"
+		}, {
+			"col2" : "가입확정",
+			"label" : "label1",
+			"value" : "500"
+		}, {
+			"col2" : "가입증서발급",
+			"label" : "label3",
+			"value" : "200"
+		}, {
+			"col2" : "지급심사",
+			"label" : "label4",
+			"value" : "100"
+		}, {
+			"col2" : "지급내역조회",
+			"label" : "label5",
+			"value" : "55"
+		}, {
+			"col2" : "신청내역조회",
+			"label" : "label6",
+			"value" : "222"
+		}, {
+			"col2" : "증서재발급",
+			"label" : "label7",
+			"value" : "22"
+		}]};
+		
+		fusionchart1.setJSONData(jsonData);
+
+		var options = {
+	        "caption": "Split of revenue by product categories",
+	        "subCaption": "Last year",
+	        "showPercentInTooltip": "1",
+	        "showPercentValues": "1",
+	        "showValues" : "1",
+	        "showLabels" : "1"
+		}
+		
+		fusionchart1.setChartAttribute(options);
+		fusionchart1.draw();
+	};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:fusionchart accessibility="true" drawType="javascript" runflashAt="IE6,IE7,IE8" seriesType="simple" chartType="Pie3D"
+    		style="position:absolute;top:25px;left:36px;width:456px;height:295px;" id="fusionchart1" ref="data:dataList1" labelNode="label" valueNode="value" seriesNode="" version="" actionURI="" seriesColumns="" dataList="" tabIndex="" dataTypeFormatter="">
+    	</w2:fusionchart>
+    </body>
+</html>

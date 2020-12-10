@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection baseNode="map">
+
+        		<w2:dataMap baseNode="map" id="dma_vpsFilesVO">
+        			<w2:keyInfo>
+        				<w2:key id="atchFileId" name="atchFileId" dataType="text"></w2:key>
+        				<w2:key id="etcFileId2" name="etcFileId2" dataType="text"></w2:key>
+        				<w2:key id="dST" name="dST" dataType="text"></w2:key>
+        				<w2:key id="dAtchFileId" name="dAtchFileId" dataType="text"></w2:key>
+        				<w2:key id="dFileSn" name="dFileSn" dataType="text"></w2:key>
+        				<w2:key id="dFiledetailTmpno" name="dFiledetailTmpno" dataType="text"></w2:key>
+        				<w2:key id="dStreFileNm" name="dStreFileNm" dataType="text"></w2:key>
+        				<w2:key id="dSortOrdr" name="dSortOrdr" dataType="text"></w2:key>
+        				<w2:key id="dEncryptVal" name="dEncryptVal" dataType="text"></w2:key>
+        				<w2:key id="dST2" name="dST2" dataType="text"></w2:key>
+        				<w2:key id="dAtchFileId2" name="dAtchFileId2" dataType="text"></w2:key>
+        				<w2:key id="dFileSn2" name="dFileSn2" dataType="text"></w2:key>
+        				<w2:key id="dFiledetailTmpno2" name="dFiledetailTmpno2" dataType="text"></w2:key>
+        				<w2:key id="dStreFileNm2" name="dStreFileNm2" dataType="text"></w2:key>
+        				<w2:key id="dSortOrdr2" name="dSortOrdr2" dataType="text"></w2:key>
+        				<w2:key id="dEncryptVal2" name="dEncryptVal2" dataType="text"></w2:key>
+        				<w2:key id="dST3" name="dST3" dataType="text"></w2:key>
+        				<w2:key id="dAtchFileId3" name="dAtchFileId3" dataType="text"></w2:key>
+        				<w2:key id="dFileSn3" name="dFileSn3" dataType="text"></w2:key>
+        				<w2:key id="dFiledetailTmpno3" name="dFiledetailTmpno3" dataType="text"></w2:key>
+        				<w2:key id="dStreFileNm3" name="dStreFileNm3" dataType="text"></w2:key>
+        				<w2:key id="dSortOrdr3" name="dSortOrdr3" dataType="text"></w2:key>
+        				<w2:key id="dEncryptVal3" name="dEncryptVal3" dataType="text"></w2:key>
+        				<w2:key id="dST4" name="dST4" dataType="text"></w2:key>
+        				<w2:key id="dAtchFileId4" name="dAtchFileId4" dataType="text"></w2:key>
+        				<w2:key id="dFileSn4" name="dFileSn4" dataType="text"></w2:key>
+        				<w2:key id="dFiledetailTmpno4" name="dFiledetailTmpno4" dataType="text"></w2:key>
+        				<w2:key id="dStreFileNm4" name="dStreFileNm4" dataType="text"></w2:key>
+        				<w2:key id="dSortOrdr4" name="dSortOrdr4" dataType="text"></w2:key>
+        				<w2:key id="dEncryptVal4" name="dEncryptVal4" dataType="text"></w2:key>
+        				<w2:key id="gsyncUseAt" name="gsyncUseAt" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="details" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="chk" name="chk" dataType="text"></w2:column>
+        				<w2:column id="vpsmdlNo" name="vpsmdlNo" dataType="text"></w2:column>
+        				<w2:column id="evlindcNo" name="evlindcNo" dataType="text"></w2:column>
+        				<w2:column id="evlindcNm" name="evlindcNm" dataType="text"></w2:column>
+        				<w2:column id="locgovNm" name="locgovNm" dataType="text"></w2:column>
+        				<w2:column id="locgovNo" name="locgovNo" dataType="text"></w2:column>
+        				<w2:column id="indcOrdr" name="indcOrdr" dataType="text"></w2:column>
+        				<w2:column id="recdmonSe" name="recdmonSe" dataType="text"></w2:column>
+        				<w2:column id="recdmonNm" name="recdmonNm" dataType="text"></w2:column>
+        				<w2:column id="filedetailTmpno" name="filedetailTmpno" dataType="text"></w2:column>
+        				<w2:column id="dST" name="dST" dataType="text"></w2:column>
+        				<w2:column id="sortOrdr" name="sortOrdr" dataType="text"></w2:column>
+        				<w2:column id="atchFileId" name="atchFileId" dataType="text"></w2:column>
+        				<w2:column id="creatDt" name="creatDt" dataType="text"></w2:column>
+        				<w2:column id="fileCn" name="fileCn" dataType="text"></w2:column>
+        				<w2:column id="fileExtsn" name="fileExtsn" dataType="text"></w2:column>
+        				<w2:column id="fileMg" name="fileMg" dataType="text"></w2:column>
+        				<w2:column id="fileSn" name="fileSn" dataType="text"></w2:column>
+        				<w2:column id="fileStreCours" name="fileStreCours" dataType="text"></w2:column>
+        				<w2:column id="orignlFileNm" name="orignlFileNm" dataType="text"></w2:column>
+        				<w2:column id="streFileNm" name="streFileNm" dataType="text"></w2:column>
+        				<w2:column id="oldSortOrdr" name="oldSortOrdr" dataType="text"></w2:column>
+        				<w2:column id="serverSe" name="serverSe" dataType="text"></w2:column>
+        				<w2:column id="returnValue" name="returnValue" dataType="text"></w2:column>
+        				<w2:column id="transResult" name="transResult" dataType="text"></w2:column>
+        				<w2:column id="indcDiagNo" name="indcDiagNo" dataType="text"></w2:column>
+        				<w2:column id="indcDiagNm" name="indcDiagNm" dataType="text"></w2:column>
+        				<w2:column id="locSortOrdr" name="locSortOrdr" dataType="text"></w2:column>
+        				<w2:column id="encryptVal" name="encryptVal" dataType="text"></w2:column>
+        				<w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+        				<w2:column id="removeYn" name="removeYn" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="config">
+        			<w2:keyInfo>
+        				<w2:key id="FILE_UPLOAD_MAX" name="name1" dataType="text"></w2:key>
+        				<w2:key id="FILE_UPLOAD_MBYTE" name="name2" dataType="text"></w2:key>
+        				<w2:key id="FILE_UPLOAD_DIR" name="name3" dataType="text"></w2:key>
+        				<w2:key id="FILE_UPLOAD_EXT" name="name4" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="dma_vpsFileVO">
+        			<w2:keyInfo>
+        				<w2:key id="vpsmdlNo" name="vpsmdlNo" dataType="text"></w2:key>
+        				<w2:key id="evlindcNo" name="evlindcNo" dataType="text"></w2:key>
+        				<w2:key id="evlindcNm" name="evlindcNm" dataType="text"></w2:key>
+        				<w2:key id="locgovNm" name="locgovNm" dataType="text"></w2:key>
+        				<w2:key id="locgovNo" name="locgovNo" dataType="text"></w2:key>
+        				<w2:key id="indcOrdr" name="indcOrdr" dataType="text"></w2:key>
+        				<w2:key id="recdmonSe" name="recdmonSe" dataType="text"></w2:key>
+        				<w2:key id="recdmonNm" name="recdmonNm" dataType="text"></w2:key>
+        				<w2:key id="filedetailTmpno" name="filedetailTmpno" dataType="text"></w2:key>
+        				<w2:key id="dST" name="dST" dataType="text"></w2:key>
+        				<w2:key id="sortOrdr" name="sortOrdr" dataType="text"></w2:key>
+        				<w2:key id="atchFileId" name="atchFileId" dataType="text"></w2:key>
+        				<w2:key id="creatDt" name="creatDt" dataType="text"></w2:key>
+        				<w2:key id="fileCn" name="fileCn" dataType="text"></w2:key>
+        				<w2:key id="fileExtsn" name="fileExtsn" dataType="text"></w2:key>
+        				<w2:key id="fileMg" name="fileMg" dataType="text"></w2:key>
+        				<w2:key id="fileSn" name="fileSn" dataType="text"></w2:key>
+        				<w2:key id="fileStreCours" name="fileStreCours" dataType="text"></w2:key>
+        				<w2:key id="orignlFileNm" name="orignlFileNm" dataType="text"></w2:key>
+        				<w2:key id="streFileNm" name="streFileNm" dataType="text"></w2:key>
+        				<w2:key id="oldSortOrdr" name="oldSortOrdr" dataType="text"></w2:key>
+        				<w2:key id="serverSe" name="serverSe" dataType="text"></w2:key>
+        				<w2:key id="returnValue" name="returnValue" dataType="text"></w2:key>
+        				<w2:key id="transResult" name="transResult" dataType="text"></w2:key>
+        				<w2:key id="indcDiagNo" name="indcDiagNo" dataType="text"></w2:key>
+        				<w2:key id="indcDiagNm" name="indcDiagNm" dataType="text"></w2:key>
+        				<w2:key id="locSortOrdr" name="locSortOrdr" dataType="text"></w2:key>
+        				<w2:key id="encryptVal" name="encryptVal" dataType="text"></w2:key>
+        				<w2:key id="fileSize" name="fileSize" dataType="text"></w2:key>
+        				<w2:key id="removeYn" name="removeYn" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection></w2:workflowCollection>
+        	<xf:submission id="sbm_saveFile" ref="data:json,{'id':'dma_vpsFilesVO','key':'param'}" target="" action="/vps/cmn/file/save.new.do" method="post" mediatype="application/json"
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.sbm_saveFile_submitdone" ev:submiterror="" aboutTrigger="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <script type="text/javascript"><![CDATA[
+   
+/**
+ * 파일업로드
+ * @lastUpdate 2018. 9. 03. 
+ * @author cep
+ * @since 
+ */      
+  //초기화
+  var isUploadSuccess = true;
+  var enableAlert = false;          
+  scwin.fn_initUpload = function(pEvlIndcNo, pfrmId, pFileAuth, pTitle){
+  	scwin.vpsmdlNo = common.getVpsmdlNo();
+  	scwin.evlIndcNo = pEvlIndcNo;
+  	scwin.parentFrm = pfrmId;
+  	scwin.atchFileId = scwin.getAtchFileId(pfrmId);
+  	scwin.locgovNo = scwin.getLocgovNo(pfrmId);
+	
+	if(scwin.vpsmdlNo == ''){
+		console.log("!!vpsmdlNo empty char!!");
+		alert("파일업로드 조회 중 문제가 발생했습니다.!!");
+		return;
+	}
+  	
+  	if(pFileAuth == "Y") {
+  		tr_fileUpload.show("");
+  		//grid_Upload.setColumnVisible("removeYn", false);
+  	} else {
+  		tr_fileUpload.hide();
+  		grid_Upload.setColumnVisible("removeYn", false);
+  	}
+  	var title = pTitle || "";
+  	blockText.setValue(title);
+  	
+  	btn_allFileDownload.hide();
+  	
+  	mpd_Upload.removeAllFiles();
+  	details.removeAll();
+    scwin.fn_fileSearch();
+  };
+  
+  //조회
+  scwin.fn_fileSearch = function(){
+  		var option = { 	id : "sbm_searchFile",
+					mode : "asynchronous", 
+					ref : "data:json,{'id':'dma_vpsFileVO','key':'param'}",
+					target : "data:json,['details','config']",
+					action : "/vps/cmn/file/test.new.do",
+			      	submitDoneHandler : "scwin.sbm_searchFile_submitdone", isShowMeg : true, isProcessMsg : true
+			      	};
+		dma_vpsFileVO.set( "atchFileId" , scwin.atchFileId);
+		dma_vpsFileVO.set( "vpsmdlNo" , scwin.vpsmdlNo);
+		dma_vpsFileVO.set( "evlindcNo" , scwin.evlIndcNo);
+		dma_vpsFileVO.set( "locgovNo" , scwin.locgovNo);
+		common.executeSubmission_dynamic(option);         //첨부파일데이터조회   
+  };
+  
+  scwin.sbm_searchFile_submitdone = function(e) {
+  	mpd_Upload.setMaxFileCount( config.get( "FILE_UPLOAD_MAX" ) );
+  	mpd_Upload.setMaxFileSize( config.get( "FILE_UPLOAD_MBYTE" ) * 1024 );
+  	
+  	if(grid_Upload.getTotalRow() == 0)
+  		btn_allFileDownload.hide();
+  	else
+  		btn_allFileDownload.show("");
+  	
+  	scwin.calH();
+  };
+       
+       
+         
+  scwin.mpd_multiUploadSelectDone = function(files){
+	var fileInfos = mpd_Upload.getFileInfos();
+    
+    if(files.length == 0) {
+    	return;
+    }
+    
+    if(files.length > 1) {
+    	alert("하나씩 업로드 하세요!");
+    	mpd_Upload.removeAllFiles();
+    	return;
+    }
+    
+    var rowIndex = 0;
+    for(var i = 0 ; i < files.length; i++) {
+    	if(files[i].size == 0){
+    		alert("0바이트 파일은 업로드 할 수 없습니다.");
+    		mpd_Upload.removeFile( files[i].name );
+    		return;
+    	}
+    	if(files[i].size > (config.get( "FILE_UPLOAD_MBYTE" ) * 1024 * 1024)){
+    		alert("파일사이즈 초과 (" + config.get( "FILE_UPLOAD_MBYTE" ) + "MB 제한) : " + files[i].name);
+    		mpd_Upload.removeFile( files[i].name );
+    		return;
+    	}
+    	if(files[i].name != "" && files[i].file != ""){
+    		var rowIndex = details.insertRow();
+    		if(details.getTotalRow() > config.get( "FILE_UPLOAD_MAX" )){
+    			alert("최대 " + config.get( "FILE_UPLOAD_MAX" ) + " 개의 파일만 첨부 가능합니다.");
+    			details.removeRow( rowIndex );
+    			mpd_Upload.removeFile( files[i].name );
+    			return;
+    		}
+	        details.setCellData( rowIndex , "orignlFileNm" , files[i].name );
+		    details.setCellData( rowIndex , "streFileNm" , files[i].file );
+		    //details.setCellData( rowIndex , "fileExtsn" , strLib.getLastStr(files[i].name) );
+		   
+		    // details.setCellData( fileIdx , "CHEOMBUFILE_PATH" , data[dataIdx].key );
+		    details.setCellData( rowIndex , "sortOrdr" , rowIndex + 1 );
+		    scwin.fn_fileUpload();
+    	}
+    }
+   
+  };  
+
+
+  //파일 전송(임시 파일 생성)
+  scwin.fn_fileUpload = function(){
+  	
+  	if(typeof scwin.vpsmdlNo == "undefined"){
+  		scwin.vpsmdlNo = common.getVpsmdlNo();
+  	}
+  	if(typeof scwin.locgovNo == "undefined"){
+  		scwin.locgovNo = scwin.getLocgovNo(scwin.parentFrm);
+  	}
+  	
+  	if(scwin.vpsmdlNo == "") { 
+  		mpd_Upload.setParam(0, "useDir", "/CMM");
+  	} else {
+  		if(scwin.locgovNo == "" || typeof scwin.locgovNo == "undefined"){
+  			mpd_Upload.setParam(0, "useDir", "/MDL/" + scwin.vpsmdlNo);
+  		}else{
+  			mpd_Upload.setParam(0, "useDir", "/MDL/" + scwin.vpsmdlNo + "/" + scwin.locgovNo);
+  		}
+  	}
+  	
+  	mpd_Upload.setParam(1, "vpsmdlNo", scwin.vpsmdlNo);
+    mpd_Upload.setParam(2, "evlIndcNo", "");
+    mpd_Upload.setParam(3, "locgovNo", scwin.locgovNo);
+   	
+    /*
+    mpd_Upload.setParam(0, "vpsmdlNo", scwin.vpsmdlNo);
+    mpd_Upload.setParam(1, "evlIndcNo", "");
+    */
+	if(scwin.vpsmdlNo == ""){
+		console.log("!!vpsmdlNo empty char!!");
+		alert("파일업로드 중 문제가 발생했습니다.!!");
+		isUploadSuccess = false;
+		return false;
+	}else
+    	mpd_Upload.startUpload();
+  };
+  
+  scwin.mpd_Upload_ondone = function(data) {   
+	if(data[0].file == "null"){
+		alert("해당 파일은 파일업로드중 에러가 발생했습니다.");
+		details.removeRow( details.getMatchedIndex( "orignlFileNm" , data[0].localFile , true ) );
+		isUploadSuccess = false;
+		return;
+    }
+  	if(data[0].deniedFile == ""){
+	  	var lastIdx = details.getTotalRow() - 1;
+		if(lastIdx > -1 && details.getRowStatus( lastIdx ) == 'C' ) {
+		   details.setCellData( lastIdx , "orignlFileNm" , data[0].localFile );
+		   details.setCellData( lastIdx , "streFileNm" , data[0].file );
+		   details.setCellData( lastIdx , "fileExtsn" , strLib.getLastStr(data[0].localFile) );
+		   details.setCellData( lastIdx , "fileSize" , data[0].size );
+	    }
+	    
+	    alert("저장하세요!");
+	    isUploadSuccess = true;
+	    scwin.calH();
+	}else{
+    	alert("해당 파일은 파일업로드중 에러가 발생했습니다. \ndeniedCode : "+data[0].deniedCode);
+    	isUploadSuccess = false;
+    	details.removeRow( details.getMatchedIndex( "orignlFileNm" , data[0].deniedFile , true ) );
+    }
+
+  };
+  
+    //파일 저장
+	scwin.btn_fileUpload_onclick = function(e) {
+		dma_vpsFilesVO.set( "gsyncUseAt" , scwin.getGsyncUseAt(scwin.parentFrm) );
+		
+		scwin.initVpsFilesVO(dma_vpsFilesVO);
+		
+		common.executeSubmission( "sbm_saveFile" );
+	};
+	
+
+	scwin.sbm_saveFile_submitdone = function(e) {
+		try {	// 쿼리 오류 시 제대로 값이 넘어오지 않음.
+			scwin.atchFileId = e.responseJSON.atchFileId;
+			if(typeof scwin.atchFileId != "undefined" && scwin.atchFileId != null && scwin.atchFileId != ""){
+				if(enableAlert)
+					alert("파일이 정상적으로 저장되었습니다.");
+				isUploadSuccess = true;
+			}
+			common.getParent().common.saveCallback(scwin.parentFrm, scwin.atchFileId);
+			mpd_Upload.removeAllFiles();
+						
+		} catch (e) {
+			console.log("********" + e.toString());
+			isUploadSuccess = false;
+			if(enableAlert)
+				alert("오류가 발생하여 저장되지 않았습니다.");
+		}	
+
+	};
+	
+	scwin.grid_Upload_oncellclick = function(row, col) {
+		if(grid_Upload.getColumnID( col ) == "removeYn") {
+			if(confirm("삭제하시겠습니까?")) {
+				mpd_Upload.removeFile( details.getCellData( row , "orignlFileNm" ) );
+				details.removeRow( row );
+				dma_vpsFileVO.set( "removeYn" , "Y");
+			}
+		} else if(grid_Upload.getColumnID( col ) == "orignlFileNm") {
+			scwin.download(row, col);
+		}
+	};
+	
+	//전체 다운로드
+	scwin.btn_allFileDownload_onclick = function(e) {
+		var url = '/vps/cmn/file/downloadall.do?atchFileId=' + scwin.atchFileId;
+    	ifr_frame.setSrc(url);
+	};
+	
+	
+	scwin.initVpsFilesVO = function(pFilesVO) {
+		for(var i = 0; i < 4; i++) {
+			var arr = new Array;
+			var str = "";
+			var pFix = (i==0)?"":i+1;
+			arr.push(str);
+			arr.push(str);
+			pFilesVO.set( "dST"+pFix , arr);
+			pFilesVO.set( "dAtchFileId"+pFix , arr);
+			pFilesVO.set( "dFileSn"+pFix , arr);
+			pFilesVO.set( "dFiledetailTmpno"+pFix , arr);
+			pFilesVO.set( "dStreFileNm"+pFix , arr);
+			pFilesVO.set( "dSortOrdr"+pFix , arr);
+			pFilesVO.set( "dEncryptVal"+pFix , arr);
+		}
+		scwin.setVpsFilesVO();
+	};
+	
+	
+	scwin.setVpsFilesVO = function() {
+		
+		var arr_dST = new Array;
+		var arr_dAtchFileId = new Array;
+		var arr_dFileSn = new Array;
+		var arr_dFiledetailTmpno = new Array;
+		var arr_dStreFileNm = new Array;
+		var arr_dSortOrdr = new Array;
+		var arr_dST = new Array;
+		var arr_dEncryptVal = new Array;
+		
+		for(var fileIdx=0; fileIdx < details.getRowCount(); fileIdx++){
+		
+			arr_dAtchFileId.push(scwin.atchFileId);
+			arr_dSortOrdr.push(details.getCellData( fileIdx , "sortOrdr"));
+			arr_dStreFileNm.push(details.getCellData( fileIdx , "streFileNm"));
+			
+			if(details.getRowStatus( fileIdx ) == 'C' ) {
+			   	arr_dST.push("NEW");
+			   	arr_dFiledetailTmpno.push(details.getCellData( fileIdx , "filedetailTmpno"));
+			   	arr_dFileSn.push("");
+			} else {
+				arr_dST.push("ST");
+				arr_dFiledetailTmpno.push("");
+				arr_dFileSn.push(details.getCellData( fileIdx , "fileSn"));
+				arr_dEncryptVal.push(details.getCellData( fileIdx , "encryptVal"));
+			}
+	    }
+	    dma_vpsFilesVO.set( "atchFileId", scwin.atchFileId);
+	    dma_vpsFilesVO.set( "dST", arr_dST);
+		dma_vpsFilesVO.set( "dAtchFileId", arr_dAtchFileId);
+		dma_vpsFilesVO.set( "dFileSn", arr_dFileSn);
+		dma_vpsFilesVO.set( "dFiledetailTmpno", arr_dFiledetailTmpno);
+		dma_vpsFilesVO.set( "dStreFileNm", arr_dStreFileNm);
+		dma_vpsFilesVO.set( "dSortOrdr", arr_dSortOrdr);
+		dma_vpsFilesVO.set( "dEncryptVal", arr_dEncryptVal);
+	};
+	
+	//파일 다운로드
+	scwin.download = function(rowIdx, colIdx) {
+		var url = '/vps/cmn/file/download.do?atchFileId=' + scwin.atchFileId + '&fileSn=' + details.getCellData( rowIdx , "fileSn") + '&encryptVal=' + details.getCellData( rowIdx , "encryptVal");
+    	ifr_frame.setSrc(url);
+	};
+	
+	scwin.calH = function() {
+		var tHeight = document.body.scrollHeight;
+		common.getParent().$("#"+scwin.parentFrm).css('height', tHeight);
+	};
+	
+	scwin.getAtchFileId = function(pfrmId) {
+		return common.getParent().WebSquare.util.getComponentById(pfrmId).getUserData("atchFileId") || "";
+	};
+	
+	scwin.getLocgovNo = function(pfrmId) {
+		return common.getParent().WebSquare.util.getComponentById(pfrmId).getUserData("locgovNo") || "";
+	};
+	
+	scwin.mpd_Upload_onerror = function(data) {
+//	2019.09.10 실패 했을 때 grid_Upload에서 atchFileId가 없고, rownum 마지막건이면서  
+//  rowStatus "C"인 놈 삭제 처리(김재성)
+		alert(data+", 해당 파일은 파일업로드중 에러가 발생했습니다.");
+		var arr = details.getMatchedIndex( "atchFileId" , "");
+		var row = arr[arr.length - 1];
+		if(details.getRowStatus( row) == "C")
+			details.removeRow(row);
+		isUploadSuccess = false;
+	};
+	
+	scwin.getGsyncUseAt = function(pfrmId){
+		return common.getParent().WebSquare.util.getComponentById(pfrmId).getUserData("gsyncUseAt") || "";
+	};
+	
+	scwin.isUploadSuccess = function() {
+		return isUploadSuccess;
+	};
+	
+	scwin.setIsUploadSuccess = function(isSuccess) {
+		isUploadSuccess = isSuccess;
+	};
+
+	scwin.setEnableAlert = function(isEnable) {
+		enableAlert = isEnable;
+	};
+
+	]]></script>
+    </head>
+    <body>
+    	<xf:group class="grp_upload" id="group_upload" style="">
+    		<xf:group class="dfbox" id="" style="">
+    			<w2:textbox class="df_tit nobg" id="blockText" label="첨부파일 등록" style=""></w2:textbox>
+    			<xf:group class="btnbox fr" id="" style="">
+    				<xf:group style="" id="" class="btn_file">
+    					<xf:trigger style="" id="tr_fileUpload" type="button" class="btn_cm">
+    						<xf:label><![CDATA[파일추가]]></xf:label>
+    					</xf:trigger>
+    					<w2:multiupload ev:onComplete="" maxcount="" filter="지정파일:*.hwp;*.xls;*.zip;*.doc;*.ppt;*.pdf;*.jpeg;*.jpg;*.z01;*.z02;*.z03;*.z04;*.z05;*.z06;*.z07;*.z08;*.z09;*.z10;*.wmv;*.wm;*.mp3;*.asf;*.wma;*.xlsx;*.pptx;*.gz;*.png;*.txt;" mode="html5_transparent" ev:ondone="scwin.mpd_Upload_ondone"
+    						action="" style="" wmode="false" id="mpd_Upload" maxsize="102400" lang="ko" uploadButton="false"
+    						selectCallback="scwin.mpd_multiUploadSelectDone" ev:onerror="scwin.mpd_Upload_onerror">
+    					</w2:multiupload>
+    				</xf:group>
+    				<xf:trigger class="btn_cm" ev:onclick="scwin.btn_allFileDownload_onclick" id="btn_allFileDownload" style=""
+    					type="button">
+    					<xf:label><![CDATA[전체 다운로드]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="gvwbox" id="" style="">
+    			<w2:gridView autoFit="allColumn" class="wq_gvw" dataList="data:details" defaultCellHeight="29" id="grid_Upload"
+    				ignoreCellClick="false" ignoreToggleOnDisabled="false" keepDefaultColumnWidth="true" keyMoveEditMode="true" rowNumHeaderValue="연번"
+    				rowNumStatusUniqueId="true" rowNumVisible="true" rowNumWidth="50" rowStatusHeaderValue="상태" rowStatusVisible="false"
+    				rowStatusWidth="50" scrollByColumn="false" scrollByColumnAdaptive="false" showSortableUseFilter="false" sortable="true"
+    				style="height: 80px;" summaryAuto="false" summaryOnlyAuto="false" useFilterList="true" useShiftKey="true" visibleRowNum="10"
+    				ev:oncellclick="scwin.grid_Upload_oncellclick">
+    				<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    				<w2:header id="header1" style="">
+    					<w2:row id="row1" style="">
+    						<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="column40" inputType="text"
+    							removeBorderStyle="false" style="" value="첨부파일목록" width="200">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="column42" inputType="text"
+    							removeBorderStyle="false" style="" value="정렬순서" width="70">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="column44" inputType="text"
+    							removeBorderStyle="false" style="" value="삭제" width="70">
+    						</w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody1" style="">
+    					<w2:row id="row2" style="">
+    						<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="orignlFileNm" inputType="text"
+    							removeBorderStyle="false" style="cursor:pointer;text-decoration:underline;" value="" width="200*" customFormatter="">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="sortOrdr" inputType="text"
+    							removeBorderStyle="false" style="" value="" width="70">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="removeYn" inputType="button"
+    							removeBorderStyle="false" style="" value="X" width="70">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    		<w2:iframe src="" style="width: 0px;height: 0px;" id="ifr_frame"></w2:iframe>
+    	</xf:group>
+    </body>
+</html>

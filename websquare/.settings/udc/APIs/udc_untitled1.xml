@@ -1,0 +1,45 @@
+<hashtable>
+    <data hashkey="applyclassfunction"/>
+    <data hashkey="callclassfunction"/>
+    <data hashkey="inherit"/>
+    <data hashkey="functiondetail">
+        <vector result="1">
+            <data vectorkey="0">
+                <hashtable>
+                    <data hashkey="name" value="WebSquare.uiplugin.udc_untitled1.prototype.getValue_1()"/>
+                    <data hashkey="shortCutName" value="getValue_1"/>
+                    <data hashkey="standardName" value="WebSquare.uiplugin.udc_untitled1.prototype.getValue_1()"/>
+                    <data hashkey="author" value="udc"/>
+                    <data hashkey="see"/>
+                    <data hashkey="hidden" value="false"/>
+                    <data hashkey="cdate"/>
+                    <data hashkey="parameter">
+                        <hashtable/>
+                    </data>
+                    <data hashkey="description" value="desc"/>
+                    <data hashkey="return">
+                        <hashtable>
+                            <data hashkey="type" value="String"/>
+                            <data hashkey="description" value="desc"/>
+                        </hashtable>
+                    </data>
+                </hashtable>
+            </data>
+        </vector>
+    </data>
+    <data hashkey="constructorsummary"/>
+    <data hashkey="plugininfo"/>
+    <data hashkey="functionsummary">
+        <hashtable>
+            <data hashkey="WebSquare.uiplugin.udc_untitled1.prototype.getValue_1()">
+                <hashtable>
+                    <data hashkey="name" value="WebSquare.uiplugin.udc_untitled1.prototype.getValue_1()"/>
+                    <data hashkey="standardName" value="WebSquare.uiplugin.udc_untitled1.prototype.getValue_1()"/>
+                    <data hashkey="description" value="desc"/>
+                    <data hashkey="shortCutName" value="getValue_1"/>
+                </hashtable>
+            </data>
+        </hashtable>
+    </data>
+    <data hashkey="constructordetail"/>
+</hashtable>

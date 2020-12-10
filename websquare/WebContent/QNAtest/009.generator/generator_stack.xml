@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_vertical_guides="" meta_horizontal_guides="120 55">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="dataListComment" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="postId" name="번호" dataType="text"></w2:column>
+            			<w2:column id="id" name="아이디" dataType="text"></w2:column>
+            			<w2:column id="name" name="이름" dataType="text"></w2:column>
+            			<w2:column id="email" name="이메일" dataType="text"></w2:column>
+            			<w2:column id="comment" name="내용" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<postId><![CDATA[1]]></postId>
+            				<id><![CDATA[1]]></id>
+            				<name><![CDATA[id labore ex et quam laborum]]></name>
+            				<email><![CDATA[Eliseo@gardner.biz]]></email>
+            				<comment><![CDATA[laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium]]></comment>
+            			</w2:row>
+            			<w2:row>
+            				<postId><![CDATA[1]]></postId>
+            				<id><![CDATA[2]]></id>
+            				<name><![CDATA[quo vero reiciendis velit similique earum]]></name>
+            				<email><![CDATA[Jayne_Kuhic@sydney.com]]></email>
+            				<comment><![CDATA[est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et]]></comment>
+            			</w2:row>
+            			<w2:row>
+            				<postId><![CDATA[2]]></postId>
+            				<id><![CDATA[3]]></id>
+            				<name><![CDATA[et fugit eligendi deleniti quidem qui sint nihil autem]]></name>
+            				<email><![CDATA[Presley.Mueller@myrl.com]]></email>
+            				<comment><![CDATA[doloribus at sed quis culpa deserunt consectetur qui praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate autem\nvoluptatem repellendus aspernatur dolorem in]]></comment>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" repeatNode="map" id="dataListPost" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="userId" name="이름" dataType="text"></w2:column>
+            			<w2:column id="id" name="아이디" dataType="text"></w2:column>
+            			<w2:column id="title" name="제목" dataType="text"></w2:column>
+            			<w2:column id="content" name="내용" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<userId><![CDATA[1]]></userId>
+            				<id><![CDATA[1]]></id>
+            				<title><![CDATA[sunt aut facere repellat provident occaecati excepturi optio reprehenderit]]></title>
+            				<content><![CDATA[quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto]]></content>
+            			</w2:row>
+            			<w2:row>
+            				<userId><![CDATA[1]]></userId>
+            				<id><![CDATA[2]]></id>
+            				<title><![CDATA[qui est esse]]></title>
+            				<content><![CDATA[est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi  a]]></content>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+        <style type="text/css"><![CDATA[
+/*			body {*/
+/*			  background-color: lightblue;*/
+/*			}*/
+/*			*/
+/*			#post {*/
+/*				margin: 30px;*/
+/*			}*/
+/*			#title {*/
+/*				font-size: 20px;*/
+/*				font: bold;*/
+/*				width: : 500px;*/
+/*			}*/
+/*			#content {*/
+/*				margin-left: : 10px;*/
+/*				width: 500px;*/
+/*			}*/
+    	]]></style>
+         <script type="text/javascript" lazy="false"><![CDATA[
+    // 중첩 generator 예제
+	scwin.onpageload = function() {
+		var listCount = dataListPost.getRowCount();
+		
+		for (var i = 0; i < 2; i++) {
+			generator.insertChild();
+			
+			var obj = generator.getChild(i, "title");
+			obj.setValue(dataListPost.getCellData(i, 'title'));
+			obj.addClass('class');
+			
+			obj = generator.getChild(i, "body");
+			obj.setValue(dataListPost.getCellData(i, 'content'));
+			
+			var id = dataListPost.getCellData(i, 'id');
+			var listCount2 = dataListComment.getRowCount();
+			for (var j = 0; j < listCount2; j++) {
+				var postId = dataListComment.getCellData(j, 'postId');
+				var obj = generator.getChild(i, "generatorComm");
+				
+				if (id == postId) {
+					var index = obj.getLength();
+					obj.insertChild();
+					
+					var obj2 = obj.getChild(index, "email");
+					obj2.setValue(dataListComment.getCellData(index, 'email'));
+					
+					obj2 = obj.getChild(index, "comment");
+					obj2.setValue(dataListComment.getCellData(index, 'comment'));
+				}
+			}
+		}
+		
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:generator id="generator" style="height: 500px;width: 500px;">
+	    	<xf:group style="margin: 30px">
+	    		<w2:textbox style="font-size: 20px; font: bold; width: : 500px;" label="" id="title"></w2:textbox>
+	    		<w2:textbox style="margin-left: : 10px; width: 500px;" label="" id="body"></w2:textbox>
+	    		
+	    		<w2:generator id="generatorComm">
+		    		<xf:group style="margin: 20px;">
+		    			<w2:textbox style="width: 300px;" label="" id="email"></w2:textbox>
+		    			<w2:textbox style="margin-top : 5px; width: 300px;" label="" id="comment"></w2:textbox>
+		    		</xf:group>
+	    		</w2:generator>
+	    	</xf:group>
+    	</w2:generator>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+//  투명모드(mode:transparent, html5_transparent)
+//	multiUpload 컴포넌트의 mode="transparent", "html5_transparent" 를 사용
+//	버튼 위에 mode="transparent", "html5_transparent" 속성의 multiupload 컴포넌트를 위치한다.
+//	버튼 클릭시 투명모드의 multiupmoad컴포넌트의 추가 버튼클릭 이벤트가 발생한다.
+	scwin.onpageload = function() {
+		multiupload1.setTitleInput("파일");
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+	scwin.multiupload1_onComplete = function() {
+	};
+	
+	scwin.test = function() {
+		 var returnArr = multiupload1.getFileInfos(); 
+		 console.log(returnArr[0]);
+		 console.log(returnArr[0].size);
+		 console.log(returnArr[0].displaySize);
+		 
+		 if(returnArr.length == 0) {
+			alert("파일이 선택되지 않았습니다.");			 
+		 }
+		 
+		 var fileSize = returnArr[0].size;
+		 if(fileSize > 5242880) {
+			 alert("파일이 너무 큽니다.(5MB 이내)");
+			 multiupload1.removeFile(returnArr[0].name); 
+		 }else {
+			 input1.setValue(returnArr[0].name);
+ 		 }
+	}
+	
+	scwin.trigger2_onclick = function(e) {
+		 multiupload1.startUpload();
+	};
+	]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+
+    	<xf:group id="">
+    		<w2:multiupload maxcount="1" fireEventOnError="" mode="html5_transparent" filter="" subDir="" displaySizeUnit=""
+    			action="/file/image" wmode="false" style="width: 80px;height: 23px;margin-left: 150px;" id="multiupload1" maxsize="50000"
+    			uploadButton="false" subSize="" selectCallback="scwin.test">
+    			<param name="파일" value="1"></param>
+    		</w2:multiupload>
+    		<xf:group id="">
+
+    			<xf:input adjustMaxLength="false" style="width: 144px;height: 21px;" id="input1"></xf:input>
+    			<xf:trigger style="width: 80px;height: 23px;" id="trigger1" type="button">
+    				<xf:label><![CDATA[파일 업로드]]></xf:label>
+    			</xf:trigger>
+
+    			<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger2" ev:onclick="scwin.trigger2_onclick">
+    				<xf:label><![CDATA[전송]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    	
+    </body>
+</html>
