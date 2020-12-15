@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="/com/css/all.css" type="text/css"?>
-<?xml-stylesheet href="/com/css/content.css" type="text/css"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
 	xmlns:xf="http://www.w3.org/2002/xforms">
 	<head>
@@ -97,11 +95,7 @@
 		console.log(info);
 		dataList1.setCellData(info.rowIndex, info.colIndex, "");
 	};
-
-	scwin.listGrid_onrowindexchange = function(row,oldRow) {
-		console.log(row,lodRow);
-	};
-	]]></script>
+]]></script>
 		<style type="text/css"><![CDATA[
 		.drill_sell nobr div:nth-child(1){background:red;}
 		.drill_sell nobr div:nth-child(2){background:blue;}
@@ -111,38 +105,46 @@
 	</head>
 	<body>
 		<w2:gridView autoFit="allColumn" class="cm_grid" fixedColumnWithHidden="true" id="listGrid" rowNumHeaderValue="순번"
-			rowNumVisible="true" rowNumWidth="40" scrollByColumn="false" style="height:205px;width:391px;" useShiftKey="true" dataList="dataList1"
+			rowNumVisible="true" rowNumWidth="40" scrollByColumn="false" style="height:313px;width:559px;" useShiftKey="true" dataList="dataList1"
 			tooltipDisplay="true" ev:oneditkeydown="scwin.listGrid_oneditkeydown" ev:onviewchange="scwin.listGrid_onviewchange"
-			disabledScrollHidden="false" drilldownToggleScrollFix="true" dataDragSelectAutoScrollPeriod="0" ev:onrowindexchange="scwin.listGrid_onrowindexchange">
+			disabledScrollHidden="false" drilldownToggleScrollFix="true" dataDragSelectAutoScrollPeriod="0">
 			<w2:header id="header1" style="">
 				<w2:row id="row2" style="">
-					<w2:column blockSelect="false" id="column21" inputType="text" style="height:25px;" value="레벨" width="50"></w2:column>
-					<w2:column blockSelect="false" id="column19" inputType="text" style="height:25px;" value="메뉴ID" width="100"></w2:column>
-					<w2:column blockSelect="false" id="column23" style="height:25px;" inputType="text" width="70" displayMode="label"
+					<w2:column blockSelect="false" id="column21" inputType="text" style="height:30px;" value="레벨" width="50"></w2:column>
+					<w2:column blockSelect="false" id="column19" inputType="text" style="height:30px;" value="메뉴ID" width="100"></w2:column>
+					<w2:column blockSelect="false" id="column23" style="height:30px;" inputType="text" width="70" displayMode="label"
 						value="순서">
 					</w2:column>
-					<w2:column blockSelect="false" id="column17" inputType="text" style="height:25px;" value="메뉴명" width="200"></w2:column>
-					<w2:column blockSelect="false" id="column15" inputType="text" style="height:25px;" value="프로그램명" width="200">
+					<w2:column blockSelect="false" id="column17" inputType="text" style="height:30px;" value="메뉴명" width="444" colSpan="2"
+						rowSpan="">
+					</w2:column>
+					<w2:column blockSelect="false" id="column15" inputType="text" style="height:30px;" value="프로그램명" width="200">
 					</w2:column>
 				</w2:row>
 			</w2:header>
 			<w2:gBody id="gBody4" style="">
 				<w2:row id="row5" style="">
-					<w2:column blockSelect="false" id="levelCnt" inputType="text" style="height:25px;" value="" width="50"></w2:column>
-					<w2:column blockSelect="false" id="menuId" inputType="text" style="height:25px;" value="" width="100" disabled=""
-						readOnly="">
+					<w2:column blockSelect="false" id="levelCnt" inputType="text" style="height:23px;" value="" width="50"></w2:column>
+					<w2:column blockSelect="false" id="menuId" inputType="text" style="height:23px;" value="" width="100" disabled=""
+						readOnly="" imageWidth="0" imageHeight="0" imageClickFunction="">
 					</w2:column>
-					<w2:column blockSelect="false" id="cnt" style="height:25px" inputType="text" width="70" displayMode="label"></w2:column>
-					<w2:column blockSelect="false" id="nameDis" inputType="drilldown" style="height:25px;" width="200"
-						depthColumn="levelCnt" showDepth="4" displayFormat="" depthType="div" displayMode="label" textAlign="left" class="drill_sell" drilldownRealRowIndex="true">
+					<w2:column blockSelect="false" id="cnt" style="height:23px;" inputType="text" width="70" displayMode="label"
+						imageClickFunction="">
 					</w2:column>
-					<w2:column blockSelect="false" id="proName" inputType="textImage" style="height:25px;" value="" width="200"
+					<w2:column blockSelect="false" id="nameDis" inputType="drilldown" style="height:23px;" width="374"
+						depthColumn="levelCnt" showDepth="0" displayFormat="" depthType="div" displayMode="label" textAlign="left" class="drill_sell"
+						customFormatter="">
+					</w2:column>
+					<w2:column removeBorderStyle="false" width="70" inputType="image" style="height:23px;width: 10px;" id="column25"
+						value="" blockSelect="false" displayMode="label" embeddedInput="" eventPriority="" ignoreChar=""
+						imageSrc="/QNAtest/0.allVideo/search.jpg" imageWidth="33" imageHeight="33">
+					</w2:column>
+					<w2:column blockSelect="false" id="proName" inputType="textImage" style="height:23px;" value="" width="200"
 						readOnly="false" imageClickFunction="scwin.imgClick" imageSrc="/websquareMVC/QNAtest/012.image/b.png" imageWidth="30" imageHeight="30"
 						customFormatter="">
 					</w2:column>
 				</w2:row>
 			</w2:gBody>
 		</w2:gridView>
-		<w2:spinner id="sp" skin="type1" buttonSize="30" inputReadOnly="false" style="position:relative;width:231px;height:80px;"></w2:spinner>
 	</body>
 </html>

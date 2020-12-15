@@ -31,8 +31,7 @@
 	</engine>
 	<udc>
         <requires>
-            <require src="/QNAtest/022.UDC/WebSquare_udc.xml" />
-            <require src="/QNAtest/022.UDC/WebSquare_udc2.xml" />
+<!--             <require src="/QNAtest/022.UDC/WebSquare_udc.xml" /> -->
         </requires>
     </udc>
 	<ModelUtil>

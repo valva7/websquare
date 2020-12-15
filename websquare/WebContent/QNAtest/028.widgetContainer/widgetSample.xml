@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	var count = 0;
+	var count2 = 0;
+	var count3 = 0;
+	var count4 = 0;
+	
+	scwin.onpageload = function() {
+
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	// 상단 그래프 4개
+	scwin.trigger1_onclick = function(e) {
+		widgetContainer.addWidgets({
+			id : "widget_" + count,
+			title : "위젯" + count,
+			src : "widget.xml",
+			scope : true,
+			x : 0 + count2,
+			y : 0,
+			unitWidth : 2,
+			unitHeight : 2
+		});
+		count++;
+		count2++;
+		count2++;
+	};
+
+	// 상단 그래프 3개
+	scwin.trigger2_onclick = function(e) {
+		widgetContainer.addWidgets({
+			id : "widget_" + count,
+			title : "위젯" + count,
+			src : "widget.xml",
+			scope : true,
+			x : 1 + count3,
+			y : 2,
+			unitWidth : 2,
+			unitHeight : 2
+		});
+		count++;
+		count3++;
+		count3++;
+	};
+
+	// 중단 그래프 창 1개
+	scwin.trigger3_onclick = function(e) {
+		widgetContainer.addWidgets({
+			id : "widget_" + count,
+			title : "위젯" + count,
+			src : "widget.xml",
+			scope : true,
+			x : 0,
+			y : 4,
+			unitWidth : 8,
+			unitHeight : 1
+		});
+		count++;
+	};
+	
+	// 하단 창 2개
+	scwin.trigger4_onclick = function(e) {
+		widgetContainer.addWidgets({
+			id : "widget_" + count,
+			title : "위젯" + count,
+			src : "widget.xml",
+			scope : true,
+			x : 0 + count4,
+			y : 6,
+			unitWidth : 4,
+			unitHeight : 5
+		});
+		count++;
+		count4 = count4 + 4;
+	};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:widgetContainer minUnitWidth="1" verticalMargin="0" threshold="null" params="false" mode="pushpull"
+    		style="width:1014px;height:800px;" id="widgetContainer" horizontalMargin="0" cols="8" unitHeightPixel="75">
+    	</w2:widgetContainer>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[상단 4개]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger2" ev:onclick="scwin.trigger2_onclick">
+    		<xf:label><![CDATA[상단 3개]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger3" ev:onclick="scwin.trigger3_onclick">
+    		<xf:label><![CDATA[중단 1개]]></xf:label>
+    	</xf:trigger>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger4" ev:onclick="scwin.trigger4_onclick">
+    		<xf:label><![CDATA[하단 2개]]></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

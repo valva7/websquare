@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {
+
+	};
+
+	scwin.onpageunload = function() {
+
+	};
+
+	scwin.tab_ontabclose = function(tabID, idx) {
+		tab.setSelectedTabIndex(0);
+		tab.setSelectedTabIndex(idx - 1);
+	};
+
+	scwin.trigger1_onclick = function(e) {
+		var tabOpt = {};
+		tabOpt.label = "웹스퀘어 문서 사이트";
+		tabOpt.openAction = "new";
+		tabOpt.closable = "true";
+
+		var contentOpt = {
+			"src" : "/QNAtest/999.ETC/TEST/advancedExcelUpload.xml"
+		};
+
+		var idx = tab.addTab("tab01", tabOpt, contentOpt);
+		tab.setSelectedTabIndex(idx);
+	};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<w2:tabControl useTabKeyOnly="true" id="tab" useMoveNextTabFocus="false" useConfirmMessage="false" confirmTrueAction="exist"
+    		confirmFalseAction="new" alwaysDraw="false" style="width:677px;height:360px;" useATagBtn="" useAccessibilityMenu="false"
+    		adaptiveThreshold="" closable="true" tableRender="" tabPosition="" tabScroll="true" ev:ontabclose="scwin.tab_ontabclose">
+    		<w2:tabs disabled="false" style="width:70px;height:30px;" id="tabs1" closable=""></w2:tabs>
+    		<w2:content alwaysDraw="false" style="height:330px;" id="content1" src="/QNAtest/999.ETC/TEST2/0.gridViewBase.xml"></w2:content>
+    	</w2:tabControl>
+    	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
+    		<xf:label><![CDATA[]]></xf:label>
+    	</xf:trigger>
+    </body>
+</html>

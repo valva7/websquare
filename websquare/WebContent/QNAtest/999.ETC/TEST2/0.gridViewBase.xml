@@ -23,7 +23,7 @@
         		</w2:dataList>
         	</w2:dataCollection>
         	<w2:workflowCollection></w2:workflowCollection>
-        	<xf:submission id="submission1" ref="" target="data:json,dc_resUserList" action="/QNAtest/0.jsonData/gridView_json_test.json"
+        	<xf:submission id="submission1" ref="" target="data:json,dc_resUserList" action="/QNAtest/0.jsonData/gridView_json.json"
         		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
         		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
@@ -38,19 +38,27 @@
 		
 	};
 	
-	
 	scwin.trigger1_onclick = function(e) {
 		$w.executeSubmission("submission1");
 	};
+	
+	scwin.sumTest = function(data, formattedData, rowIndex, colIndex) {
+		var val = dc_resUserList.getRowJSON(rowIndex);
+		var returnValue = val.WEIGHT;
+		
+		dc_resUserList.setCellData(rowIndex, colIndex, returnValue);
+		
+		return returnValue;
+	}
+
 ]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
     	<xf:trigger type="button" style="width: 80px;height: 23px;" id="trigger1" ev:onclick="scwin.trigger1_onclick">
     		<xf:label><![CDATA[조회]]></xf:label>
     	</xf:trigger>
-    	
     	<w2:gridView id="grd" style="width:492px;height:217px;margin:50px;" scrollByColumn="false"
-    		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:dc_resUserList" autoFit="allColumn" rowStatusVisible="" visibleRowNum="" contextMenu="true" mergeCells="" mergeCellsFixedRows="" mergeCol="">
+    		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:dc_resUserList" autoFit="allColumn" rowStatusVisible="" visibleRowNum="" contextMenu="true" setCellInputTypeCustom="" mergeCol="" mergeCells="never">
     		<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
     		<w2:header style="" id="header2">
     			<w2:row style="" id="row3">
@@ -80,35 +88,28 @@
     		<w2:gBody style="" id="gBody2">
     			<w2:row style="" id="row4">
     				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="NAME" value=""
-    					blockSelect="false" displayMode="label" colMerge="true">
+    					blockSelect="false" displayMode="label" colMerge="false">
     				</w2:column>
     				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="BIRTHDAY" value=""
-    					blockSelect="false" displayMode="label">
+    					blockSelect="false" displayMode="label" colMerge="false">
     				</w2:column>
     				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="GENDER" value=""
     					blockSelect="false" displayMode="label">
     				</w2:column>
     				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="WORK" value=""
-    					blockSelect="false" displayMode="label">
+    					blockSelect="false" displayMode="label" colMerge="false">
     				</w2:column>
     				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="HEIGHT" value=""
     					blockSelect="false" displayMode="label">
     				</w2:column>
     				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="WEIGHT" value=""
-    					blockSelect="false" displayMode="label">
+    					blockSelect="false" displayMode="label" colMerge="true" typeGetter="" customModelFormatter="" customFormatter="" customModelUnformatter="" hideCustomFilter="">
     				</w2:column>
-    				<w2:column removeBorderStyle="false" width="70" inputType="select" style="height:20px" id="ADDR" value=""
-    					blockSelect="false" displayMode="label" allOption="" chooseOption="" ref="" visibleRowNum="3">
-    					<w2:choices>
-    						<w2:itemset nodeset="data:dc_resUserList">
-    							<w2:label ref="GENDER"></w2:label>
-    							<w2:value ref="HEIGHT"></w2:value>
-    						</w2:itemset>
-    					</w2:choices>
+    				<w2:column removeBorderStyle="false" width="70" inputType="text" style="height:20px" id="ADDR" value=""
+    					blockSelect="false" displayMode="label" allOption="" chooseOption="" ref="" visibleRowNum="3" customFormatter="" colMerge="true" expression="">
     				</w2:column>
     			</w2:row>
     		</w2:gBody>
     	</w2:gridView>
-    	
     </body>
 </html>
